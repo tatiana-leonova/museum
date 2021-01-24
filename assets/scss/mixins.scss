@@ -1,9 +1,30 @@
 @mixin fontface($family, $localname, $filename, $weight, $style) {
-    @font-face {
-        font-display: swap;
-        font-family: $family;
-        src: local('#{$localname}'), url('/fonts/#{$filename}.woff') format('woff');
-        font-weight: $weight;
-        font-style: $style;
-    }
+  @font-face {
+    font-display: swap;
+    font-family: $family;
+    src: local("#{$localname}"), url("/fonts/#{$filename}.woff") format("woff");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin no-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin zero-indent {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin text($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin image-size($width, $height) {
+  width: $width;
+  height: $height;
 }

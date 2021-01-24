@@ -21,3 +21,10 @@
 export default {
 };
 </script>
+
+<style lang="scss" scoped>
+ul {
+@include no-list;
+   color: red;
+}
+</style>

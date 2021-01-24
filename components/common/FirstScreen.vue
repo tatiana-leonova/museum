@@ -1,6 +1,6 @@
 <template>
   <section class="first-screen">
-<slot></slot>
+    <slot></slot>
   </section>
 </template>
 
