@@ -1,7 +1,7 @@
 <template>
 <div>
   <a href="https://affinage.ru/" target="_blank" aria-label="Переход на сайт Affinage">
-  <img src="../assets/img/logo_affinage.svg" width="60" height="60" alt="Affinage"></a>
+  <img src="~/assets/img/logo_affinage.svg" width="60" height="60" alt="Affinage"></a>
 </div>
 
 

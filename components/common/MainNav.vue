@@ -18,13 +18,27 @@
 </template>
 
 <script>
-export default {
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
-ul {
-@include no-list;
-   color: red;
+.main-nav {
+  ul {
+    @include no-list;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+  }
+
+  li:not(:last-child) {
+    padding-right: 10px;
+  }
+
+  .main-nav__link {
+    text-decoration: none;
+    color: $color_gray5;
+    font-size: 14px;
+    line-height: 100%;
+  }
 }
 </style>

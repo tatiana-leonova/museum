@@ -1,5 +1,67 @@
 // подключение шрифтов
-// @include fontface(Yeseva One, Yeseva One, YesevaOne-Regular, 400, normal);
-// @include fontface(Helvetica, Helvetica, Helvetica-Regular, 400, normal);
-// @include fontface(Helvetica, Helvetica Light, Helvetica-Light, 300, normal);
-// @include fontface(Helvetica Bold, Helvetica Bold, Helvetica0Bold, 700, normal);
+@include fontface(Yeseva One, YesevaOne, YesevaOne-Regular, 400, normal);
+@include fontface(Helvetica, Helvetica, Helvetica, 500, normal);
+@include fontface(Helvetica, Helvetica, Helvetica-Light, 300, normal);
+@include fontface(Helvetica Bold, Helvetica, Helvetica-Bold, 700, normal);
+
+// глобальные стили
+
+html {
+  box-sizing: border-box;
+  @include zero-indent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include zero-indent;
+  min-width: 320px;
+  font-family: $Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: $color_gray2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  @media (min-width: $width-desktop) {
+    max-width: $width-desktop;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: $width-tablet-max) {
+    max-width: $width-tablet-max;
+    padding: 0 35px;
+    width: auto;
+  }
+
+  @media (max-width: $width-mobile-max) {
+    max-width: $width-mobile-max;
+    padding: 0 15px;
+  }
+}
+
+h1 {
+  font-family: $YesevaOne;
+}

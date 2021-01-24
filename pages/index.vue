@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Художник Борис Кустодиев</h1>
+    <h1 class="is-hidden">Художник Борис Кустодиев</h1>
     <FirstScreen>
       <FirstScreenText/>
     </FirstScreen>
@@ -20,4 +20,5 @@ export default {
 </script>
 
 <style>
+
 </style>

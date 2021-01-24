@@ -9,4 +9,8 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.first-screen {
+  background: $color_dark;
+  height: 100vh;
+}
 </style>
