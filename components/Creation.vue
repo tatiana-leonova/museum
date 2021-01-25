@@ -2,7 +2,7 @@
   <section class="creation container">
     <div class="creation__wrapper-title">
       <h2>творчество</h2>
-      <p class="creation__subtitle">
+      <p>
         Трудно найти другого живописца, настолько горячо влюбленного в
         провинциальную Россию: самобытную, яркую, удивляющую.
       </p>
@@ -14,9 +14,19 @@
         картинах Кустодиева природа всегда представляет собой нечто гораздо
         большее, чем просто пейзажное изображение.
       </p>
-      <img src="" alt="" />
+      <img
+        src="~/assets/img/creation-2.jpg"
+        width="240"
+        height="173"
+        alt="Картина Бориса Кустодиева"
+      />
     </div>
-    <img src="" alt="" />
+    <img
+      src="~/assets/img/creation-1.jpg"
+      width="920"
+      height="667"
+      alt="Картина Бориса Кустодиева"
+    />
     <div class="creation__post-wrapper-content">
       <p>
         Особенности творчества художника Бориса Кустодиева: любил жанр
@@ -52,4 +62,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.creation {
+  h2 {
+    font-family: $YesevaOne;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 0;
+    margin-bottom: 30px;
+    color: $color_dark;
+    margin-right: 165px;
+    margin-right: 60px;
+  }
+
+  img:nth-child(3) {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  &__wrapper-title {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $color_gray6;
+    margin-bottom: 30px;
+    p {
+      font-size: 20px;
+      color: $color_gray3;
+    }
+  }
+
+  &__pre-wrapper-content {
+    display: flex;
+    margin-bottom: 40px;
+  }
+
+  &__post-wrapper-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 </style>
