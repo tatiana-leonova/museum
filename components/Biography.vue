@@ -1,0 +1,100 @@
+<template>
+  <section class="biography container">
+    <div class="biography__wrapper-text">
+      <h2>биография</h2>
+      <p>
+        Борис Кустодиев родился 7 марта 1878 года в Астрахани. Отца,
+        преподавателя духовной семинарии, не стало, когда мальчику было чуть
+        больше года. Мать осталась вдовой в 25 лет и содержала четверых детей.
+      </p>
+    </div>
+    <div class="biography__list">
+      <dl>
+        <dt>1887</dt>
+        <dd>
+          Борис сначала учился в церковно-приходской школе, потом в гимназии.
+          Когда ему было девять лет, в город привезли выставку
+          художников-передвижников. Мальчика настолько впечатлила живопись, что
+          он твердо решил научиться рисовать так же искусно. Мать нашла деньги,
+          чтобы Борис смог брать уроки у известного в Астрахани художника Павла
+          Власова.
+        </dd>
+      </dl>
+      <dl>
+        <dt>1896</dt>
+        <dd>
+          Окончив семинарию, в 1896 году Кустодиев отправился учиться в Москву,
+          но в художественную школу его не приняли: Борису уже исполнилось 18 и
+          он был слишком взрослым. Тогда Кустодиев поехал в Петербург, где подал
+          документы в Высшее художественное училище при Академии художеств.
+        </dd>
+      </dl>
+    </div>
+    <div class="biography__actions">
+      <SocialShare />
+      <ReadMore />
+    </div>
+  </section>
+</template>
+
+<script>
+import SocialShare from "~/components/common/SocialShare.vue";
+import ReadMore from "~/components/common/ReadMore.vue";
+
+export default {
+  components: {
+    SocialShare,
+    ReadMore,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.biography {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  &__wrapper-text {
+    display: flex;
+    justify-content: space-between;
+  }
+  p {
+    margin-top: 0;
+    width: 565px;
+  }
+
+  h2 {
+    font-family: $YesevaOne;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 0;
+    margin-bottom: 30px;
+    color: $color_dark;
+    margin-right: 165px;
+  }
+
+  &__list {
+    width: 650px;
+    margin-left: auto;
+  }
+
+  dl {
+    display: flex;
+  }
+
+  dt {
+    color: $color_gray3;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-top: -5px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+</style>

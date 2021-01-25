@@ -25,7 +25,7 @@ export default {
   background: $color_dark;
 
   &__wrapper {
-    width: percentage(980 / 1440);
+    width: 63%;
     padding: 0 95px;
     display: flex;
     justify-content: space-between;

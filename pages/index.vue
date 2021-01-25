@@ -2,23 +2,29 @@
   <div>
     <h1 class="is-hidden">Художник Борис Кустодиев</h1>
     <FirstScreen>
-      <FirstScreenText/>
+      <Promo />
     </FirstScreen>
+
+    <Biography />
+    <Creation />
   </div>
 </template>
 
 <script>
 import FirstScreen from "~/components/common/FirstScreen.vue";
-import FirstScreenText from "~/components/main/FirstScreenText.vue";
+import Promo from "~/components/main/Promo.vue";
+import Biography from "~/components/Biography.vue";
+import Creation from "~/components/Creation.vue";
 
 export default {
   components: {
     FirstScreen,
-    FirstScreenText,
+    Promo,
+    Biography,
+    Creation,
   },
 };
 </script>
 
 <style>
-
 </style>
