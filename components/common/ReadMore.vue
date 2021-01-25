@@ -30,8 +30,5 @@ export default {};
     margin: 0;
     margin-bottom: -10px;
   }
-
-  svg {
-  }
 }
 </style>

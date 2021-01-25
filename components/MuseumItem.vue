@@ -9,14 +9,14 @@
       </svg>
       <a :href="link" target="_blank"> {{ title }}</a>
     </h3>
-    <address>{{ address }}</address>
+    <address>{{ city }} <br> {{address }}</address>
     <a :href="'tel:' + phoneLink"> {{ phone }} </a>
   </li>
 </template>
 
 <script>
 export default {
-  props: ["link", "title", "address", "phoneLink", "phone"],
+  props: ["link", "title", "city", "address", "phoneLink", "phone"],
 };
 </script>
 

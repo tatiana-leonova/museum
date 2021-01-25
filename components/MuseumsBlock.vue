@@ -1,12 +1,16 @@
 <template>
   <section class="museums container">
     <h2>музеи</h2>
+    <div>
+      <Map />
+    </div>
     <ul>
       <MuseumItem
         class="museums__item"
         v-for="(museum, index) in museums"
         :link="museum.link"
         :title="museum.title"
+        :city="museum.city"
         :address="museum.address"
         :phoneLink="museum.phoneLink"
         :phone="museum.phone"
@@ -17,9 +21,12 @@
 </template>
 
 <script>
+import Map from "~/components/common/Map.vue";
 import MuseumItem from "~/components/MuseumItem.vue";
+
 export default {
   components: {
+    Map,
     MuseumItem,
   },
   data: () => {
@@ -28,21 +35,25 @@ export default {
         {
           link: "https://rusmuseum.ru/",
           title: "Русский музей",
-          address: "191186, Санкт-Петербург, Инженерная ул., 4",
+          city: "191186, Санкт-Петербург,",
+          address: "Инженерная ул., 4",
+
           phoneLink: "88125954240",
           phone: "+7 (812) 595-42-40",
         },
         {
           link: "https://www.tretyakovgallery.ru/",
           title: "Третьяковская галерея",
-          address: "119017, Москва, Лаврушинский переулок 10",
+          city: "119017, Москва,",
+          address: " Лаврушинский переулок 10",
           phoneLink: "84959570727",
           phone: "+7 (495) 957-07-27",
         },
         {
           link: "http://mamm-mdf.ru/",
           title: "Мультимедиа Арт Музей",
-          address: "105064, Москва, Гороховский переулок, 7",
+          city: "105064, Москва,",
+          address: " Гороховский переулок, 7",
           phoneLink: "84956321681",
           phone: "+7 (495) 632–16–81",
         },
@@ -62,7 +73,7 @@ export default {
     font-weight: 400;
     line-height: 40px;
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: $color_dark;
     text-align: center;
   }
@@ -71,11 +82,13 @@ export default {
     @include no-list;
     display: flex;
     justify-content: space-between;
+    width: 890px;
+    margin: 0 auto;
   }
 
   .museums__item:not(:nth-child(3n)) {
     border-right: 1px solid $color_gray6;
-    padding-right: 3%;
+    padding-right: 90px;
     padding-bottom: 40px;
   }
 }
