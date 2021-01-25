@@ -7,6 +7,7 @@
 
     <Biography />
     <Creation />
+    <MuseumsBlock />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import FirstScreen from "~/components/common/FirstScreen.vue";
 import Promo from "~/components/main/Promo.vue";
 import Biography from "~/components/Biography.vue";
 import Creation from "~/components/Creation.vue";
+import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
 export default {
   components: {
@@ -22,6 +24,7 @@ export default {
     Promo,
     Biography,
     Creation,
+    MuseumsBlock
   },
 };
 </script>

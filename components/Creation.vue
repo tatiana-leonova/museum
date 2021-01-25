@@ -63,6 +63,10 @@ export default {
 
 <style lang="scss" scoped>
 .creation {
+  border-bottom: 1px solid $color_gray6;
+  padding-bottom: 100px;
+
+
   h2 {
     font-family: $YesevaOne;
     font-size: 40px;
