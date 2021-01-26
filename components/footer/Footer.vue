@@ -23,8 +23,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-footer {
+<style lang="scss" scoped>
+.footer {
   background-color: $color_dark;
   padding: 60px 20px;
 
@@ -40,7 +40,6 @@ footer {
     align-content: center;
     justify-content: center;
     margin: 0 auto;
-    width: 700px;
   }
 
   &__social {
@@ -49,10 +48,11 @@ footer {
 
   &__main-nav {
     margin: 0 auto;
-    width: 700px;
+    padding: 0 50px 40px 50px;
 
     @media (max-width: $width-mobile-max) {
       padding-bottom: 40px;
+      padding: 0 0 40px 0;
     }
   }
 }

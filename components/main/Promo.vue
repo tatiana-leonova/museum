@@ -47,7 +47,7 @@ export default {};
     @media (max-width: $width-mobile-max) {
       position: relative;
       width: 100%;
-      height: 125px;
+      height: 40vw;
       margin: 0 auto;
       order: 1;
       background-position: bottom 10% right 15%;

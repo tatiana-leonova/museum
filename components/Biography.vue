@@ -53,14 +53,16 @@ export default {
 
 <style lang="scss" scoped>
 .biography {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   position: relative;
 
   &__wrapper-text {
     @media (min-width: $width-desktop-min) {
       display: flex;
       justify-content: space-between;
+      padding-top: 100px;
+      padding-bottom: 100px;
     }
   }
 
@@ -79,7 +81,7 @@ export default {
     margin: 0;
     margin-bottom: 30px;
     color: $color_dark;
-    margin-right: 150px;
+    // margin-right: 150px;
   }
 
   &__list {
