@@ -1,32 +1,30 @@
 <template>
-  <div>
-    <div
-      class="ya-share2"
-      data-curtain
-      data-shape="round"
-      data-size="l"
+  <div class="social-share">
+    <YandexShare
+      :services="['vkontakte', 'twitter', 'facebook']"
       data-color-scheme="whiteblack"
-      data-more-button-type="short"
-      data-services="vkontakte,twitter,facebook"
-    ></div>
+      data-size="l"
+      counter
+    />
   </div>
 </template>
 
 <script>
+import YandexShare from "@cookieseater/vue-yandex-share";
 export default {
-  head: {
-    script: [
-      {
-        hid: "stripe",
-        src: "https://yastatic.net/share2/share.js",
-        defer: true,
-      },
-    ],
+  components: {
+    YandexShare,
   },
 };
-
-// 'https://yastatic.net/share2/share.js'
 </script>
 
-<style lang="scss" scoped>
+
+<style lang="scss">
+.ya-share2__item {
+  border: 1px solid $color_gray3;
+  width: 94px;
+  height: 34px;
+  padding: 3px 35px !important;
+  margin-left: 10px !important;
+}
 </style>

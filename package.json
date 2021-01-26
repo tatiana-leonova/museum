@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@cookieseater/vue-yandex-share": "^0.2.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "core-js": "^3.8.2",
     "node-sass": "^5.0.0",
