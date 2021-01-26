@@ -4,6 +4,7 @@
       class="ya-share2"
       data-curtain
       data-shape="round"
+      data-size="l"
       data-color-scheme="whiteblack"
       data-more-button-type="short"
       data-services="vkontakte,twitter,facebook"
