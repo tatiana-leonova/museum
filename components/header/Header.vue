@@ -25,11 +25,17 @@ export default {
   background: $color_dark;
 
   &__wrapper {
+    @media (min-width: $width-desktop-min) {
     width: 63%;
     padding: 0 95px;
     display: flex;
     justify-content: space-between;
     margin-left: auto;
+    }
+
+    @media (max-width: $width-mobile-max) {
+      padding: 0 20px;
+    }
   }
 }
 </style>

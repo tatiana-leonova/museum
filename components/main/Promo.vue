@@ -1,7 +1,7 @@
 <template>
   <div class="promo">
     <!-- <div> -->
-    <div class="img"></div>
+    <div class="promo__img"></div>
     <div class="promo__wrapper-text">
       <span class="promo__data">1878-1927</span>
       <h2>борис кустодиев</h2>
@@ -23,15 +23,16 @@ export default {};
 <style lang="scss" scoped>
 .promo {
   color: $color_gray5;
-  // height: 100%;
-  height: calc(100vh - 46px);
+  @media (min-width: $width-desktop-min) {
+    height: calc(100vh - 46px);
+  }
 
   @media (max-width: $width-mobile-max) {
     display: flex;
     flex-direction: column;
   }
 
-  .img {
+  &__img {
     position: absolute;
     top: 0;
     left: 0;
@@ -40,16 +41,16 @@ export default {};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right 15%;
-    // width: 460px;
     width: 40%;
     height: 100vh;
 
     @media (max-width: $width-mobile-max) {
       position: relative;
-      width: 320px;
+      width: 100%;
       height: 125px;
       margin: 0 auto;
       order: 1;
+      background-position: bottom 10% right 15%;
     }
   }
 
@@ -58,14 +59,13 @@ export default {};
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // width: percentage(980 / 1440);
-    // max-width: 640px;
-    padding: 50px 95px 50px 95px;
+    padding: 45px 20px;
 
     @media (min-width: $width-desktop-min) {
       margin-left: auto;
       width: 55%;
       height: 100%;
+      padding: 50px 95px 50px 95px;
     }
   }
 
@@ -86,6 +86,7 @@ export default {};
 
     @media (max-width: $width-mobile-max) {
       font-size: 20px;
+      margin-bottom: 10px;
     }
   }
 
@@ -99,13 +100,15 @@ export default {};
 
     @media (max-width: $width-mobile-max) {
       font-size: 40px;
-      ine-height: 110%;
+      line-height: 110%;
+      margin-bottom: 20px;
     }
   }
 
   p {
     font-family: $Helvetica;
     font-weight: 400;
+    margin-top: 0;
   }
 }
 </style>

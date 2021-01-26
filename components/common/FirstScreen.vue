@@ -20,8 +20,11 @@ export default {
 <style lang="scss" scoped>
 .first-screen {
   background: $color_dark;
-  height: 100vh;
   position: relative;
+
+  @media (min-width: $width-desktop-min) {
+    height: 100vh;
+  }
 }
 
 .logo {

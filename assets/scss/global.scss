@@ -56,10 +56,10 @@ img {
     width: auto;
   }
 
-  // @media (max-width: $width-mobile-max) {
-  //   max-width: $width-mobile-max;
-  //   padding: 0 15px;
-  // }
+  @media (min-width: $width-tablet) {
+    max-width: $width-mobile-max;
+    padding: 0 40px;
+  }
 }
 
 h1 {

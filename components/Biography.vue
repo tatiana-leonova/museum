@@ -79,7 +79,7 @@ export default {
     margin: 0;
     margin-bottom: 30px;
     color: $color_dark;
-    margin-right: 165px;
+    margin-right: 150px;
   }
 
   &__list {
