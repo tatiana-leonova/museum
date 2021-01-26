@@ -26,5 +26,10 @@ export default {
   height: 34px;
   padding: 3px 35px !important;
   margin-left: 10px !important;
+
+  @media (max-width: $width-mobile-max) {
+    width: 84px;
+    padding: 3px 30px !important;
+  }
 }
 </style>

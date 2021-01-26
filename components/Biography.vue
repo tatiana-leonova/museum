@@ -29,10 +29,12 @@
           документы в Высшее художественное училище при Академии художеств.
         </dd>
       </dl>
+      <div class="biography__read-more">
+        <ReadMore />
+      </div>
     </div>
-    <div class="biography__actions">
+    <div class="biography__social-share">
       <SocialShare />
-      <ReadMore />
     </div>
   </section>
 </template>
@@ -53,14 +55,20 @@ export default {
 .biography {
   padding-top: 100px;
   padding-bottom: 100px;
+  position: relative;
 
   &__wrapper-text {
-    display: flex;
-    justify-content: space-between;
+    @media (min-width: $width-desktop-min) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
+
   p {
     margin-top: 0;
-    width: 565px;
+    @media (min-width: $width-desktop-min) {
+      width: 565px;
+    }
   }
 
   h2 {
@@ -75,12 +83,16 @@ export default {
   }
 
   &__list {
-    width: 650px;
-    margin-left: auto;
+    @media (min-width: $width-desktop-min) {
+      width: 650px;
+      margin-left: auto;
+    }
   }
 
   dl {
-    display: flex;
+    @media (min-width: $width-desktop-min) {
+      display: flex;
+    }
   }
 
   dt {
@@ -91,10 +103,32 @@ export default {
     margin-top: -5px;
   }
 
-  &__actions {
+  dd {
+    @media (max-width: $width-mobile-max) {
+      margin-left: 0;
+    }
+  }
+
+  &__read-more {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
+
+    @media (max-width: $width-mobile-max) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__social-share {
+    @media (min-width: $width-desktop-min) {
+      position: absolute;
+      bottom: 110px;
+      left: 0;
+    }
+
+    @media (max-width: $width-mobile-max) {
+      margin: 0 auto;
+      width: 300px;
+    }
   }
 }
 </style>

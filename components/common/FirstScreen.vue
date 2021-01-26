@@ -29,6 +29,8 @@ export default {
   bottom: 30px;
   right: 50px;
 
-
+@media (max-width: $width-mobile-max) {
+  display: none;
+}
 }
 </style>

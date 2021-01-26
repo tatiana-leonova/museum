@@ -24,10 +24,19 @@ export default {};
   @include no-list;
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: $width-mobile-max) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 li:not(:last-child) {
   padding-right: 10px;
+
+  @media (max-width: $width-mobile-max) {
+    padding-right: 0;
+  }
 }
 
 .menu__link {

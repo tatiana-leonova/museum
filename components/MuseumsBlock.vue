@@ -67,6 +67,7 @@ export default {
 .museums {
   padding-top: 40px;
   margin-bottom: 80px;
+
   h2 {
     font-family: $YesevaOne;
     font-size: 40px;
@@ -80,16 +81,44 @@ export default {
 
   ul {
     @include no-list;
-    display: flex;
-    justify-content: space-between;
-    width: 890px;
-    margin: 0 auto;
+
+    @media (max-width: $width-mobile-max) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    @media (min-width: $width-desktop-min) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 890px;
+      margin: 0 auto;
+    }
+  }
+
+  .museums__item {
+    @media (max-width: $width-mobile-max) {
+      padding-bottom: 30px;
+      padding-top: 30px;
+      width: 100%;
+    }
   }
 
   .museums__item:not(:nth-child(3n)) {
-    border-right: 1px solid $color_gray6;
-    padding-right: 90px;
-    padding-bottom: 40px;
+    @media (min-width: $width-desktop-min) {
+      border-right: 1px solid $color_gray6;
+      padding-right: 90px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .museums__item:not(:last-child) {
+    @media (max-width: $width-mobile-max) {
+      border-bottom: 1px solid $color_gray6;
+    }
   }
 }
 </style>

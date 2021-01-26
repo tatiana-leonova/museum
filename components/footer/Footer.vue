@@ -28,6 +28,10 @@ footer {
   background-color: $color_dark;
   padding: 60px 20px;
 
+  @media (max-width: $width-mobile-max) {
+    padding: 40px 20px;
+  }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -46,6 +50,10 @@ footer {
   &__main-nav {
     margin: 0 auto;
     width: 700px;
+
+    @media (max-width: $width-mobile-max) {
+      padding-bottom: 40px;
+    }
   }
 }
 </style>

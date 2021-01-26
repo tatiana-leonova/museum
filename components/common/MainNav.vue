@@ -15,4 +15,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-nav {
+   @media (max-width: $width-mobile-max) {
+     display: none;
+   }
+}
 </style>

@@ -24,7 +24,7 @@ export default {
     Promo,
     Biography,
     Creation,
-    MuseumsBlock
+    MuseumsBlock,
   },
 };
 </script>
