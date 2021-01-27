@@ -28,6 +28,10 @@ export default {
     padding-bottom: 100px;
   }
 
+  @media (max-width: $width-mobile-max) {
+  padding-top: 92px;
+  }
+
   h1 {
     font-family: $YesevaOne;
     font-size: 80px;

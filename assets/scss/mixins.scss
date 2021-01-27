@@ -12,7 +12,8 @@
   @font-face {
     font-display: swap;
     font-family: $family;
-    src: local("#{$localname}"), url("~assets/fonts/#{$filename}.woff2") format("woff2"), url("~assets/fonts/#{$filename}.woff") format("woff");
+    src: local("#{$localname}"), url("~assets/fonts/#{$filename}.woff2") format("woff2"),
+      url("~assets/fonts/#{$filename}.woff") format("woff");
     font-weight: $weight;
     font-style: $style;
   }
@@ -29,7 +30,7 @@
 @mixin container {
   max-width: 1024px;
   margin: 0 auto;
-  padding:  0 52px;
+  padding: 0 52px;
 }
 
 @mixin no-list {
