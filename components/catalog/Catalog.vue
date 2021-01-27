@@ -4,7 +4,7 @@
     <div>
       <ul>
         <CardPainting
-          class="card"
+          class="catalog__card"
           v-for="(card, index) in cards"
           :img="card.img"
           :name="card.name"
@@ -69,11 +69,20 @@ export default {
     display: flex;
     flex-wrap: wrap;
     width: 600px;
+
+    @media (max-width: 768px) {
+      width: 280px;
+      margin: 0 auto;
+    }
   }
 
-  .card {
+  &__card {
     width: 280px;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      width: 120px;
+    }
   }
   .card:not(:nth-child(2n)) {
     margin-right: 40px;
