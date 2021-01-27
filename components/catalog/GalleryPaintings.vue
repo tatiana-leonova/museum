@@ -49,11 +49,16 @@ export default {
   &__item {
     display: inline-block;
     vertical-align: top;
-    width: 300px;
-    height: 250px;
+    width: 360px;
+    height: 258px;
     background: none no-repeat 50% 50%;
     background-size: cover;
     margin-right: 20px;
+
+    @media (max-width: $width-mobile-max) {
+      width: 192px;
+      height: 160px;
+    }
   }
 }
 </style>
