@@ -4,8 +4,8 @@
       :src="require(`~/assets/img/catalog/${img}`)"
       width="280"
       height="317"
+      :alt="`Изображение картины Пустодиева ${name}`"
     />
-    <!-- <img :src="`~/assets/img/catalog/${link}`" /> -->
     <h3>{{ name }}</h3>
     <span>{{ year }}</span>
   </li>
