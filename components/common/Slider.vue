@@ -3,12 +3,12 @@
     <div class="slider__preview" ref="container">
       <div class="slider__preview-wrapper">
         <div
-          class="slider__preview-item"
           v-for="(photo, index) in photos"
           ref="photo"
           :key="index"
           @click="changePhoto(index)"
-          :class="{ active: slider__active - photo == index }"
+          class="slider__preview-item"
+          :class="{ active: activePhoto === index }"
           :style="{
             backgroundImage:
               'url(' + require('~/assets/img/' + photo.img) + ')',
@@ -46,7 +46,7 @@
     </div>
     <p class="slider__active-photo-name">{{ photos[activePhoto].name }}</p>
     <p class="slider__active-photo-counter">
-      {{ photos.indexOf(photos[activePhoto + 1]) }} / {{ photos.length }}
+      {{ photos.indexOf(photos[activePhoto]) + 1 }} / {{ photos.length }}
     </p>
   </div>
 </template>
@@ -185,15 +185,14 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 1;
+    opacity: 0.45;
 
     &:hover {
-      opacity: 0.6;
+      opacity: 0.8;
     }
-    &.active {
-      outline-color: #000;
-      opacity: 1;
-    }
+    // &.active {
+    //   opacity: 1;
+    // }
 
     @media (max-width: $width-mobile-max) {
       width: 65vw;
@@ -229,6 +228,7 @@ export default {
     background: inherit;
     transition: 0.5s;
     position: absolute;
+    bottom: 20px;
 
     &:hover,
     &:focus {
@@ -237,12 +237,10 @@ export default {
 
     &--previous {
       left: 0;
-      bottom: 20px;
     }
 
     &--next {
       right: 0;
-      bottom: 20px;
       transform: scaleX(-1);
     }
 
@@ -250,5 +248,9 @@ export default {
       display: none;
     }
   }
+}
+
+.active {
+  opacity: 1;
 }
 </style>
