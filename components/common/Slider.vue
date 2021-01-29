@@ -11,13 +11,18 @@
         }"
       ></div>
     </div>
-    <div
-      class="slider__active-photo"
-      :style="{
-        backgroundImage:
-          'url(' + require('~/assets/img/' + photos[activePhoto].img) + ')',
-      }"
-    >
+    <div class="slider__active-photo-wrapper">
+      <div
+        class="slider__active-photo"
+        :style="{
+          backgroundImage:
+            'url(' + require('~/assets/img/' + photos[activePhoto].img) + ')',
+        }"
+      ></div>
+      <p class="slider__active-photo-name">{{ photos[activePhoto].name }}</p>
+      <p class="slider__active-photo-counter">
+        {{ photos.indexOf(photos[activePhoto + 1]) }} / {{ photos.length }}
+      </p>
       <button
         type="button"
         aria-label="Предыдущая картина"
@@ -45,8 +50,8 @@ export default {
   mounted() {
     this.changePhoto(0);
     document.addEventListener("keydown", (event) => {
-      if (event.which == 37) this.previousPhoto();
-      if (event.which == 39) this.nextPhoto();
+      if (event.code == "ArrowLeft") this.previousPhoto();
+      if (event.code == "ArrowRight") this.nextPhoto();
     });
   },
   methods: {
@@ -73,8 +78,18 @@ export default {
 .slider {
   background-color: $color-dark;
 
+  &__active-photo-name,
+  &__active-photo-counter {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    color: $color_gray5;
+    text-align: center;
+  }
+
   &__active-photo {
     width: 100%;
+    height: 530px;
     margin-bottom: 5px;
     padding-bottom: 65%;
     background-size: cover;

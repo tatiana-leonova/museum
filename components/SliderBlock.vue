@@ -1,5 +1,6 @@
 <template>
   <section class="slider-block">
+    <h2 class="is-hidden">Галерея картин Бориса Кустодиева</h2>
     <div class="container">
       <div class="slider-block__wrapper">
         <Slider :photos="photos"></Slider>
@@ -58,6 +59,7 @@ export default {
 <style lang="scss" scoped>
 .slider-block {
   background-color: $color-dark;
+  padding: 40px 0;
 
   &__wrapper {
     max-width: 920px;
