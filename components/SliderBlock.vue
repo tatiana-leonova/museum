@@ -14,22 +14,38 @@ export default {
   data: () => {
     return {
       photos: [
-        "painting-1.jpg",
-        "painting-2.jpg",
-        "painting-3.jpg",
-        "painting-4.jpg",
-        "painting-1.jpg",
-        "painting-2.jpg",
-        "painting-3.jpg",
-        "painting-4.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-01-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-02-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-03-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-04-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-05-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-06-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-07-min.jpg",
-        // "https://s3-us-west-2.amazonaws.com/s.cdpn.io/20625/lordea-home-08-min.jpg",
+        {
+          name: "Осень в провинции. Чаепитие",
+          img: "painting-1.jpg",
+        },
+        {
+          name: "Купец с купчихой",
+          img: "painting-2.jpg",
+        },
+        {
+          name: "Монахиня",
+          img: "painting-3.jpg",
+        },
+        {
+          name: "Портрет Степана Лукича Никольского",
+          img: "painting-4.jpg",
+        },
+        {
+          name: "На террасе",
+          img: "painting-1.jpg",
+        },
+        {
+          name: "Купец с купчихой",
+          img: "painting-2.jpg",
+        },
+        {
+          name: "Портрет артистки Т. В. Чижовой",
+          img: "painting-3.jpg",
+        },
+        {
+          name: "Трактирщик.",
+          img: "painting-4.jpg",
+        },
       ],
     };
   },
@@ -44,11 +60,7 @@ export default {
   background-color: $color-dark;
 
   &__wrapper {
-    padding: 6px;
-    background-color: #fff;
-    border-radius: 8px;
     max-width: 920px;
-    box-shadow: 0 5px 8px #0000007a;
   }
 }
 </style>

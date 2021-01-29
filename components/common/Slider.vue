@@ -8,7 +8,7 @@
         @click="changePhoto(index)"
         :class="{ active: activePhoto == index }"
         :style="{
-          backgroundImage: 'url(' + require('~/assets/img/' + photo) + ')',
+          backgroundImage: 'url(' + require('~/assets/img/' + photo.img) + ')',
         }"
       ></div>
     </div>
@@ -16,7 +16,7 @@
       class="activePhoto"
       :style="{
         backgroundImage:
-          'url(' + require('~/assets/img/' + photos[activePhoto]) + ')',
+          'url(' + require('~/assets/img/' + photos[activePhoto].img) + ')',
       }"
     >
       <button
@@ -37,12 +37,13 @@
 
 <script>
 export default {
+  props: ["photos"],
+  // props: ["name", "img"],
   data: () => {
     return {
       activePhoto: 0,
     };
   },
-  props: ["photos"],
   mounted() {
     this.changePhoto(0);
     document.addEventListener("keydown", (event) => {
@@ -81,7 +82,6 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  // border: 2px solid #fff;
   position: relative;
 }
 
