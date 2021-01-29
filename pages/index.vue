@@ -6,6 +6,7 @@
     </FirstScreen>
 
     <Biography />
+    <SliderBlock />
     <Creation />
     <MuseumsBlock />
   </div>
@@ -15,6 +16,7 @@
 import FirstScreen from "~/components/common/FirstScreen.vue";
 import Promo from "~/components/main/Promo.vue";
 import Biography from "~/components/Biography.vue";
+import SliderBlock from "~/components/SliderBlock.vue";
 import Creation from "~/components/Creation.vue";
 import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
@@ -23,6 +25,7 @@ export default {
     FirstScreen,
     Promo,
     Biography,
+    SliderBlock,
     Creation,
     MuseumsBlock,
   },

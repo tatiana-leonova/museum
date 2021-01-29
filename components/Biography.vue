@@ -62,7 +62,6 @@ export default {
       display: flex;
       justify-content: space-between;
       padding-top: 100px;
-      padding-bottom: 100px;
     }
   }
 
