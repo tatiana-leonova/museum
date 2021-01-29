@@ -1,11 +1,11 @@
 <template>
   <section class="slider-block">
     <h2 class="is-hidden">Галерея картин Бориса Кустодиева</h2>
-    <div class="container">
-      <div class="slider-block__wrapper">
-        <Slider :photos="photos"></Slider>
-      </div>
+    <!-- <div class="container"> -->
+    <div class="slider-block__wrapper">
+      <Slider :photos="photos"></Slider>
     </div>
+    <!-- </div> -->
   </section>
 </template>
 
@@ -44,7 +44,7 @@ export default {
           img: "painting-3.jpg",
         },
         {
-          name: "Трактирщик.",
+          name: "Трактирщик",
           img: "painting-4.jpg",
         },
       ],
@@ -63,6 +63,10 @@ export default {
 
   &__wrapper {
     max-width: 920px;
+
+    @media (max-width: $width-mobile-max) {
+      max-width: 100%;
+    }
   }
 }
 </style>
