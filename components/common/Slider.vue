@@ -1,19 +1,18 @@
 <template>
   <div class="slider">
-    <div class="thumbnails">
+    <div class="slider__preview">
       <div
         v-for="(photo, index) in photos"
-        :src="photo"
         :key="index"
         @click="changePhoto(index)"
-        :class="{ active: activePhoto == index }"
+        :class="{ active: slider__active - photo == index }"
         :style="{
           backgroundImage: 'url(' + require('~/assets/img/' + photo.img) + ')',
         }"
       ></div>
     </div>
     <div
-      class="activePhoto"
+      class="slider__active-photo"
       :style="{
         backgroundImage:
           'url(' + require('~/assets/img/' + photos[activePhoto].img) + ')',
@@ -22,13 +21,13 @@
       <button
         type="button"
         aria-label="Предыдущая картина"
-        class="previous"
+        class="slider__arrow-previous"
         @click="previousPhoto()"
       ></button>
       <button
         type="button"
         aria-label="Следующая картина"
-        class="next"
+        class="slider__arrow-next"
         @click="nextPhoto()"
       ></button>
     </div>
@@ -38,7 +37,6 @@
 <script>
 export default {
   props: ["photos"],
-  // props: ["name", "img"],
   data: () => {
     return {
       activePhoto: 0,
@@ -74,39 +72,40 @@ export default {
 <style lang="scss" scoped>
 .slider {
   background-color: $color-dark;
-}
-.activePhoto {
-  width: 100%;
-  margin-bottom: 5px;
-  padding-bottom: 65%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
 
-.thumbnails {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  grid-gap: 5px;
-
-  div {
+  &__active-photo {
     width: 100%;
-    border: 2px solid #fff;
-    outline: 2px solid #fff;
-    cursor: pointer;
+    margin-bottom: 5px;
     padding-bottom: 65%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 1;
+    position: relative;
+  }
 
-    &:hover {
-      opacity: 0.6;
-    }
-    &.active {
-      outline-color: #000;
+  &__preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-gap: 5px;
+
+    div {
+      width: 100%;
+      border: 2px solid #fff;
+      outline: 2px solid #fff;
+      cursor: pointer;
+      padding-bottom: 65%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       opacity: 1;
+
+      &:hover {
+        opacity: 0.6;
+      }
+      &.active {
+        outline-color: #000;
+        opacity: 1;
+      }
     }
   }
 }
