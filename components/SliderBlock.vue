@@ -60,9 +60,14 @@ export default {
 .slider-block {
   background-color: $color-dark;
   padding: 40px 0;
+  margin-bottom: 100px;
 
   &__wrapper {
     max-width: 920px;
+
+    @media (min-width: $width-desktop-min) {
+      margin: 0 auto;
+    }
 
     @media (max-width: $width-mobile-max) {
       max-width: 100%;
