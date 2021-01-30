@@ -9,25 +9,9 @@
       </p>
     </div>
     <div class="biography__list">
-      <dl>
-        <dt>1887</dt>
-        <dd>
-          Борис сначала учился в церковно-приходской школе, потом в гимназии.
-          Когда ему было девять лет, в город привезли выставку
-          художников-передвижников. Мальчика настолько впечатлила живопись, что
-          он твердо решил научиться рисовать так же искусно. Мать нашла деньги,
-          чтобы Борис смог брать уроки у известного в Астрахани художника Павла
-          Власова.
-        </dd>
-      </dl>
-      <dl>
-        <dt>1896</dt>
-        <dd>
-          Окончив семинарию, в 1896 году Кустодиев отправился учиться в Москву,
-          но в художественную школу его не приняли: Борису уже исполнилось 18 и
-          он был слишком взрослым. Тогда Кустодиев поехал в Петербург, где подал
-          документы в Высшее художественное училище при Академии художеств.
-        </dd>
+      <dl v-for="(historicalEvent, index) of historicalEvents" :key="index">
+        <dt>{{ historicalEvent.year }}</dt>
+        <dd>{{ historicalEvent.text }}</dd>
       </dl>
       <div class="biography__read-more">
         <ReadMore />
@@ -48,6 +32,11 @@ export default {
     SocialShare,
     ReadMore,
   },
+  computed: {
+    historicalEvents() {
+      return this.$store.getters["biography/historicalEvents"];
+    },
+  }
 };
 </script>
 
@@ -80,7 +69,6 @@ export default {
     margin: 0;
     margin-bottom: 30px;
     color: $color_dark;
-    // margin-right: 150px;
   }
 
   &__list {

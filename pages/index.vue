@@ -29,6 +29,18 @@ export default {
     Creation,
     MuseumsBlock,
   },
+  async asyncData({ app, route, params, error, store }) {
+    try {
+      await store.dispatch("biography/fetchBiography");
+    } catch (err) {
+      console.log(err);
+      return error({
+        statusCode: 404,
+        message: "Данные не найдены или сервер не доступен",
+      });
+    }
+  },
+
 };
 </script>
 
