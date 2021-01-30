@@ -61,9 +61,12 @@ export default {
   props: ["photos"],
   data: () => {
     return {
+      windowWidth: 0,
       activePhoto: 0,
       startX: 0,
       currentIndex: 0,
+      maxWidthMobile: 1023,
+      marginPreviewPhoto: 20,
       isMounted: false,
     };
   },
@@ -72,7 +75,6 @@ export default {
   },
   mounted() {
     this.isMounted = true;
-    // this.changePhoto(0);
     document.addEventListener("keydown", (event) => {
       if (event.code == "ArrowLeft") this.previousActivePhoto();
       if (event.code == "ArrowRight") this.nextActivePhoto();
@@ -93,10 +95,11 @@ export default {
         this.nextPrewiewPhoto();
         this.startX = null;
       } else if (xDelta < -45) {
-        this.reviousPreviewPhoto();
+        this.previousPreviewPhoto();
         this.startX = null;
       }
     });
+    this.windowWidth = window.innerWidth;
   },
   methods: {
     changePhoto(index) {
@@ -114,7 +117,7 @@ export default {
           : this.photos.length - 1
       );
     },
-    reviousPreviewPhoto() {
+    previousPreviewPhoto() {
       this.currentIndex -= 1;
 
       if (this.currentIndex < 0) {
@@ -131,15 +134,23 @@ export default {
   },
   computed: {
     currentPosition() {
+      if (this.windowWidth > this.maxWidthMobile) {
+        return;
+      }
+
       if (!this.isMounted) {
         return 0;
       } else {
-        // let test = this.currentIndex * 20 - 70;
-        let test =
-          this.currentIndex * 20 - this.$refs.previewPhoto[0].offsetWidth / 3.5;
+        let border =
+          (this.$refs.container.offsetWidth -
+            this.$refs.previewPhoto[0].offsetWidth) /
+          2;
+        let offsetPosition =
+          this.currentIndex * this.marginPreviewPhoto - border;
+        this.activePhoto = this.currentIndex;
         return -(
           this.$refs.previewPhoto[0].offsetWidth * this.currentIndex +
-          test
+          offsetPosition
         );
       }
     },
@@ -207,10 +218,6 @@ export default {
     font-size: 0;
     white-space: nowrap;
     transition: transform 0.5s ease;
-
-    @media (min-width: $width-desktop-min) {
-      margin-left: -30px;
-    }
   }
 
   &__preview-item {
@@ -237,8 +244,6 @@ export default {
     @media (max-width: $width-mobile-max) {
       width: 65vw;
       height: 50vw;
-      // max-width: 390px;
-      // max-height: 300px;
     }
   }
 
