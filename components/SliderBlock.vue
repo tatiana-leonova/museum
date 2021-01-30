@@ -1,11 +1,9 @@
 <template>
   <section class="slider-block">
     <h2 class="is-hidden">Галерея картин Бориса Кустодиева</h2>
-    <!-- <div class="container"> -->
     <div class="slider-block__wrapper">
       <Slider :photos="photos"></Slider>
     </div>
-    <!-- </div> -->
   </section>
 </template>
 

@@ -1,10 +1,13 @@
 <template>
   <div class="slider">
     <div class="slider__preview" ref="container">
-      <div class="slider__preview-wrapper">
+      <div
+        class="slider__preview-wrapper"
+        :style="{ transform: `translate3d(${currentPosition}px, 0, 0)` }"
+      >
         <div
           v-for="(photo, index) in photos"
-          ref="photo"
+          ref="previewPhoto"
           :key="index"
           @click="changePhoto(index)"
           class="slider__preview-item"
@@ -17,7 +20,7 @@
       </div>
     </div>
     <div class="slider__link-paintings">
-      <a href="#" target="_blank">все картины</a>
+      <a href="#" target="_blank">все картины <span></span></a>
     </div>
     <div class="slider__active-photo-wrapper">
       <div
@@ -31,7 +34,7 @@
         type="button"
         aria-label="Предыдущая картина"
         class="slider__arrow slider__arrow--previous"
-        @click="previousPhoto()"
+        @click="previousActivePhoto()"
       >
         <ArrowLong />
       </button>
@@ -39,7 +42,7 @@
         type="button"
         aria-label="Следующая картина"
         class="slider__arrow slider__arrow--next"
-        @click="nextPhoto()"
+        @click="nextActivePhoto()"
       >
         <ArrowLong />
       </button>
@@ -60,6 +63,8 @@ export default {
     return {
       activePhoto: 0,
       startX: 0,
+      currentIndex: 0,
+      isMounted: false,
     };
   },
   components: {
@@ -67,10 +72,10 @@ export default {
   },
   mounted() {
     this.isMounted = true;
-    this.changePhoto(0);
+    // this.changePhoto(0);
     document.addEventListener("keydown", (event) => {
-      if (event.code == "ArrowLeft") this.previousPhoto();
-      if (event.code == "ArrowRight") this.nextPhoto();
+      if (event.code == "ArrowLeft") this.previousActivePhoto();
+      if (event.code == "ArrowRight") this.nextActivePhoto();
     });
 
     // swipe
@@ -85,10 +90,10 @@ export default {
         this.startX - (event.touches || event.originalEvent.touches)[0].clientX;
 
       if (xDelta > 45) {
-        this.nextPhoto();
+        this.nextPrewiewPhoto();
         this.startX = null;
       } else if (xDelta < -45) {
-        this.previousPhoto();
+        this.reviousPreviewPhoto();
         this.startX = null;
       }
     });
@@ -97,17 +102,46 @@ export default {
     changePhoto(index) {
       this.activePhoto = index;
     },
-    nextPhoto() {
+    nextActivePhoto() {
       this.changePhoto(
         this.activePhoto + 1 < this.photos.length ? this.activePhoto + 1 : 0
       );
     },
-    previousPhoto() {
+    previousActivePhoto() {
       this.changePhoto(
         this.activePhoto - 1 >= 0
           ? this.activePhoto - 1
           : this.photos.length - 1
       );
+    },
+    reviousPreviewPhoto() {
+      this.currentIndex -= 1;
+
+      if (this.currentIndex < 0) {
+        this.currentIndex = this.$refs.previewPhoto.length - 1;
+      }
+    },
+    nextPrewiewPhoto() {
+      this.currentIndex += 1;
+
+      if (this.currentIndex > this.$refs.previewPhoto.length - 1) {
+        this.currentIndex = 0;
+      }
+    },
+  },
+  computed: {
+    currentPosition() {
+      if (!this.isMounted) {
+        return 0;
+      } else {
+        // let test = this.currentIndex * 20 - 70;
+        let test =
+          this.currentIndex * 20 - this.$refs.previewPhoto[0].offsetWidth / 3.5;
+        return -(
+          this.$refs.previewPhoto[0].offsetWidth * this.currentIndex +
+          test
+        );
+      }
     },
   },
 };
@@ -172,6 +206,11 @@ export default {
     vertical-align: top;
     font-size: 0;
     white-space: nowrap;
+    transition: transform 0.5s ease;
+
+    @media (min-width: $width-desktop-min) {
+      margin-left: -30px;
+    }
   }
 
   &__preview-item {
@@ -186,19 +225,20 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.45;
+    transition: 0.5s;
 
     &:hover {
       opacity: 0.8;
     }
-    // &.active {
-    //   opacity: 1;
-    // }
+    &.active {
+      opacity: 1;
+    }
 
     @media (max-width: $width-mobile-max) {
       width: 65vw;
       height: 50vw;
-      max-width: 390px;
-      max-height: 300px;
+      // max-width: 390px;
+      // max-height: 300px;
     }
   }
 
@@ -219,6 +259,17 @@ export default {
       font-size: 14px;
       line-height: 20px;
       font-weight: 400;
+
+      span {
+        display: inline-block;
+        border: 1px solid $color_gray3;
+        transform: rotate(-135deg);
+        border-right: none;
+        border-top: none;
+        width: 5px;
+        height: 5px;
+        margin: 0 0 2px 5px;
+      }
     }
   }
 
@@ -248,9 +299,5 @@ export default {
       display: none;
     }
   }
-}
-
-.active {
-  opacity: 1;
 }
 </style>
