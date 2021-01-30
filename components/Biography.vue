@@ -13,7 +13,7 @@
         <dt>{{ historicalEvent.year }}</dt>
         <dd>{{ historicalEvent.text }}</dd>
       </dl>
-      <div class="biography__read-more">
+      <div class="biography__read-more" @click.prevent="onReadMore">
         <ReadMore />
       </div>
     </div>
@@ -32,11 +32,19 @@ export default {
     SocialShare,
     ReadMore,
   },
+  methods: {
+    onReadMore() {
+      this.$store.dispatch("biography/fetchBiography", {
+        offset: this.$store.getters["biography/historicalEvents"].length,
+        limit: 20,
+      });
+    },
+  },
   computed: {
     historicalEvents() {
       return this.$store.getters["biography/historicalEvents"];
     },
-  }
+  },
 };
 </script>
 

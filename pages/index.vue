@@ -31,7 +31,10 @@ export default {
   },
   async asyncData({ app, route, params, error, store }) {
     try {
-      await store.dispatch("biography/fetchBiography");
+      await store.dispatch("biography/fetchBiography", {
+        offset: 0,
+        limit: 2,
+      });
     } catch (err) {
       console.log(err);
       return error({
@@ -40,7 +43,6 @@ export default {
       });
     }
   },
-
 };
 </script>
 
