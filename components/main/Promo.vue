@@ -24,7 +24,7 @@ export default {};
 .promo {
   color: $color_gray5;
   @media (min-width: $width-desktop-min) {
-    height: calc(100vh - 46px);
+    height: 100vh;
   }
 
   @media (max-width: $width-mobile-max) {
