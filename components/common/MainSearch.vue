@@ -24,7 +24,7 @@
       </svg>
     </button>
     <form action="/catalog/" method="get" v-show="formVisibility">
-      <input type="text" placeholder="Введите название картины" />
+      <input type="text" ref="search" placeholder="Введите название картины" />
     </form>
   </div>
 </template>
@@ -39,6 +39,9 @@ export default {
   methods: {
     toggleSearchForm() {
       this.formVisibility = !this.formVisibility;
+      setTimeout((x) => {
+        this.$nextTick(() => this.$refs.search.focus());
+      }, 50);
     },
   },
 };
