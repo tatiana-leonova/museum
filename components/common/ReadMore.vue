@@ -1,6 +1,6 @@
 <template>
   <div class="read-more">
-    <a href="#">
+    <button>
       <span class="read-more__text">читать больше</span>
       <svg width="121" height="16" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -8,7 +8,7 @@
           fill="#202020"
         />
       </svg>
-    </a>
+    </button>
   </div>
 </template>
 
@@ -18,9 +18,11 @@ export default {};
 
 <style lang="scss" scoped>
 .read-more {
-  a {
-    text-decoration: none;
+  button {
     color: $color_dark;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
   }
   &__text {
     display: block;
