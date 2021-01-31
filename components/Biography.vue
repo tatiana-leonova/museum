@@ -13,8 +13,11 @@
         <dt>{{ historicalEvent.year }}</dt>
         <dd>{{ historicalEvent.text }}</dd>
       </dl>
-      <div class="biography__read-more" @click="onReadMore">
+      <div v-if="!isTextExpanded" class="biography__toggle-text" @click="onToggleText">
         <ReadMore />
+      </div>
+      <div v-else class="biography__toggle-text" @click="onToggleText">
+        <HideText />
       </div>
     </div>
     <div class="biography__social-share">
@@ -26,11 +29,13 @@
 <script>
 import SocialShare from "~/components/common/SocialShare.vue";
 import ReadMore from "~/components/common/ReadMore.vue";
+import HideText from "~/components/common/HideText.vue";
 
 export default {
   components: {
     SocialShare,
     ReadMore,
+    HideText,
   },
 
   data: () => {
@@ -39,7 +44,7 @@ export default {
     };
   },
   methods: {
-    onReadMore() {
+    onToggleText() {
       if (!this.isTextExpanded) {
         this.$store.dispatch("biography/fetchBiography", {
           offset: this.$store.getters["biography/historicalEvents"].length,
@@ -117,7 +122,7 @@ export default {
     }
   }
 
-  &__read-more {
+  &__toggle-text {
     display: flex;
     justify-content: flex-end;
 
