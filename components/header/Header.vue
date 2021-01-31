@@ -1,20 +1,20 @@
 <template>
   <section class="header">
     <div class="header__wrapper">
-    <SearchItem />
-    <MainNav />
+      <MainSearch />
+      <MainNav />
     </div>
   </section>
 </template>
 
 <script>
 import MainNav from "~/components/common/MainNav.vue";
-import SearchItem from "~/components/common/SearchItem.vue";
+import MainSearch from "~/components/common/MainSearch.vue";
 
 export default {
   components: {
     MainNav,
-    SearchItem,
+    MainSearch,
   },
 };
 </script>
@@ -26,11 +26,11 @@ export default {
 
   &__wrapper {
     @media (min-width: $width-desktop-min) {
-    width: 63%;
-    padding: 0 95px;
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
+      width: 63%;
+      padding: 0 95px;
+      display: flex;
+      justify-content: space-between;
+      margin-left: auto;
     }
 
     @media (max-width: $width-mobile-max) {
