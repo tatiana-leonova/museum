@@ -1,6 +1,10 @@
 <template>
   <div class="main-search">
-    <button class="search-button" @click="toggleSearchForm">
+    <button
+      class="search-button"
+      @click="toggleSearchForm"
+      aria-label="Поиск по сайту"
+    >
       <svg
         width="18"
         height="18"
