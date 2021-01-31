@@ -26,7 +26,7 @@ export default {
 
   &__wrapper {
     @media (min-width: $width-desktop-min) {
-      width: 63%;
+      // width: 63%;
       padding: 0 95px;
       display: flex;
       justify-content: space-between;

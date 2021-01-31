@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1 class="is-hidden">Художник Борис Кустодиев</h1>
+
+    <Header class="header--index" />
     <FirstScreen>
       <Promo />
     </FirstScreen>
@@ -13,6 +15,7 @@
 </template>
 
 <script>
+import Header from "~/components/header/Header.vue";
 import FirstScreen from "~/components/common/FirstScreen.vue";
 import Promo from "~/components/main/Promo.vue";
 import Biography from "~/components/Biography.vue";
@@ -22,6 +25,7 @@ import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
 export default {
   components: {
+    Header,
     FirstScreen,
     Promo,
     Biography,
@@ -47,4 +51,12 @@ export default {
 </script>
 
 <style>
+.header--index {
+  width: 60%;
+  margin-left: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
 </style>

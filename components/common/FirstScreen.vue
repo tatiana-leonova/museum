@@ -1,6 +1,6 @@
 <template>
   <section class="first-screen">
-    <Header />
+    <!-- <Header /> -->
     <slot></slot>
     <LogoAffinage class="logo" />
   </section>

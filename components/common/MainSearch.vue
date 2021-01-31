@@ -24,7 +24,7 @@
       </svg>
     </button>
     <form action="/catalog/" method="get" v-show="formVisibility">
-      <input type="text" placeholder="Поиск по сайту" />
+      <input type="text" placeholder="Введите название картины" />
     </form>
   </div>
 </template>
@@ -65,7 +65,7 @@ export default {
       border-bottom: 1px solid $color_gray5;
       color: $color_gray5;
       height: 30px;
-      width: 150px;
+      width: 200px;
 
       &::placeholder {
         color: $color_gray5;
