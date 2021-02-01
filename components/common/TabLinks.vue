@@ -2,12 +2,8 @@
   <div class="tabs-link">
     <div class="tabs-link__wrapper">
       <ul>
-        <li
-          v-for="(tab, index) in tabs"
-          :class="{ 'is-active': show == index }"
-          :key="index"
-        >
-          <a href="#" @click.prevent="show = index">{{ tab.title }}</a>
+        <li v-for="(tab, index) in tabs" :key="index">
+          <a href="#">{{ tab.title }}</a>
         </li>
       </ul>
     </div>
@@ -36,7 +32,6 @@ export default {
           json: "https://api.npoint.io/d746638a9035c662e7a2",
         },
       ],
-      active: 0,
     };
   },
   computed: {

@@ -5,6 +5,7 @@
       <FirstBlock />
     </FirstScreen>
     <TabLinks />
+    <CatalogFilter />
     <Catalog />
   </div>
 </template>
@@ -15,7 +16,7 @@ import FirstScreen from "~/components/common/FirstScreen.vue";
 import FirstBlock from "~/components/catalog/FirstBlock.vue";
 import Catalog from "~/components/catalog/Catalog.vue";
 import TabLinks from "~/components/common/TabLinks.vue";
-// import Biography from "~/components/Biography.vue";
+import CatalogFilter from "~/components/filters/CatalogFilter.vue";
 // import Creation from "~/components/Creation.vue";
 // import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
@@ -26,6 +27,7 @@ export default {
     FirstBlock,
     Catalog,
     TabLinks,
+    CatalogFilter,
     // Creation,
     // MuseumsBlock,
   },
