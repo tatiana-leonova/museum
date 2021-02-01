@@ -43,9 +43,10 @@ export default {
 
   data: () => {
     return {
-      filterItems: [
-        {
-          work: {
+      filterItems: {
+        work: {
+          title: "Работы",
+          items: {
             painting: "Живопись",
             drawingsAndIllustrations: "Рисунки и иллюстрации",
             theatricalAndDecorative: "Театрально-декорационное",
@@ -56,8 +57,9 @@ export default {
             decorativeAndApplied: "Декоративно-прикладное",
           },
         },
-        {
-          plot: {
+        plot: {
+          title: "Сюжет",
+          items: {
             portrait: "Портрет",
             genreScene: "Жанровая сцена",
             scenery: "Пейзаж",
@@ -73,8 +75,9 @@ export default {
             religiousScene: "Религиозная сцена",
           },
         },
-        {
-          style: {
+        style: {
+          title: "Стили",
+          items: {
             realism: "Реализм",
             modern: "Модерн",
             impressionism: "Импрессионизм",
@@ -85,8 +88,9 @@ export default {
             romanticism: "Романтизм",
           },
         },
-        {
-          technics: {
+        technics: {
+          title: "Техника",
+          items: {
             oil: "Масло",
             watercolor: "Акварель",
             graphitePencil: "Графитный карандаш",
@@ -101,7 +105,15 @@ export default {
             Перо: "pen",
           },
         },
-      ],
+        year: {
+          title: "Период",
+          items: {
+            1: "до 1900",
+            2: "1901-1916",
+            3: "1917 и позже",
+          },
+        },
+      },
     };
   },
 };
