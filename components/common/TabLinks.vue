@@ -4,7 +4,7 @@
       <ul>
         <li
           v-for="(tab, index) in tabs"
-          :class="{ 'is-active': index === active }"
+          :class="{ 'is-active': show == index }"
           :key="index"
         >
           <a href="#" @click.prevent="show = index">{{ tab.title }}</a>
@@ -21,15 +21,19 @@ export default {
       tabs: [
         {
           title: "Раритет",
+          json: "https://api.npoint.io/f4454ef4e05caa4f5b9a",
         },
         {
           title: "Новые",
+          json: "https://api.npoint.io/d746638a9035c662e7a2",
         },
         {
           title: "Антиквариат",
+          json: "https://api.npoint.io/f4454ef4e05caa4f5b9a",
         },
         {
           title: "Филателия",
+          json: "https://api.npoint.io/d746638a9035c662e7a2",
         },
       ],
       active: 0,

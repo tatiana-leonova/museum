@@ -27,32 +27,32 @@ export default {
     return {
       cards: [
         {
-          img: "painting-card-1.jpg",
+          img: "img1.jpg",
           name: 'Сундучник. Из серии "Русские типы"',
           year: "1920",
         },
         {
-          img: "painting-card-2.jpg",
+          img: "img2.jpg",
           name: 'Сундучник. Из серии "Русские типы"',
           year: "1920",
         },
         {
-          img: "painting-card-3.jpg",
+          img: "img3.jpg",
           name: 'Сундучник. Из серии "Русские типы"',
           year: "1920",
         },
         {
-          img: "painting-card-4.jpg",
+          img: "img4.jpg",
           name: 'Сундучник. Из серии "Русские типы"',
           year: "1920",
         },
         {
-          img: "painting-card-5.jpg",
+          img: "img5.jpg",
           name: 'Сундучник. Из серии "Русские типы"',
           year: "1920",
         },
         {
-          img: "painting-card-6.jpg",
+          img: "img6.jpg",
           name: 'Сундучник. Из серии "Русские типы"',
           year: "1920",
         },
