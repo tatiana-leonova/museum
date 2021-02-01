@@ -1,12 +1,14 @@
 <template>
   <li>
-    <p>Текст</p>
+    <p>{{ item }}</p>
     <span class="count">число</span>
   </li>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["item"],
+};
 </script>
 
 <style lang="scss" scoped>

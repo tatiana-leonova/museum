@@ -1,11 +1,13 @@
 <template>
   <li class="input-checkbox">
-    <label><input type="checkbox" /></label>
+    <label><input type="checkbox" />{{ item }}</label>
   </li>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["item"],
+};
 </script>
 
 <style lang="scss" scoped>

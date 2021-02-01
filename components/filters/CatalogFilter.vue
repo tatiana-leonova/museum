@@ -1,28 +1,50 @@
 <template>
   <div class="filters">
     <div class="filters__work">
-      <button>Заголовок</button>
-      <FilterItemWithCount />
+      <button>{{ filterItems.work.title }}</button>
+      <ul>
+        <FilterItemWithCount
+          v-for="(item, index) in filterItems.work.items"
+          :item="item"
+          :key="index"
+        />
+      </ul>
     </div>
 
-    <div class="filters__flot">
-      <button>Заголовок</button>
+    <div class="filters__plot">
+      <button>{{ filterItems.plot.title }}</button>
       <QuickSearch />
-      <FilterItemWithCheckbox />
+      <FilterItemWithCheckbox
+        v-for="(item, index) in filterItems.plot.items"
+        :item="item"
+        :key="index"
+      />
     </div>
     <div class="filters__style">
-      <button>Заголовок</button>
-      <FilterItemWithCheckbox />
+      <button>{{ filterItems.style.title }}</button>
+      <FilterItemWithCheckbox
+        v-for="(item, index) in filterItems.style.items"
+        :item="item"
+        :key="index"
+      />
     </div>
     <div class="filters__technics">
-      <button>Заголовок</button>
+      <button>{{ filterItems.technics.title }}</button>
       <QuickSearch />
-      <FilterItemWithCheckbox />
+      <FilterItemWithCheckbox
+        v-for="(item, index) in filterItems.technics.items"
+        :item="item"
+        :key="index"
+      />
     </div>
     <div class="filters__year">
-      <button>Заголовок</button>
+      <button>{{ filterItems.year.title }}</button>
       <Range />
-      <FilterItemWithCheckbox />
+      <FilterItemWithCheckbox
+        v-for="(item, index) in filterItems.year.items"
+        :item="item"
+        :key="index"
+      />
     </div>
   </div>
 </template>
