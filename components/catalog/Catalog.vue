@@ -127,7 +127,6 @@ export default {
   .big-photos {
     width: 280px;
     margin-bottom: 20px;
-    transition: all 0.5s ease-in;
 
     @media (max-width: 768px) {
       width: 120px;
@@ -140,7 +139,6 @@ export default {
 
   .small-photos {
     width: 200px;
-    transition: all 0.5s ease-out;
 
     @media (min-width: $width-desktop-min) {
       &:not(:nth-child(3n)) {

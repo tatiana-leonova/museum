@@ -2,7 +2,12 @@
   <div class="tabs-link">
     <div class="tabs-link__wrapper">
       <ul>
-        <li v-for="(tab, index) in tabs" :key="index">
+        <li
+          v-for="(tab, index) in tabs"
+          :key="index"
+          @click.prevent="active = tab.id"
+          :class="[active === tab.id ? 'active' : '']"
+        >
           <a href="#">{{ tab.title }}</a>
         </li>
       </ul>
@@ -16,28 +21,28 @@ export default {
     return {
       tabs: [
         {
+          id: "rarity",
           title: "Раритет",
           json: "https://api.npoint.io/f4454ef4e05caa4f5b9a",
         },
         {
+          id: "new",
           title: "Новые",
           json: "https://api.npoint.io/d746638a9035c662e7a2",
         },
         {
+          id: "antique",
           title: "Антиквариат",
           json: "https://api.npoint.io/f4454ef4e05caa4f5b9a",
         },
         {
+          id: "philately",
           title: "Филателия",
           json: "https://api.npoint.io/d746638a9035c662e7a2",
         },
       ],
+      active: "rarity",
     };
-  },
-  computed: {
-    active() {
-      return this.tabs.active;
-    },
   },
 };
 </script>
@@ -71,7 +76,6 @@ export default {
     @include no-list;
     display: inline-block;
     vertical-align: top;
-    padding-bottom: 10px;
     white-space: nowrap;
     width: 100%;
 
@@ -83,12 +87,8 @@ export default {
   li {
     display: inline-block;
     vertical-align: top;
-    padding-right: 40px;
-
-    &.show {
-      color: $color_dark;
-      border-bottom: 3px solid $color_dark;
-    }
+    margin-right: 40px;
+    padding-bottom: 10px;
   }
 
   a {
@@ -97,6 +97,14 @@ export default {
     font-size: 20px;
     font-family: $YesevaOne;
     font-weight: 400;
+  }
+
+  .active {
+    border-bottom: 3px solid $color_dark;
+
+    a {
+      color: $color_dark;
+    }
   }
 }
 </style>
