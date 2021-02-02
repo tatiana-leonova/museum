@@ -5,8 +5,10 @@
       <FirstBlock />
     </FirstScreen>
     <TabLinks />
-    <CatalogFilter />
+    <div class="catalog__wrapper container">
+    <CatalogFilter class="catalog-filter"/>
     <Catalog />
+    </div>
   </div>
 </template>
 
@@ -42,4 +44,11 @@ export default {
   z-index: 1;
   width: 100%;
 }
+  .catalog__wrapper {
+display: flex;
+  }
+
+  .catalog-filter {
+    margin-right: 120px;
+  }
 </style>

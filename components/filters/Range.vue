@@ -1,9 +1,11 @@
 <template>
   <div class="range">
-    <label class="min">c <input type="number" name="min" placeholder="с" /></label>
-    <label class="max"
-      >по <input type="number" name="max" placeholder="по"
-    /></label>
+    <label>
+      <input type="text" name="min" placeholder="с" />
+    </label>
+    <label>
+      <input type="text" name="max" placeholder="по" />
+    </label>
   </div>
 </template>
 
@@ -14,12 +16,20 @@ export default {};
 <style lang="scss" scoped>
 .range {
   box-sizing: content-box;
+  display: flex;
+  justify-content: space-between;
 
-  label {
-    width: 80px;
-    height: 30px;
+  input {
+    width: 70px;
+    height: 29px;
     border: 1px solid $color_gray6;
-    color: $color_gray6;
+    color: $color_dark;
+    font-size: 14px;
+    padding: 0 10px;
+
+    &:placeholder {
+      color: $color_gray6;
+    }
   }
 }
 </style>

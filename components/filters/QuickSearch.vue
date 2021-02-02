@@ -16,7 +16,9 @@ export default {};
     height: 29px;
     padding: 0 10px;
     border: 1px solid $color_gray6;
-    color: $color_gray6;
+    color: $color_dark;
+    font-size: 12px;
+    line-height: 26px;
 
     &:placeholder {
       color: $color_gray6;

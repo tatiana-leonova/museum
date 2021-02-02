@@ -1,7 +1,7 @@
 <template>
-  <li>
+  <li class="filter-items-count">
     <p>{{ item.name }}</p>
-    <span class="count">число</span>
+    <p class="count">{{}}</p>
   </li>
 </template>
 
@@ -12,4 +12,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.filter-items-count {
+  display: flex;
+  p {
+    @include zero-indent;
+  }
+}
 </style>

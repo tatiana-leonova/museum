@@ -1,5 +1,5 @@
 <template>
-  <section class="catalog container">
+  <section class="catalog">
     <h2 class="is-hidden">Каталог картин Бориса Пустадиева</h2>
     <div>
       <ul>
