@@ -1,6 +1,7 @@
 <template>
   <li class="input-checkbox">
-    <label><input type="checkbox" />{{ item.name }}</label>
+    <input type="checkbox" :id="item.id" />
+    <label :for="item.id">{{ item.name }}</label>
   </li>
 </template>
 
@@ -19,6 +20,7 @@ export default {
     width: 16px;
     height: 16px;
     background-color: #fff;
+    cursor: pointer;
   }
 }
 </style>
