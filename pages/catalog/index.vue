@@ -32,8 +32,20 @@ export default {
     Catalog,
     TabLinks,
     CatalogFilter,
-    // Creation,
-    // MuseumsBlock,
+  },
+
+  async asyncData({ app, route, params, error, store }) {
+    try {
+      await store.dispatch("catalog/fetchTab", {
+        tab: store.getters["catalog/tabMenu"].tabs[0],
+      });
+    } catch (err) {
+      console.log(err);
+      return error({
+        statusCode: 404,
+        message: "Картины не найдены или сервер не доступен",
+      });
+    }
   },
 };
 </script>

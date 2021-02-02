@@ -13,7 +13,11 @@
         <dt>{{ historicalEvent.year }}</dt>
         <dd>{{ historicalEvent.text }}</dd>
       </dl>
-      <div v-if="!isTextExpanded" class="biography__toggle-text" @click="onToggleText">
+      <div
+        v-if="!isTextExpanded"
+        class="biography__toggle-text"
+        @click="onToggleText"
+      >
         <ReadMore />
       </div>
       <div v-else class="biography__toggle-text" @click="onToggleText">

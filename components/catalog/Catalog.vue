@@ -50,38 +50,6 @@ export default {
   data: () => {
     return {
       isBigPhotosSelected: true,
-      cards: [
-        {
-          img: "img1.jpg",
-          name: 'Сундучник. Из серии "Русские типы"',
-          year: "1920",
-        },
-        {
-          img: "img2.jpg",
-          name: 'Сундучник. Из серии "Русские типы"',
-          year: "1920",
-        },
-        {
-          img: "img3.jpg",
-          name: 'Сундучник. Из серии "Русские типы"',
-          year: "1920",
-        },
-        {
-          img: "img4.jpg",
-          name: 'Сундучник. Из серии "Русские типы"',
-          year: "1920",
-        },
-        {
-          img: "img5.jpg",
-          name: 'Сундучник. Из серии "Русские типы"',
-          year: "1920",
-        },
-        {
-          img: "img6.jpg",
-          name: 'Сундучник. Из серии "Русские типы"',
-          year: "1920",
-        },
-      ],
     };
   },
 
@@ -91,6 +59,12 @@ export default {
     },
     selectedBigPhoto() {
       this.isBigPhotosSelected = true;
+    },
+  },
+
+  computed: {
+    cards() {
+      return this.$store.getters["catalog/cards"];
     },
   },
 };

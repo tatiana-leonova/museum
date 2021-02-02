@@ -3,10 +3,10 @@
     <div class="tabs-link__wrapper">
       <ul>
         <li
-          v-for="(tab, index) in tabs"
+          v-for="(tab, index) in tabMenu.tabs"
           :key="index"
-          @click.prevent="active = tab.id"
-          :class="[active === tab.id ? 'active' : '']"
+          @click.prevent="onTabClick(tab)"
+          :class="[tabMenu.active === tab.id ? 'active' : '']"
         >
           <a href="#">{{ tab.title }}</a>
         </li>
@@ -17,32 +17,17 @@
 
 <script>
 export default {
-  data: () => {
-    return {
-      tabs: [
-        {
-          id: "rarity",
-          title: "Раритет",
-          json: "https://api.npoint.io/f4454ef4e05caa4f5b9a",
-        },
-        {
-          id: "new",
-          title: "Новые",
-          json: "https://api.npoint.io/d746638a9035c662e7a2",
-        },
-        {
-          id: "antique",
-          title: "Антиквариат",
-          json: "https://api.npoint.io/f4454ef4e05caa4f5b9a",
-        },
-        {
-          id: "philately",
-          title: "Филателия",
-          json: "https://api.npoint.io/d746638a9035c662e7a2",
-        },
-      ],
-      active: "rarity",
-    };
+  methods: {
+    onTabClick(tab) {
+      this.$store.dispatch("catalog/changeTabActive", {
+        tab: tab,
+      });
+    },
+  },
+  computed: {
+    tabMenu() {
+      return this.$store.getters["catalog/tabMenu"];
+    },
   },
 };
 </script>
