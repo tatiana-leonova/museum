@@ -17,7 +17,7 @@
       <button class="filters__title-button">
         {{ filterItems.plot.title }}
       </button>
-      <QuickSearch />
+      <QuickSearch class="filters__search" />
       <ul>
         <FilterItemWithCheckbox
           v-for="(item, index) in filterItems.plot.items"
@@ -42,7 +42,7 @@
       <button class="filters__title-button">
         {{ filterItems.technics.title }}
       </button>
-      <QuickSearch />
+      <QuickSearch class="filters__search" />
       <ul>
         <FilterItemWithCheckbox
           v-for="(item, index) in filterItems.technics.items"
@@ -55,7 +55,7 @@
       <button class="filters__title-button">
         {{ filterItems.year.title }}
       </button>
-      <Range />
+      <Range class="filters__range" />
       <ul>
         <FilterItemWithCheckbox
           v-for="(item, index) in filterItems.year.items"
@@ -358,6 +358,14 @@ export default {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 700;
+    padding-bottom: 20px;
+  }
+
+  &__search {
+    padding-bottom: 20px;
+  }
+
+  &__range {
     padding-bottom: 20px;
   }
 }
