@@ -1,6 +1,6 @@
 <template>
   <li>
-    <p>{{ item }}</p>
+    <p>{{ item.name }}</p>
     <span class="count">число</span>
   </li>
 </template>

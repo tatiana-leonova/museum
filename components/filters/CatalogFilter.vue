@@ -69,67 +69,203 @@ export default {
         work: {
           title: "Работы",
           items: {
-            painting: "Живопись",
-            drawingsAndIllustrations: "Рисунки и иллюстрации",
-            theatricalAndDecorative: "Театрально-декорационное",
-            graphics: "Графика",
-            engraving: "Гравюра",
-            poster: "Плакат",
-            sculpture: "Скульптура",
-            decorativeAndApplied: "Декоративно-прикладное",
+            painting: {
+              name: "Живопись",
+              isChecked: false,
+            },
+            drawingsAndIllustrations: {
+              name: "Рисунки и иллюстрации",
+              isChecked: false,
+            },
+            theatricalAndDecorative: {
+              name: "Театрально-декорационное",
+              isChecked: false,
+            },
+            graphics: {
+              name: "Графика",
+              isChecked: false,
+            },
+            engraving: {
+              name: "Гравюра",
+              isChecked: false,
+            },
+            poster: {
+              name: "Плакат",
+              isChecked: false,
+            },
+            sculpture: {
+              name: "Скульптура",
+              isChecked: false,
+            },
+            decorativeAndApplied: {
+              name: "Декоративно-прикладное",
+              isChecked: false,
+            },
           },
         },
         plot: {
           title: "Сюжет",
           items: {
-            portrait: "Портрет",
-            genreScene: "Жанровая сцена",
-            scenery: "Пейзаж",
-            literaryScene: "Литературная сцена",
-            urbanLandscape: "Городской пейзаж",
-            nude: "Ню",
-            interior: "Интерьер",
-            stillLife: "Натюрморт",
-            allegoricalScene: "Аллегорическая сцена",
-            historicalScene: "Историческая сцена",
-            architecture: "Архитектура",
-            animalism: "Анимализм",
-            religiousScene: "Религиозная сцена",
+            portrait: {
+              name: "Портрет",
+              isChecked: false,
+            },
+            genreScene: {
+              name: "Жанровая сцена",
+              isChecked: false,
+            },
+            scenery: {
+              name: "Пейзаж",
+              isChecked: false,
+            },
+            literaryScene: {
+              name: "Литературная сцена",
+              isChecked: false,
+            },
+            urbanLandscape: {
+              name: "Городской пейзаж",
+              isChecked: false,
+            },
+            nude: {
+              name: "Ню",
+              isChecked: false,
+            },
+            interior: {
+              name: "Интерьер",
+              isChecked: false,
+            },
+            stillLife: {
+              name: "Натюрморт",
+              isChecked: false,
+            },
+            allegoricalScene: {
+              name: "Аллегорическая сцена",
+              isChecked: false,
+            },
+            historicalScene: {
+              name: "Историческая сцена",
+              isChecked: false,
+            },
+            architecture: {
+              name: "Архитектура",
+              isChecked: false,
+            },
+            animalism: {
+              name: "Анимализм",
+              isChecked: false,
+            },
+            religiousScene: {
+              name: "Религиозная сцена",
+              isChecked: false,
+            },
           },
         },
         style: {
           title: "Стили",
           items: {
-            realism: "Реализм",
-            modern: "Модерн",
-            impressionism: "Импрессионизм",
-            socialistRealism: "Соцреализм",
-            primitivism: "Примитивизм",
-            artNouveau: "Ар Нуво",
-            surrealism: "Сюрреализм",
-            romanticism: "Романтизм",
+            realism: {
+              name: "Реализм",
+              isChecked: false,
+            },
+            modern: {
+              name: "Реализм",
+              isChecked: false,
+            },
+            impressionism: {
+              name: "Импрессионизм",
+              isChecked: false,
+            },
+            socialistRealism: {
+              name: "Соцреализм",
+              isChecked: false,
+            },
+            primitivism: {
+              name: "Примитивизм",
+              isChecked: false,
+            },
+            artNouveau: {
+              name: "Ар Нуво",
+              isChecked: false,
+            },
+            surrealism: {
+              name: "Сюрреализм",
+              isChecked: false,
+            },
+            romanticism: {
+              name: "Романтизм",
+              isChecked: false,
+            },
           },
         },
         technics: {
           title: "Техника",
           items: {
-            oil: "Масло",
-            watercolor: "Акварель",
-            graphitePencil: "Графитный карандаш",
-            gouache: "Гуашь",
-            pastel: "Пастель",
-            mascara: "Тушь",
-            graphite: "Графит",
-            colorPencil: "Цветной карандаш",
-            coal: "Уголь",
-            chalk: "Мел",
-            engraving: "Гравюра",
-            pen: "Перо",
+            oil: {
+              name: "Масло",
+              isChecked: false,
+            },
+            watercolor: {
+              name: "Акварель",
+              isChecked: false,
+            },
+            graphitePencil: {
+              name: "Графитный карандаш",
+              isChecked: false,
+            },
+            gouache: {
+              name: "Гуашь",
+              isChecked: false,
+            },
+            pastel: {
+              name: "Пастель",
+              isChecked: false,
+            },
+            mascara: {
+              name: "Тушь",
+              isChecked: false,
+            },
+            graphite: {
+              name: "Графит",
+              isChecked: false,
+            },
+            colorPencil: {
+              name: "Цветной карандаш",
+              isChecked: false,
+            },
+            coal: {
+              name: "Уголь",
+              isChecked: false,
+            },
+            chalk: {
+              name: "Мел",
+              isChecked: false,
+            },
+            engraving: {
+              name: "Гравюра",
+              isChecked: false,
+            },
+            pen: {
+              name: "Перо",
+              isChecked: false,
+            },
           },
         },
         year: {
           title: "Период",
-          items: ["до 1900", "1901-1916", "1917 и позже"],
+          items: {
+            period1: {
+              name: "до 1900",
+              isChecked: false,
+            },
+            period2: {
+              name: "1901-1916",
+              isChecked: false,
+            },
+            period3: {
+              name: "1917 и позже",
+              isChecked: false,
+            },
+          },
         },
       },
     };

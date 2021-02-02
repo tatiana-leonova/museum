@@ -1,6 +1,6 @@
 <template>
   <li class="input-checkbox">
-    <label><input type="checkbox" />{{ item }}</label>
+    <label><input type="checkbox" />{{ item.name }}</label>
   </li>
 </template>
 
