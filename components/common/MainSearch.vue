@@ -1,5 +1,8 @@
 <template>
   <div class="main-search">
+    <form action="/catalog/" method="get" v-show="formVisibility">
+      <input type="text" ref="search" placeholder="Введите название картины" />
+    </form>
     <button
       class="search-button"
       @click="toggleSearchForm"
@@ -27,9 +30,6 @@
         />
       </svg>
     </button>
-    <form action="/catalog/" method="get" v-show="formVisibility">
-      <input type="text" ref="search" placeholder="Введите название картины" />
-    </form>
   </div>
 </template>
 
@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
 .main-search {
   position: relative;
+  display: flex;
 
   .search-button {
     border: none;
@@ -62,9 +63,7 @@ export default {
   }
 
   form {
-    position: absolute;
-    top: 30px;
-    left: 0;
+    transition: all 0.5s;
 
     input {
       background-color: inherit;
@@ -73,6 +72,7 @@ export default {
       color: $color_gray5;
       height: 30px;
       width: 200px;
+      outline: none;
 
       &::placeholder {
         color: $color_gray5;
