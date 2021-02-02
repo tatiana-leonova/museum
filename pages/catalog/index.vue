@@ -1,13 +1,15 @@
 <template>
-  <div>
+  <div class="catalog">
     <Header class="header--catalog" />
     <FirstScreen>
       <FirstBlock />
     </FirstScreen>
     <TabLinks />
     <div class="catalog__wrapper container">
-    <CatalogFilter class="catalog-filter"/>
-    <Catalog />
+      <CatalogFilter class="catalog__filter" />
+      <div class="catalog__display-catalog">
+        <Catalog />
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .header--catalog {
   position: absolute;
   top: 0;
@@ -44,11 +46,14 @@ export default {
   z-index: 1;
   width: 100%;
 }
-  .catalog__wrapper {
-display: flex;
+
+.catalog {
+  &__wrapper {
+    display: flex;
   }
 
-  .catalog-filter {
+  &__filter {
     margin-right: 120px;
   }
+}
 </style>
