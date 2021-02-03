@@ -1,68 +1,121 @@
 <template>
   <div class="filters">
-    <div class="filters__block filters__block--work">
-      <button class="filters__title-button">
-        {{ filterItems.work.title }}
-      </button>
-      <ul>
-        <FilterItemWithCount
-          v-for="(item, index) in filterItems.work.items"
-          :item="item"
-          :key="index"
-        />
-      </ul>
+    <div class="filters__accordion-item">
+      <a
+        class="filters__item-title"
+        href="#"
+        @click.prevent="toggleItem(filterItems.work, 'work')"
+      >
+        <span>{{ filterItems.work.title }}</span>
+      </a>
+      <div
+        class="filters__accordion-content"
+        ref="work"
+        :style="{ height: filterItems.work.contentStyleHeight }"
+      >
+        <ul>
+          <FilterItemWithCount
+            v-for="(item, index) in filterItems.work.items"
+            :item="item"
+            :key="index"
+          />
+        </ul>
+      </div>
     </div>
 
-    <div class="filters__block filters__block--plot">
-      <button class="filters__title-button">
+    <div class="filters__accordion-item">
+      <a
+        class="filters__item-title"
+        href="#"
+        @click.prevent="toggleItem(filterItems.plot, 'plot')"
+      >
         {{ filterItems.plot.title }}
-      </button>
-      <QuickSearch class="filters__search" />
-      <ul>
-        <FilterItemWithCheckbox
-          v-for="(item, index) in filterItems.plot.items"
-          :item="item"
-          :key="index"
-        />
-      </ul>
+      </a>
+      <div
+        class="filters__accordion-content"
+        ref="plot"
+        :style="{ height: filterItems.plot.contentStyleHeight }"
+      >
+        <QuickSearch class="filters__search" />
+        <ul>
+          <FilterItemWithCheckbox
+            v-for="(item, index) in filterItems.plot.items"
+            :item="item"
+            :key="index"
+          />
+        </ul>
+      </div>
     </div>
-    <div class="filters__block filters__block--style">
-      <button class="filters__title-button">
+
+    <div class="filters__accordion-item">
+      <a
+        class="filters__item-title"
+        href="#"
+        @click.prevent="toggleItem(filterItems.style, 'style')"
+      >
         {{ filterItems.style.title }}
-      </button>
-      <ul>
-        <FilterItemWithCheckbox
-          v-for="(item, index) in filterItems.style.items"
-          :item="item"
-          :key="index"
-        />
-      </ul>
+      </a>
+      <div
+        class="filters__accordion-content"
+        ref="style"
+        :style="{ height: filterItems.style.contentStyleHeight }"
+      >
+        <ul>
+          <FilterItemWithCheckbox
+            v-for="(item, index) in filterItems.style.items"
+            :item="item"
+            :key="index"
+          />
+        </ul>
+      </div>
     </div>
-    <div class="filters__block filters__block--technics">
-      <button class="filters__title-button">
+
+    <div class="filters__accordion-item">
+      <a
+        class="filters__item-title"
+        href="#"
+        @click.prevent="toggleItem(filterItems.technics, 'technics')"
+      >
         {{ filterItems.technics.title }}
-      </button>
-      <QuickSearch class="filters__search" />
-      <ul>
-        <FilterItemWithCheckbox
-          v-for="(item, index) in filterItems.technics.items"
-          :item="item"
-          :key="index"
-        />
-      </ul>
+      </a>
+      <div
+        class="filters__accordion-content"
+        ref="technics"
+        :style="{ height: filterItems.technics.contentStyleHeight }"
+      >
+        <QuickSearch class="filters__search" />
+        <ul>
+          <FilterItemWithCheckbox
+            v-for="(item, index) in filterItems.technics.items"
+            :item="item"
+            :key="index"
+          />
+        </ul>
+      </div>
     </div>
-    <div class="filters__block filters__block--year">
-      <button class="filters__title-button">
+
+    <div class="filters__accordion-item">
+      <a
+        class="filters__item-title"
+        href="#"
+        @click.prevent="toggleItem(filterItems.year, 'year')"
+      >
         {{ filterItems.year.title }}
-      </button>
-      <Range class="filters__range" />
-      <ul>
-        <FilterItemWithCheckbox
-          v-for="(item, index) in filterItems.year.items"
-          :item="item"
-          :key="index"
-        />
-      </ul>
+      </a>
+      <div
+        class="filters__accordion-content"
+        ref="year"
+        :style="{ height: filterItems.year.contentStyleHeight }"
+      >
+        <Range class="filters__range" />
+        <ul>
+          <FilterItemWithCheckbox
+            v-for="(item, index) in filterItems.year.items"
+            :item="item"
+            :key="index"
+          />
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +139,8 @@ export default {
       filterItems: {
         work: {
           title: "Работы",
+          isOpen: true,
+          contentStyleHeight: "auto",
           items: [
             {
               id: "painting",
@@ -95,42 +150,37 @@ export default {
             {
               id: "drawingsAndIllustrations",
               name: "Рисунки и иллюстрации",
-              isChecked: false,
             },
             {
               id: "theatricalAndDecorative",
               name: "Театрально-декорационное",
-              isChecked: false,
             },
             {
               id: "graphics",
               name: "Графика",
-              isChecked: false,
             },
             {
               id: "engraving",
               name: "Гравюра",
-              isChecked: false,
             },
             {
               id: "poster",
               name: "Плакат",
-              isChecked: false,
             },
             {
               id: "sculpture",
               name: "Скульптура",
-              isChecked: false,
             },
             {
               id: "decorativeAndApplied",
               name: "Декоративно-прикладное",
-              isChecked: false,
             },
           ],
         },
         plot: {
           title: "Сюжет",
+          isOpen: true,
+          contentStyleHeight: "auto",
           items: [
             {
               id: "portrait",
@@ -201,6 +251,8 @@ export default {
         },
         style: {
           title: "Стили",
+          isOpen: true,
+          contentStyleHeight: "auto",
           items: [
             {
               id: "realism",
@@ -246,6 +298,8 @@ export default {
         },
         technics: {
           title: "Техника",
+          isOpen: true,
+          contentStyleHeight: "auto",
           items: [
             {
               id: "oil",
@@ -297,7 +351,7 @@ export default {
               name: "Мел",
               isChecked: false,
             },
-            {
+            +{
               id: "engraving",
               name: "Гравюра",
               isChecked: false,
@@ -311,6 +365,8 @@ export default {
         },
         year: {
           title: "Период",
+          isOpen: true,
+          contentStyleHeight: "auto",
           items: [
             {
               id: "period1",
@@ -332,6 +388,30 @@ export default {
       },
     };
   },
+  methods: {
+    toggleItem(item, refLink) {
+      item.isOpen = !item.isOpen;
+
+      const content = this.$refs[refLink];
+
+      if (item.isOpen) {
+        // открытие
+        item.contentStyleHeight = content.scrollHeight + "px";
+
+        // по окончании анимации обнуляем стили
+        setTimeout(() => {
+          item.contentStyleHeight = "auto";
+        }, 500); // время анимации в css
+      } else {
+        // закрытие
+        item.contentStyleHeight = content.offsetHeight + "px";
+
+        setTimeout(() => {
+          item.contentStyleHeight = "0px";
+        }, 1); // мини-задержка для рендеринга браузера
+      }
+    },
+  },
 };
 </script>
 
@@ -339,10 +419,11 @@ export default {
 .filters {
   width: 200px;
 
-  &__block {
+  &__accordion-item {
     border-bottom: 1px solid $color_gray6;
     padding: 20px 0;
   }
+
   ul {
     @include no-list;
     font-size: 12px;
@@ -351,14 +432,31 @@ export default {
     color: $color_gray2;
   }
 
-  &__title-button {
-    border: none;
-    background-color: inherit;
+  &__item-title {
+    display: block;
     color: $color_dark;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 700;
     padding-bottom: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    width: 200px;
+    text-align: left;
+    padding-right: 15px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 0;
+      top: 12px;
+      width: 10px;
+      height: 2px;
+      font-size: 18px;
+      background-color: $color_dark;
+      transition: transform 0.5s ease;
+    }
   }
 
   &__search {
@@ -367,6 +465,10 @@ export default {
 
   &__range {
     padding-bottom: 20px;
+  }
+  &__accordion-content {
+    overflow: hidden;
+    transition: height 0.5s ease;
   }
 }
 </style>

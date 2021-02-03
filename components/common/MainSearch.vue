@@ -45,7 +45,7 @@ export default {
       this.formVisibility = !this.formVisibility;
       setTimeout((x) => {
         this.$nextTick(() => this.$refs.search.focus());
-      }, 50);
+      }, 100);
     },
   },
 };
