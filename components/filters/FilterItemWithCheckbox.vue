@@ -1,6 +1,6 @@
 <template>
   <li class="input-checkbox">
-    <input class="is-hidden" type="checkbox" :id="item.id" />
+    <input class="is-hidden" type="checkbox" :id="item.id" @click="$emit('on-checked')" />
     <label :for="item.id">{{ item.name }}</label>
   </li>
 </template>

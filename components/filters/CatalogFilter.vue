@@ -45,6 +45,7 @@
         <QuickSearch class="filters__search" />
         <ul>
           <FilterItemWithCheckbox
+          @on-checked="onChecked('plot', item)"
             v-for="(item, index) in filterItems.plot.items"
             :item="item"
             :key="index"
@@ -71,6 +72,7 @@
       >
         <ul>
           <FilterItemWithCheckbox
+          @on-checked="onChecked('style', item)"
             v-for="(item, index) in filterItems.style.items"
             :item="item"
             :key="index"
@@ -98,6 +100,7 @@
         <QuickSearch class="filters__search" />
         <ul>
           <FilterItemWithCheckbox
+          @on-checked="onChecked('technics', item)"
             v-for="(item, index) in filterItems.technics.items"
             :item="item"
             :key="index"
@@ -176,6 +179,13 @@ export default {
           // item.contentStyleHeight = "0px";
         }, 1);
       }
+    },
+
+    onChecked(refLink, item) {
+      this.$store.dispatch("catalogFilter/setFilterChecked", {
+        refLink,
+        item,
+      });
     },
   },
 

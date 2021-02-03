@@ -1,4 +1,13 @@
+import _ from "lodash";
+
 export const state = () => ({
+  currentFilters: {
+    work: [],
+    plot: [],
+    style: [],
+    technics: [],
+    year: []
+  },
   filterItems: {
     work: {
       title: "Работы",
@@ -131,7 +140,7 @@ export const state = () => ({
         },
         {
           id: "modern",
-          name: "Реализм",
+          name: "Модерн",
           isChecked: false
         },
         {
@@ -160,7 +169,7 @@ export const state = () => ({
           isChecked: false
         },
         {
-          id: "genreScene",
+          id: "romanticism",
           name: "Романтизм",
           isChecked: false
         }
@@ -264,6 +273,39 @@ export const mutations = {
   },
   SET_CONTENT_STYLE_HEIGHT_ITEM(state, { refLink, heightItem }) {
     state.filterItems[refLink].contentStyleHeight = heightItem;
+  },
+
+  SET_FILTER_CHECKED(state, { refLink, item, rootState }) {
+    console.log(refLink);
+    console.log(item);
+
+    if (_.includes(state.currentFilters[refLink], item.id)) {
+      _.remove(state.currentFilters[refLink], function(n) {
+        return n === item.id;
+      });
+    } else {
+      state.currentFilters[refLink].push(item.id);
+    }
+
+    if (
+      state.currentFilters.work.length != 0 ||
+      state.currentFilters.plot.length != 0 ||
+      state.currentFilters.style.length != 0 ||
+      state.currentFilters.technics.length != 0
+    ) {
+      rootState.catalog.cardsFilters = _.filter(
+        rootState.catalog.cards,
+        function(card) {
+          return (
+            _.includes(state.currentFilters.plot, card.plot) ||
+            _.includes(state.currentFilters.technics, card.technics) ||
+            _.includes(state.currentFilters.style, card.style)
+          );
+        }
+      );
+    } else {
+      rootState.catalog.cardsFilters = rootState.catalog.cards;
+    }
   }
 };
 
@@ -274,6 +316,10 @@ export const actions = {
 
   setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
     commit("SET_CONTENT_STYLE_HEIGHT_ITEM", { refLink, heightItem });
+  },
+
+  setFilterChecked({ commit, rootState }, { refLink, item }) {
+    commit("SET_FILTER_CHECKED", { refLink, item, rootState });
   }
 };
 

@@ -24,12 +24,14 @@ export const state = () => ({
     ],
     active: "rarity"
   },
-  cards: []
+  cards: [],
+  cardsFilters: []
 });
 
 export const mutations = {
   SET_TABS(state, cards) {
     state.cards = cards;
+    state.cardsFilters = cards;
   },
 
   SET_ACTIVE(state, { tabId, cards }) {
@@ -52,5 +54,5 @@ export const actions = {
 
 export const getters = {
   tabMenu: state => state.tabMenu,
-  cards: state => state.cards
+  cards: state => state.cardsFilters
 };
