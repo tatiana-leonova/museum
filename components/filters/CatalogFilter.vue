@@ -150,21 +150,30 @@ export default {
   },
   methods: {
     toggleItem(item, refLink) {
+      const dispatchHeight = (refLink, heightItem) => {
+        this.$store.dispatch("catalogFilter/setContentStyleHeightItem", {
+          refLink,
+          heightItem,
+        });
+      };
 
       this.$store.dispatch("catalogFilter/toggleFilterItemCollapsing", refLink);
 
       const content = this.$refs[refLink];
 
       if (item.isOpen) {
-        item.contentStyleHeight = content.scrollHeight + "px";
+        dispatchHeight(refLink, content.scrollHeight + "px");
         setTimeout(() => {
+          dispatchHeight(refLink, "auto");
           item.contentStyleHeight = "auto";
         }, 500);
       } else {
-        item.contentStyleHeight = content.offsetHeight + "px";
+        dispatchHeight(refLink, content.offsetHeight + "px");
+        // item.contentStyleHeight = content.offsetHeight + "px";
 
         setTimeout(() => {
-          item.contentStyleHeight = "0px";
+          dispatchHeight(refLink, "0px");
+          // item.contentStyleHeight = "0px";
         }, 1);
       }
     },
