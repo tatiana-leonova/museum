@@ -1,6 +1,9 @@
 <template>
   <div class="filters">
-    <div class="filters__accordion-item">
+    <div
+      class="filters__accordion-item"
+      :class="{ 'is-open': filterItems.work.isOpen }"
+    >
       <a
         class="filters__item-title"
         href="#"
@@ -23,7 +26,10 @@
       </div>
     </div>
 
-    <div class="filters__accordion-item">
+    <div
+      class="filters__accordion-item"
+      :class="{ 'is-open': filterItems.plot.isOpen }"
+    >
       <a
         class="filters__item-title"
         href="#"
@@ -47,7 +53,10 @@
       </div>
     </div>
 
-    <div class="filters__accordion-item">
+    <div
+      class="filters__accordion-item"
+      :class="{ 'is-open': filterItems.style.isOpen }"
+    >
       <a
         class="filters__item-title"
         href="#"
@@ -70,7 +79,10 @@
       </div>
     </div>
 
-    <div class="filters__accordion-item">
+    <div
+      class="filters__accordion-item"
+      :class="{ 'is-open': filterItems.technics.isOpen }"
+    >
       <a
         class="filters__item-title"
         href="#"
@@ -94,7 +106,10 @@
       </div>
     </div>
 
-    <div class="filters__accordion-item">
+    <div
+      class="filters__accordion-item"
+      :class="{ 'is-open': filterItems.year.isOpen }"
+    >
       <a
         class="filters__item-title"
         href="#"
@@ -108,7 +123,7 @@
         :style="{ height: filterItems.year.contentStyleHeight }"
       >
         <Range class="filters__range" />
-        <ul>
+        <ul class="no-border">
           <FilterItemWithCheckbox
             v-for="(item, index) in filterItems.year.items"
             :item="item"
@@ -420,8 +435,15 @@ export default {
   width: 200px;
 
   &__accordion-item {
-    border-bottom: 1px solid $color_gray6;
-    padding: 20px 0;
+    padding-top: 30px;
+
+    &.is-open {
+      .filters__item-title {
+        &::after {
+          content: none;
+        }
+      }
+    }
   }
 
   ul {
@@ -430,6 +452,12 @@ export default {
     font-weight: 400;
     line-height: 26px;
     color: $color_gray2;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color_gray6;
+
+    &.no-border {
+      border-bottom: 0;
+    }
   }
 
   &__item-title {
@@ -446,13 +474,25 @@ export default {
     text-align: left;
     padding-right: 15px;
 
-    &::after {
+    &::before {
       position: absolute;
       content: "";
       right: 0;
       top: 12px;
       width: 10px;
       height: 2px;
+      font-size: 18px;
+      background-color: $color_dark;
+      transition: transform 0.5s ease;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 4px;
+      top: 8px;
+      width: 2px;
+      height: 10px;
       font-size: 18px;
       background-color: $color_dark;
       transition: transform 0.5s ease;
