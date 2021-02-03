@@ -258,6 +258,25 @@ export const state = () => ({
   }
 });
 
+export const mutations = {
+  TOGGLE_FILTER_ITEM_COLLAPSING(state, refLink) {
+    state.filterItems[refLink].isOpen = !state.filterItems[refLink].isOpen;
+  },
+  SET_CONTENT_STYLE_HEIGHT_ITEM(state, refLink) {
+    state.filterItems[refLink].isOpen = !state.filterItems[refLink].isOpen;
+  }
+};
+
+export const actions = {
+  toggleFilterItemCollapsing({ commit }, refLink) {
+    commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink);
+  },
+
+  setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
+    commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink, heightItem);
+  }
+};
+
 export const getters = {
   filterItems: state => state.filterItems
 };

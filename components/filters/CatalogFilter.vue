@@ -150,25 +150,22 @@ export default {
   },
   methods: {
     toggleItem(item, refLink) {
-      item.isOpen = !item.isOpen;
+
+      this.$store.dispatch("catalogFilter/toggleFilterItemCollapsing", refLink);
 
       const content = this.$refs[refLink];
 
       if (item.isOpen) {
-        // открытие
         item.contentStyleHeight = content.scrollHeight + "px";
-
-        // по окончании анимации обнуляем стили
         setTimeout(() => {
           item.contentStyleHeight = "auto";
-        }, 500); // время анимации в css
+        }, 500);
       } else {
-        // закрытие
         item.contentStyleHeight = content.offsetHeight + "px";
 
         setTimeout(() => {
           item.contentStyleHeight = "0px";
-        }, 1); // мини-задержка для рендеринга браузера
+        }, 1);
       }
     },
   },
