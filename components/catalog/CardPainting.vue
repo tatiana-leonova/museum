@@ -20,6 +20,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   margin-bottom: 20px;
+
   h3,
   span {
     display: block;
@@ -28,6 +29,7 @@ export default {
     color: $color_gray2;
     font-weight: 400;
     text-align: center;
+
     @media (max-width: 768px) {
       text-align: left;
     }
@@ -38,7 +40,7 @@ export default {
   }
 
   img {
-    @media (max-width: 768px) {
+    @media (max-width: 660px) {
       width: 120px;
       height: 147px;
     }

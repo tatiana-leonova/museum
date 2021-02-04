@@ -75,10 +75,10 @@ export default {
   ul {
     @include no-list;
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 
-    @media (max-width: 768px) {
-      width: 280px;
+    @media (max-width: 660px) {
       margin: 0 auto;
     }
   }
@@ -108,30 +108,16 @@ export default {
     width: 280px;
     margin-bottom: 20px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 660px) {
       width: 120px;
-    }
-
-    &:not(:nth-child(2n)) {
-      margin-right: 40px;
     }
   }
 
   .small-photos {
     width: 200px;
 
-    @media (min-width: $width-desktop-min) {
-      &:not(:nth-child(3n)) {
-        margin-right: 10px;
-      }
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 660px) {
       width: 120px;
-
-      &:not(:nth-child(2n)) {
-        margin-right: 40px;
-      }
     }
   }
 }
