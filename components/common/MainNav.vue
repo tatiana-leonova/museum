@@ -4,11 +4,13 @@
     :class="[isMenuShow ? 'main-nav--opened' : 'main-nav--closed']"
   >
     <button
-      class="main-nav__toggle"
+      class="main-nav__toggle nav-icon left-arrow"
       type="button"
       aria-label="Открыть меню"
       @click="toggleStateMenu"
-    ></button>
+    >
+      <span class="span"></span>
+    </button>
     <ul class="main-nav__list">
       <li v-for="(item, index) in menuItems" :key="index">
         <nuxt-link class="main-nav__link" :to="item.link">
@@ -94,20 +96,11 @@ export default {
     position: absolute;
     top: 20px;
     right: 20px;
-    margin: 0px 5px;
     background-color: inherit;
     border: none;
     cursor: pointer;
-
-    &::after {
-      position: absolute;
-      content: "+";
-      width: 30px;
-      height: 30px;
-      top: -5px;
-      right: -10px;
-      color: #fff;
-    }
+    z-index: 50;
+    outline: none;
   }
 
   .main-nav--closed .main-nav__list {
@@ -132,19 +125,50 @@ export default {
     top: 20px;
     right: 20px;
     display: block;
-    width: 24px;
-    height: 16px;
-    // padding: 20px 30px;
+  }
+
+  .main-nav--opened .main-nav__toggle {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      right: 0;
+      width: 23px;
+      height: 2px;
+      background-color: #ffffff;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      box-shadow: none;
+    }
 
     &::after {
-      position: absolute;
-      content: "-";
-      width: 30px;
-      height: 30px;
-      top: -5px;
-      right: -10px;
-      color: #fff;
+      transform: rotate(-45deg);
     }
+
+    &:active::before,
+    &:active::after {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  .main-nav--closed .main-nav__toggle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 7px 0 0 #ffffff, 0 14px 0 0 #ffffff;
+  }
+
+  .main-nav--closed .main-nav__toggle:active::before {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 0 0 rgba(255, 255, 255, 0.3),
+      0 14px 0 0 rgba(255, 255, 255, 0.3);
   }
 }
 </style>
