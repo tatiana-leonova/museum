@@ -1,5 +1,5 @@
 <template>
-  <section class="museums container">
+  <section class="museums container" id="museums">
     <h2>музеи</h2>
     <div>
       <Map />

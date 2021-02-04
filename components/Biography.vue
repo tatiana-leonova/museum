@@ -1,5 +1,5 @@
 <template>
-  <section class="biography container">
+  <section class="biography container" id="biography">
     <div class="biography__wrapper-text">
       <h2>биография</h2>
       <p>
