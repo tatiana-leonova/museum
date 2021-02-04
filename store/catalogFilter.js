@@ -276,7 +276,6 @@ export const mutations = {
   },
 
   SET_FILTER_CHECKED(state, { refLink, item, rootState }) {
-
     if (_.includes(state.currentFilters[refLink], item.id)) {
       _.remove(state.currentFilters[refLink], function(n) {
         return n === item.id;
@@ -304,6 +303,9 @@ export const mutations = {
     } else {
       rootState.catalog.cardsFilters = rootState.catalog.cards;
     }
+    rootState.catalog.pageCount = Math.ceil(
+      rootState.catalog.cardsFilters.length / rootState.catalog.cardsOnPage
+    );
   }
 };
 

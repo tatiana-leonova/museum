@@ -36,15 +36,18 @@
           :key="index"
         />
       </ul>
+      <Pagination />
     </div>
   </section>
 </template>
 
 <script>
 import CardPainting from "~/components/catalog/CardPainting.vue";
+import Pagination from "~/components/common/Pagination.vue";
 export default {
   components: {
     CardPainting,
+    Pagination
   },
 
   data: () => {

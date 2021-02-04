@@ -24,6 +24,9 @@ export const state = () => ({
     ],
     active: "rarity"
   },
+  pageCount: 0,
+  cardsOnPage: 10,
+  currentPage: 0,
   cards: [],
   cardsFilters: []
 });
@@ -32,6 +35,7 @@ export const mutations = {
   SET_TABS(state, cards) {
     state.cards = cards;
     state.cardsFilters = cards;
+    state.pageCount = state.cards.length / state.cardsOnPage;
   },
 
   SET_ACTIVE(state, { tabId, cards }) {
@@ -55,5 +59,10 @@ export const actions = {
 
 export const getters = {
   tabMenu: state => state.tabMenu,
-  cards: state => state.cardsFilters
+  cards: state =>
+    state.cardsFilters.slice(
+      state.currentPage * state.cardsOnPage,
+      state.currentPage * state.cardsOnPage + state.cardsOnPage
+    ),
+  pageCount: state => state.pageCount
 };
