@@ -83,6 +83,12 @@ export default {
     }
   }
 
+  &__toggle {
+    @media (max-width: $width-mobile-max) {
+      display: none;
+    }
+  }
+
   &__toggle-button {
     border: none;
     background-color: inherit;

@@ -1,5 +1,8 @@
 <template>
-  <div class="filters">
+  <div
+    class="filters"
+    :class="[isFiltersShow ? 'filters--show' : 'filters--hide']"
+  >
     <div
       class="filters__accordion-item"
       :class="{ 'is-open': filterItems.work.isOpen }"
@@ -151,7 +154,17 @@ export default {
     QuickSearch,
     Range,
   },
+
+  data: () => {
+    return {
+      isFiltersShow: false,
+    };
+  },
   methods: {
+    ToggleFilterShow() {
+      this.isFiltersShow = !this.isFiltersShow;
+    },
+
     toggleItem(item, refLink) {
       const dispatchHeight = (refLink, heightItem) => {
         this.$store.dispatch("catalogFilter/setContentStyleHeightItem", {
@@ -199,6 +212,23 @@ export default {
 .filters {
   width: 200px;
 
+  @media (max-width: $width-mobile-max) {
+    min-width: 280px;
+    max-width: 100%;
+
+    // &--show {
+    //   display: block;
+    //   opacity: 1;
+    //   transition: 0.5s;
+    // }
+
+    &--hide {
+      display: none;
+      // visibility: hidden;
+      // position: absolite;
+    }
+  }
+
   &__accordion-item {
     padding-top: 30px;
 
@@ -218,7 +248,7 @@ export default {
     line-height: 26px;
     color: $color_gray2;
     padding-bottom: 20px;
-    border-bottom: 1px solid $color_gray6;
+    border-bottom: px solid $color_gray6;
 
     &.no-border {
       border-bottom: 0;
@@ -272,7 +302,7 @@ export default {
     padding-bottom: 20px;
   }
 
-   &__accordion-content {
+  &__accordion-content {
     overflow-y: hidden;
     transition: height 0.5s ease;
   }

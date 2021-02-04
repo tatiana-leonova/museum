@@ -31,7 +31,6 @@ export default {
 
   methods: {
     toggleStateMenu() {
-      console.log("toggleStateMenu");
       this.isMenuShow = !this.isMenuShow;
     },
   },
@@ -81,16 +80,11 @@ export default {
       font-weight: 40px;
     }
   }
-
-  // main-nav__toggle {
-  //   display: none;
-  // }
 }
 
 // мобильное меню
 @media (max-width: $width-mobile-max) {
   .main-nav__toggle {
-    // transition: 0.5s;
     display: block;
     width: 24px;
     height: 16px;
@@ -107,7 +101,7 @@ export default {
   .main-nav--closed .main-nav__list {
     visibility: hidden;
     position: absolute;
-    transition: 0.5s;
+    transition: op 0.5s;
     opacity: 0;
   }
 
@@ -123,7 +117,7 @@ export default {
     padding: 100px 0;
     background-color: $color_dark;
     opacity: 1;
-    transition-duration: 0.5s;
+    transition: 0.5s;
   }
 
   .main-nav--opened .main-nav__toggle {
