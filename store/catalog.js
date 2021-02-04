@@ -14,12 +14,12 @@ export const state = () => ({
       {
         id: "antique",
         title: "Антиквариат",
-        json: "https://api.npoint.io/f4454ef4e05caa4f5b9a"
+        json: "https://api.npoint.io/c4576445337f86113117"
       },
       {
         id: "philately",
         title: "Филателия",
-        json: "https://api.npoint.io/d746638a9035c662e7a2"
+        json: "https://api.npoint.io/906f50a1a731682e28fa"
       }
     ],
     active: "rarity"
@@ -37,6 +37,7 @@ export const mutations = {
   SET_ACTIVE(state, { tabId, cards }) {
     state.tabMenu.active = tabId;
     state.cards = cards;
+    state.cardsFilters = cards;
   }
 };
 

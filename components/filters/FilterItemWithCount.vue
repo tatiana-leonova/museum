@@ -22,11 +22,14 @@ export default {
   }
 
   &:hover {
-    &::after {
+    &::before {
+      z-index: 10000;
       position: absolute;
       content: "+";
       top: -2px;
-      left: -10px;
+      left: -12px;
+      font-size: 16px;
+      color: $color_dark;
       font-size: 14px;
     }
   }

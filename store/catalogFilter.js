@@ -276,8 +276,6 @@ export const mutations = {
   },
 
   SET_FILTER_CHECKED(state, { refLink, item, rootState }) {
-    console.log(refLink);
-    console.log(item);
 
     if (_.includes(state.currentFilters[refLink], item.id)) {
       _.remove(state.currentFilters[refLink], function(n) {

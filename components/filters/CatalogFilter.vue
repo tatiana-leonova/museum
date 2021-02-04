@@ -45,7 +45,7 @@
         <QuickSearch class="filters__search" />
         <ul>
           <FilterItemWithCheckbox
-          @on-checked="onChecked('plot', item)"
+            @on-checked="onChecked('plot', item)"
             v-for="(item, index) in filterItems.plot.items"
             :item="item"
             :key="index"
@@ -72,7 +72,7 @@
       >
         <ul>
           <FilterItemWithCheckbox
-          @on-checked="onChecked('style', item)"
+            @on-checked="onChecked('style', item)"
             v-for="(item, index) in filterItems.style.items"
             :item="item"
             :key="index"
@@ -100,7 +100,7 @@
         <QuickSearch class="filters__search" />
         <ul>
           <FilterItemWithCheckbox
-          @on-checked="onChecked('technics', item)"
+            @on-checked="onChecked('technics', item)"
             v-for="(item, index) in filterItems.technics.items"
             :item="item"
             :key="index"
@@ -172,11 +172,9 @@ export default {
         }, 500);
       } else {
         dispatchHeight(refLink, content.offsetHeight + "px");
-        // item.contentStyleHeight = content.offsetHeight + "px";
 
         setTimeout(() => {
           dispatchHeight(refLink, "0px");
-          // item.contentStyleHeight = "0px";
         }, 1);
       }
     },
@@ -273,8 +271,9 @@ export default {
   &__range {
     padding-bottom: 20px;
   }
-  &__accordion-content {
-    overflow: hidden;
+
+   &__accordion-content {
+    overflow-y: hidden;
     transition: height 0.5s ease;
   }
 }
