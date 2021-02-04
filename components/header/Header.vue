@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
   padding-top: 20px;
   background: $color_dark;
@@ -36,6 +36,17 @@ export default {
     @media (max-width: $width-mobile-max) {
       padding: 0 20px;
     }
+  }
+}
+
+.header--index {
+  @media (min-width: $width-desktop-min) {
+    position: absolute;
+    width: 60%;
+    margin-left: auto;
+    top: 0;
+    right: 0;
+    z-index: 1;
   }
 }
 </style>

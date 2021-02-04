@@ -51,12 +51,4 @@ export default {
 </script>
 
 <style>
-.header--index {
-  width: 60%;
-  margin-left: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-}
 </style>

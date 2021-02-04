@@ -1,8 +1,14 @@
 <template>
   <footer class="footer">
     <div class="footer__wrapper">
-      <div class="footer__main-nav">
-        <MenuLink />
+      <div class="footer__nav">
+        <ul>
+          <li v-for="(item, index) in menuItems" :key="index">
+            <nuxt-link class="footer__nav-link" :to="item.link">
+              {{ item.name }}
+            </nuxt-link>
+          </li>
+        </ul>
       </div>
       <div class="footer__social">
         <SocialLinks />
@@ -12,13 +18,17 @@
 </template>
 
 <script>
-import MenuLink from "~/components/common/MenuLink.vue";
 import SocialLinks from "~/components/common/SocialLinks.vue";
 
 export default {
   components: {
-    MenuLink,
     SocialLinks,
+  },
+
+  computed: {
+    menuItems() {
+      return this.$store.getters["menu/menuItems"];
+    },
   },
 };
 </script>
@@ -46,7 +56,7 @@ export default {
     width: 300px;
   }
 
-  &__main-nav {
+  &__nav {
     margin: 0 auto;
     padding: 0 50px 40px 50px;
 
@@ -54,6 +64,32 @@ export default {
       padding-bottom: 40px;
       padding: 0 0 40px 0;
     }
+  }
+
+  ul {
+    @include no-list;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (max-width: $width-mobile-max) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    li:not(:last-child) {
+      padding-right: 10px;
+
+      @media (max-width: $width-mobile-max) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: $color_gray5;
+    font-size: 14px;
+    line-height: 100%;
   }
 }
 </style>
