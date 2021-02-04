@@ -33,7 +33,7 @@ export default {
     }
 
     @media (max-width: $width-mobile-max) {
-      padding: 0 20px;
+      padding: 0;
     }
   }
 }

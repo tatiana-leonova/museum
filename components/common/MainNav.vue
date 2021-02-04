@@ -82,14 +82,15 @@ export default {
     }
   }
 
-  main-nav__toggle {
-    display: none;
-  }
+  // main-nav__toggle {
+  //   display: none;
+  // }
 }
 
 // мобильное меню
 @media (max-width: $width-mobile-max) {
   .main-nav__toggle {
+    // transition: 0.5s;
     display: block;
     width: 24px;
     height: 16px;
@@ -104,7 +105,10 @@ export default {
   }
 
   .main-nav--closed .main-nav__list {
-    display: none;
+    visibility: hidden;
+    position: absolute;
+    transition: 0.5s;
+    opacity: 0;
   }
 
   .main-nav--opened .main-nav__list {
@@ -118,6 +122,8 @@ export default {
     text-align: center;
     padding: 100px 0;
     background-color: $color_dark;
+    opacity: 1;
+    transition-duration: 0.5s;
   }
 
   .main-nav--opened .main-nav__toggle {
@@ -130,13 +136,14 @@ export default {
   .main-nav--opened .main-nav__toggle {
     &::before,
     &::after {
+      transition: 0.5s ease-in-out;
       content: "";
       position: absolute;
       top: 10px;
       right: 0;
       width: 23px;
       height: 2px;
-      background-color: #ffffff;
+      background-color: $color_gray6;
     }
 
     &::before {
@@ -147,28 +154,18 @@ export default {
     &::after {
       transform: rotate(-45deg);
     }
-
-    &:active::before,
-    &:active::after {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
   }
 
   .main-nav--closed .main-nav__toggle::before {
+    transition: 0.5s ease-in-out;
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     width: 24px;
     height: 2px;
-    background-color: #ffffff;
-    box-shadow: 0 7px 0 0 #ffffff, 0 14px 0 0 #ffffff;
-  }
-
-  .main-nav--closed .main-nav__toggle:active::before {
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 5px 0 0 rgba(255, 255, 255, 0.3),
-      0 14px 0 0 rgba(255, 255, 255, 0.3);
+    background-color: $color_gray6;
+    box-shadow: 0 7px 0 0 $color_gray6, 0 14px 0 0 $color_gray6;
   }
 }
 </style>
