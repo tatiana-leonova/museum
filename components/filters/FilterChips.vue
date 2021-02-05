@@ -1,8 +1,8 @@
 <template>
   <div class="filter-chips">
     <ul>
-      <li>
-        <span>ryrsyrthryty</span>
+      <li v-for="(chip, index) in filterChips" :key="index" @click="onClickRemoveChips(index)">
+        <span>{{ chip }}</span>
         <span class="filter-chips__remove">+</span>
       </li>
     </ul>
@@ -11,21 +11,17 @@
 
 <script>
 export default {
-  // methods: {
-  //   onPaginationClick(index) {
-  //     this.$store.dispatch("catalog/changePage", {
-  //       index: index,
-  //     });
-  //   },
-  // },
-  // computed: {
-  //   pageCount() {
-  //     return this.$store.getters["catalog/pageCount"];
-  //   },
-  //   currentPage() {
-  //     return this.$store.getters["catalog/currentPage"];
-  //   },
-  // },
+  methods: {
+    onClickRemoveChips(index) {
+      this.$store.dispatch("catalogFilter/removeChips",
+      index);
+    },
+  },
+  computed: {
+    filterChips() {
+      return this.$store.getters["catalogFilter/filterChips"];
+    },
+  },
 };
 </script>
 
@@ -46,8 +42,8 @@ export default {
     border-radius: 20px;
     padding: 2px 30px 2px 20px;
     cursor: pointer;
-     margin-right: 10px;
-     margin-bottom: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
   &__remove {
     position: absolute;

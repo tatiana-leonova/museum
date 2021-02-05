@@ -8,6 +8,9 @@ export const state = () => ({
     technics: [],
     year: []
   },
+
+  filterChips: [],
+
   filterItems: {
     work: {
       title: "Работы",
@@ -268,61 +271,80 @@ export const state = () => ({
 });
 
 export const mutations = {
-  TOGGLE_FILTER_ITEM_COLLAPSING(state, refLink) {
-    state.filterItems[refLink].isOpen = !state.filterItems[refLink].isOpen;
-  },
-  SET_CONTENT_STYLE_HEIGHT_ITEM(state, { refLink, heightItem }) {
-    state.filterItems[refLink].contentStyleHeight = heightItem;
-  },
+         TOGGLE_FILTER_ITEM_COLLAPSING(state, refLink) {
+           state.filterItems[refLink].isOpen = !state.filterItems[refLink]
+             .isOpen;
+         },
+         SET_CONTENT_STYLE_HEIGHT_ITEM(state, { refLink, heightItem }) {
+           state.filterItems[refLink].contentStyleHeight = heightItem;
+         },
 
-  SET_FILTER_CHECKED(state, { refLink, item, rootState }) {
-    if (_.includes(state.currentFilters[refLink], item.id)) {
-      _.remove(state.currentFilters[refLink], function(n) {
-        return n === item.id;
-      });
-    } else {
-      state.currentFilters[refLink].push(item.id);
-    }
+         SET_FILTER_CHECKED(state, { refLink, item, rootState }) {
+           if (_.includes(state.currentFilters[refLink], item.id)) {
+             _.remove(state.currentFilters[refLink], function(n) {
+               return n === item.id;
+             });
+           } else {
+             state.currentFilters[refLink].push(item.id);
+           }
 
-    if (
-      state.currentFilters.work.length != 0 ||
-      state.currentFilters.plot.length != 0 ||
-      state.currentFilters.style.length != 0 ||
-      state.currentFilters.technics.length != 0
-    ) {
-      rootState.catalog.cardsFilters = _.filter(
-        rootState.catalog.cards,
-        function(card) {
-          return (
-            _.includes(state.currentFilters.plot, card.plot) ||
-            _.includes(state.currentFilters.technics, card.technics) ||
-            _.includes(state.currentFilters.style, card.style)
-          );
-        }
-      );
-    } else {
-      rootState.catalog.cardsFilters = rootState.catalog.cards;
-    }
-    rootState.catalog.pageCount = Math.ceil(
-      rootState.catalog.cardsFilters.length / rootState.catalog.cardsOnPage
-    );
-  }
-};
+           if (_.includes(state.filterChips, item.name)) {
+             _.remove(state.filterChips, function(n) {
+               return n === item.name;
+             });
+           } else {
+             state.filterChips.push(item.name);
+           }
+
+           if (
+             state.currentFilters.work.length != 0 ||
+             state.currentFilters.plot.length != 0 ||
+             state.currentFilters.style.length != 0 ||
+             state.currentFilters.technics.length != 0
+           ) {
+             rootState.catalog.cardsFilters = _.filter(
+               rootState.catalog.cards,
+               function(card) {
+                 return (
+                   _.includes(state.currentFilters.plot, card.plot) ||
+                   _.includes(state.currentFilters.technics, card.technics) ||
+                   _.includes(state.currentFilters.style, card.style)
+                 );
+               }
+             );
+           } else {
+             rootState.catalog.cardsFilters = rootState.catalog.cards;
+           }
+           rootState.catalog.pageCount = Math.ceil(
+             rootState.catalog.cardsFilters.length /
+               rootState.catalog.cardsOnPage
+           );
+         },
+
+         REMOVE_CHIPS(state, index) {
+           state.filterChips.splice(index, 1);
+         }
+       };
 
 export const actions = {
-  toggleFilterItemCollapsing({ commit }, refLink) {
-    commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink);
-  },
+         toggleFilterItemCollapsing({ commit }, refLink) {
+           commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink);
+         },
 
-  setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
-    commit("SET_CONTENT_STYLE_HEIGHT_ITEM", { refLink, heightItem });
-  },
+         setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
+           commit("SET_CONTENT_STYLE_HEIGHT_ITEM", { refLink, heightItem });
+         },
 
-  setFilterChecked({ commit, rootState }, { refLink, item }) {
-    commit("SET_FILTER_CHECKED", { refLink, item, rootState });
-  }
-};
+         setFilterChecked({ commit, rootState }, { refLink, item }) {
+           commit("SET_FILTER_CHECKED", { refLink, item, rootState });
+         },
+
+         removeChips({ commit }, index ) {
+           commit("REMOVE_CHIPS", index);
+         }
+       };
 
 export const getters = {
-  filterItems: state => state.filterItems
+  filterItems: state => state.filterItems,
+  filterChips: state => state.filterChips
 };
