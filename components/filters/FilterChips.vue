@@ -1,8 +1,12 @@
 <template>
   <div class="filter-chips">
     <ul>
-      <li v-for="(chip, index) in filterChips" :key="index" @click="onClickRemoveChips(index)">
-        <span>{{ chip }}</span>
+      <li
+        v-for="(chip, index) in filterChips"
+        :key="index"
+        @click="onChipClick(chip)"
+      >
+        <span>{{ chip.name }}</span>
         <span class="filter-chips__remove">+</span>
       </li>
     </ul>
@@ -12,9 +16,9 @@
 <script>
 export default {
   methods: {
-    onClickRemoveChips(index) {
-      this.$store.dispatch("catalogFilter/removeChips",
-      index);
+    onChipClick(chip) {
+      this.$store.dispatch("catalogFilter/chipToggle", chip);
+      this.$store.dispatch("catalogFilter/setFilterChecked", chip);
     },
   },
   computed: {

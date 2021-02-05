@@ -20,42 +20,42 @@ export const state = () => ({
         {
           id: "painting",
           name: "Живопись",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "drawingsAndIllustrations",
           name: "Рисунки и иллюстрации",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "theatricalAndDecorative",
           name: "Театрально-декорационное",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "graphics",
           name: "Графика",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "engraving",
           name: "Гравюра",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "poster",
           name: "Плакат",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "sculpture",
           name: "Скульптура",
-          isChecked: false
+          filterGroup: "work"
         },
         {
           id: "decorativeAndApplied",
           name: "Декоративно-прикладное",
-          isChecked: false
+          filterGroup: "work"
         }
       ]
     },
@@ -67,67 +67,67 @@ export const state = () => ({
         {
           id: "portrait",
           name: "Портрет",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "genreScene",
           name: "Жанровая сцена",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "scenery",
           name: "Пейзаж",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "literaryScene",
           name: "Литературная сцена",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "urbanLandscape",
           name: "Городской пейзаж",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "nude",
           name: "Ню",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "interior",
           name: "Интерьер",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "stillLife",
           name: "Натюрморт",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "allegoricalScene",
           name: "Аллегорическая сцена",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "historicalScene",
           name: "Историческая сцена",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "architecture",
           name: "Архитектура",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "animalism",
           name: "Анимализм",
-          isChecked: false
+          filterGroup: "plot"
         },
         {
           id: "religiousScene",
           name: "Религиозная сцена",
-          isChecked: false
+          filterGroup: "plot"
         }
       ]
     },
@@ -139,42 +139,42 @@ export const state = () => ({
         {
           id: "realism",
           name: "Реализм",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "modern",
           name: "Модерн",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "impressionism",
           name: "Импрессионизм",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "socialistRealism",
           name: "Соцреализм",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "primitivism",
           name: "Примитивизм",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "artNouveau",
           name: "Ар Нуво",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "surrealism",
           name: "Сюрреализм",
-          isChecked: false
+          filterGroup: "style"
         },
         {
           id: "romanticism",
           name: "Романтизм",
-          isChecked: false
+          filterGroup: "style"
         }
       ]
     },
@@ -186,62 +186,62 @@ export const state = () => ({
         {
           id: "oil",
           name: "Масло",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "watercolor",
           name: "Акварель",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "graphitePencil",
           name: "Графитный карандаш",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "gouache",
           name: "Гуашь",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "pastel",
           name: "Пастель",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "mascara",
           name: "Тушь",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "graphite",
           name: "Графит",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "colorPencil",
           name: "Цветной карандаш",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "coal",
           name: "Уголь",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "chalk",
           name: "Мел",
-          isChecked: false
+          filterGroup: "technics"
         },
-        +{
+        {
           id: "engraving",
           name: "Гравюра",
-          isChecked: false
+          filterGroup: "technics"
         },
         {
           id: "pen",
           name: "Перо",
-          isChecked: false
+          filterGroup: "technics"
         }
       ]
     },
@@ -271,78 +271,77 @@ export const state = () => ({
 });
 
 export const mutations = {
-         TOGGLE_FILTER_ITEM_COLLAPSING(state, refLink) {
-           state.filterItems[refLink].isOpen = !state.filterItems[refLink]
-             .isOpen;
-         },
-         SET_CONTENT_STYLE_HEIGHT_ITEM(state, { refLink, heightItem }) {
-           state.filterItems[refLink].contentStyleHeight = heightItem;
-         },
+  TOGGLE_FILTER_ITEM_COLLAPSING(state, refLink) {
+    state.filterItems[refLink].isOpen = !state.filterItems[refLink].isOpen;
+  },
+  SET_CONTENT_STYLE_HEIGHT_ITEM(state, { refLink, heightItem }) {
+    state.filterItems[refLink].contentStyleHeight = heightItem;
+  },
 
-         SET_FILTER_CHECKED(state, { refLink, item, rootState }) {
-           if (_.includes(state.currentFilters[refLink], item.id)) {
-             _.remove(state.currentFilters[refLink], function(n) {
-               return n === item.id;
-             });
-           } else {
-             state.currentFilters[refLink].push(item.id);
-           }
+  SET_FILTER_CHECKED(state, { item, rootState }) {
+    if (_.includes(state.currentFilters[item.filterGroup], item.id)) {
+      _.remove(state.currentFilters[item.filterGroup], function(n) {
+        return n === item.id;
+      });
+    } else {
+      state.currentFilters[item.filterGroup].push(item.id);
+    }
 
-           if (_.includes(state.filterChips, item.name)) {
-             _.remove(state.filterChips, function(n) {
-               return n === item.name;
-             });
-           } else {
-             state.filterChips.push(item.name);
-           }
+    if (
+      state.currentFilters.work.length != 0 ||
+      state.currentFilters.plot.length != 0 ||
+      state.currentFilters.style.length != 0 ||
+      state.currentFilters.technics.length != 0
+    ) {
+      rootState.catalog.cardsFilters = _.filter(
+        rootState.catalog.cards,
+        function(card) {
+          return (
+            _.includes(state.currentFilters.plot, card.plot) ||
+            _.includes(state.currentFilters.technics, card.technics) ||
+            _.includes(state.currentFilters.style, card.style)
+          );
+        }
+      );
+    } else {
+      rootState.catalog.cardsFilters = rootState.catalog.cards;
+    }
+    rootState.catalog.pageCount = Math.ceil(
+      rootState.catalog.cardsFilters.length / rootState.catalog.cardsOnPage
+    );
+  },
 
-           if (
-             state.currentFilters.work.length != 0 ||
-             state.currentFilters.plot.length != 0 ||
-             state.currentFilters.style.length != 0 ||
-             state.currentFilters.technics.length != 0
-           ) {
-             rootState.catalog.cardsFilters = _.filter(
-               rootState.catalog.cards,
-               function(card) {
-                 return (
-                   _.includes(state.currentFilters.plot, card.plot) ||
-                   _.includes(state.currentFilters.technics, card.technics) ||
-                   _.includes(state.currentFilters.style, card.style)
-                 );
-               }
-             );
-           } else {
-             rootState.catalog.cardsFilters = rootState.catalog.cards;
-           }
-           rootState.catalog.pageCount = Math.ceil(
-             rootState.catalog.cardsFilters.length /
-               rootState.catalog.cardsOnPage
-           );
-         },
-
-         REMOVE_CHIPS(state, index) {
-           state.filterChips.splice(index, 1);
-         }
-       };
+  CHIP_TOGGLE(state, chip) {
+    if (
+      _.some(state.filterChips, function(n) {
+        return n.name === chip.name;
+      })
+    ) {
+      const i = state.filterChips.map(item => item.id).indexOf(chip.id);
+      state.filterChips.splice(i, 1);
+    } else {
+      state.filterChips.push(chip);
+    }
+  }
+};
 
 export const actions = {
-         toggleFilterItemCollapsing({ commit }, refLink) {
-           commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink);
-         },
+  toggleFilterItemCollapsing({ commit }, refLink) {
+    commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink);
+  },
 
-         setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
-           commit("SET_CONTENT_STYLE_HEIGHT_ITEM", { refLink, heightItem });
-         },
+  setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
+    commit("SET_CONTENT_STYLE_HEIGHT_ITEM", { refLink, heightItem });
+  },
 
-         setFilterChecked({ commit, rootState }, { refLink, item }) {
-           commit("SET_FILTER_CHECKED", { refLink, item, rootState });
-         },
+  setFilterChecked({ commit, rootState }, item) {
+    commit("SET_FILTER_CHECKED", { item, rootState });
+  },
 
-         removeChips({ commit }, index ) {
-           commit("REMOVE_CHIPS", index);
-         }
-       };
+  chipToggle({ commit }, chip) {
+    commit("CHIP_TOGGLE", chip);
+  }
+};
 
 export const getters = {
   filterItems: state => state.filterItems,
