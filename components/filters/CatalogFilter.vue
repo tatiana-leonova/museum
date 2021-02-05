@@ -16,6 +16,7 @@
       </a>
       <div
         class="filters__accordion-content"
+        :class="{ 'is-visible': filterItems.work.isOpen }"
         ref="work"
         :style="{ height: filterItems.work.contentStyleHeight }"
       >
@@ -230,7 +231,7 @@ export default {
   }
 
   &__accordion-item {
-    padding-top: 30px;
+    margin-bottom: 20px;
 
     &.is-open {
       .filters__item-title {
@@ -303,8 +304,12 @@ export default {
   }
 
   &__accordion-content {
-    overflow-y: hidden;
+    overflow: hidden;
     transition: height 0.5s ease;
+  }
+
+  .is-visible {
+    overflow: visible;
   }
 }
 </style>

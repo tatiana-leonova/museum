@@ -46,6 +46,8 @@ export default {
     border-radius: 20px;
     padding: 2px 30px 2px 20px;
     cursor: pointer;
+     margin-right: 10px;
+     margin-bottom: 10px;
   }
   &__remove {
     position: absolute;
