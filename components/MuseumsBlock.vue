@@ -1,5 +1,5 @@
 <template>
-  <section class="museums container" id="museums">
+  <section class="museums" id="museums">
     <h2>музеи</h2>
     <div>
       <Map />
@@ -88,6 +88,7 @@ export default {
       justify-content: center;
       align-items: center;
       padding: 0 20px;
+      margin: 0 auto;
     }
 
     @media (min-width: $width-desktop-min) {
