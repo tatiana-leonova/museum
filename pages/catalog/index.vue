@@ -17,7 +17,10 @@
           /></svg
       ></a>
       <CatalogFilter class="catalog__filter" ref="child" />
+      <div>
+      <FilterChips class="catalog__filter-chip" />
       <Catalog class="catalog__painting" />
+      </div>
     </div>
   </div>
 </template>
@@ -28,8 +31,8 @@ import FirstScreen from "~/components/common/FirstScreen.vue";
 import FirstBlock from "~/components/catalog/FirstBlock.vue";
 import Catalog from "~/components/catalog/Catalog.vue";
 import TabLinks from "~/components/common/TabLinks.vue";
+import FilterChips from "~/components/filters/FilterChips.vue";
 import CatalogFilter from "~/components/filters/CatalogFilter.vue";
-// import Creation from "~/components/Creation.vue";
 // import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
 export default {
@@ -40,6 +43,7 @@ export default {
     Catalog,
     TabLinks,
     CatalogFilter,
+    FilterChips,
   },
 
   async asyncData({ app, route, params, error, store }) {
@@ -109,6 +113,10 @@ export default {
     @media (min-width: $width-desktop-min) {
       display: none;
     }
+  }
+
+  &__filter-chip {
+    margin-bottom: 40px;
   }
 }
 </style>

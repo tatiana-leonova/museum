@@ -75,6 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .catalog-painting {
+  position: relative;
   ul {
     @include no-list;
     display: flex;
@@ -87,6 +88,9 @@ export default {
   }
 
   &__toggle {
+    position: absolute;
+    top: -50px;
+    right: 10px;
     @media (max-width: $width-mobile-max) {
       display: none;
     }
