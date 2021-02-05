@@ -42,6 +42,10 @@ export const mutations = {
     state.tabMenu.active = tabId;
     state.cards = cards;
     state.cardsFilters = cards;
+  },
+
+  SET_CURRENT_PAGE(state, index) {
+    state.currentPage = index;
   }
 };
 
@@ -54,6 +58,10 @@ export const actions = {
   async changeTabActive({ commit }, { tab }) {
     const response = await this.$axios.$get(tab.json);
     commit("SET_ACTIVE", { tabId: tab.id, cards: response.pictures });
+  },
+
+  changePage({ commit }, { index }) {
+    commit("SET_CURRENT_PAGE", index);
   }
 };
 
@@ -64,5 +72,6 @@ export const getters = {
       state.currentPage * state.cardsOnPage,
       state.currentPage * state.cardsOnPage + state.cardsOnPage
     ),
-  pageCount: state => state.pageCount
+  pageCount: state => state.pageCount,
+  currentPage: state => state.currentPage
 };
