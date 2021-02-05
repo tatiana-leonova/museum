@@ -297,6 +297,7 @@ export const mutations = {
         rootState.catalog.cards,
         function(card) {
           return (
+            _.includes(state.currentFilters.work, card.work) ||
             _.includes(state.currentFilters.plot, card.plot) ||
             _.includes(state.currentFilters.technics, card.technics) ||
             _.includes(state.currentFilters.style, card.style)

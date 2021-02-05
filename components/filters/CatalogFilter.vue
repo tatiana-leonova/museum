@@ -21,7 +21,7 @@
         :style="{ height: filterItems.work.contentStyleHeight }"
       >
         <ul>
-          <FilterItemWithCount
+          <FilterItemWithCount @on-checked="onChecked(item)"
             v-for="(item, index) in filterItems.work.items"
             :item="item"
             :key="index"

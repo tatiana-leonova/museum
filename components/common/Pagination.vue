@@ -1,13 +1,13 @@
 <template>
   <div class="pagination">
     <ul v-if="pageCount > 1">
-      <li v-for="index in pageCount" :key="index">
+      <li v-for="(page, index) in pageCount" :key="index">
         <a
           href="#"
           @click.prevent="onPaginationClick(index)"
           :class="[currentPage === index ? 'active' : '']"
         >
-          {{ index }}
+          {{ index + 1 }}
         </a>
       </li>
     </ul>

@@ -1,5 +1,5 @@
 <template>
-  <li class="filter-items-count">
+  <li class="filter-items-count" @click="$emit('on-checked')">
     <p>{{ item.name }}</p>
     <p class="count">{{}}</p>
   </li>
