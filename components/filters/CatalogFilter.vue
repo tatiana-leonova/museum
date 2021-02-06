@@ -21,7 +21,8 @@
         :style="{ height: filterItems.work.contentStyleHeight }"
       >
         <ul>
-          <FilterItemWithCount @on-checked="onChecked(item)"
+          <FilterItemWithCount
+            @on-checked="onChecked(item)"
             v-for="(item, index) in filterItems.work.items"
             :item="item"
             :key="index"
@@ -132,9 +133,11 @@
         <Range class="filters__range" />
         <ul class="no-border">
           <FilterItemWithCheckbox
+            @on-checked="onChecked(item)"
             v-for="(item, index) in filterItems.year.items"
             :item="item"
             :key="index"
+            v-bind:disabled="!item.isChecked"
           />
         </ul>
       </div>
@@ -194,6 +197,8 @@ export default {
     },
 
     onChecked(item) {
+      console.log(item.isChecked);
+
       this.$store.dispatch("catalogFilter/chipToggle", item);
       this.$store.dispatch("catalogFilter/setFilterChecked", item);
     },

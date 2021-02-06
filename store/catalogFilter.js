@@ -5,8 +5,12 @@ export const state = () => ({
     work: [],
     plot: [],
     style: [],
-    technics: [],
-    year: []
+    technics: []
+  },
+
+  currentFilterByYear: {
+    minValue: 0,
+    maxValue: Infinity
   },
 
   filterChips: [],
@@ -20,42 +24,50 @@ export const state = () => ({
         {
           id: "painting",
           name: "Живопись",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "drawingsAndIllustrations",
           name: "Рисунки и иллюстрации",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "theatricalAndDecorative",
           name: "Театрально-декорационное",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "graphics",
           name: "Графика",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "engraving",
           name: "Гравюра",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "poster",
           name: "Плакат",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "sculpture",
           name: "Скульптура",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         },
         {
           id: "decorativeAndApplied",
           name: "Декоративно-прикладное",
-          filterGroup: "work"
+          filterGroup: "work",
+          isChecked: false
         }
       ]
     },
@@ -67,67 +79,80 @@ export const state = () => ({
         {
           id: "portrait",
           name: "Портрет",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "genreScene",
           name: "Жанровая сцена",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "scenery",
           name: "Пейзаж",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "literaryScene",
           name: "Литературная сцена",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "urbanLandscape",
           name: "Городской пейзаж",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "nude",
           name: "Ню",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "interior",
           name: "Интерьер",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "stillLife",
           name: "Натюрморт",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "allegoricalScene",
           name: "Аллегорическая сцена",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "historicalScene",
           name: "Историческая сцена",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "architecture",
           name: "Архитектура",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "animalism",
           name: "Анимализм",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         },
         {
           id: "religiousScene",
           name: "Религиозная сцена",
-          filterGroup: "plot"
+          filterGroup: "plot",
+          isChecked: false
         }
       ]
     },
@@ -139,42 +164,50 @@ export const state = () => ({
         {
           id: "realism",
           name: "Реализм",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "modern",
           name: "Модерн",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "impressionism",
           name: "Импрессионизм",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "socialistRealism",
           name: "Соцреализм",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "primitivism",
           name: "Примитивизм",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "artNouveau",
           name: "Ар Нуво",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "surrealism",
           name: "Сюрреализм",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         },
         {
           id: "romanticism",
           name: "Романтизм",
-          filterGroup: "style"
+          filterGroup: "style",
+          isChecked: false
         }
       ]
     },
@@ -253,16 +286,25 @@ export const state = () => ({
         {
           id: "period1",
           name: "до 1900",
+          filterGroup: "year",
+          minValue: 0,
+          maxValue: 1900,
           isChecked: false
         },
         {
           id: "period2",
           name: "1901-1916",
+          filterGroup: "year",
+          minValue: 1901,
+          maxValue: 1916,
           isChecked: false
         },
         {
           id: "period3",
           name: "1917 и позже",
+          filterGroup: "year",
+          minValue: 1917,
+          maxValue: Infinity,
           isChecked: false
         }
       ]
@@ -278,35 +320,55 @@ export const mutations = {
     state.filterItems[refLink].contentStyleHeight = heightItem;
   },
 
-  SET_FILTER_CHECKED(state, { item, rootState }) {
+  TOGGLE_FILTER_ITEM(state, { item }) {
+    item.isChecked = !item.isChecked;
     if (_.includes(state.currentFilters[item.filterGroup], item.id)) {
-      _.remove(state.currentFilters[item.filterGroup], function(n) {
-        return n === item.id;
+      _.remove(state.currentFilters[item.filterGroup], function(id) {
+        return id === item.id;
       });
     } else {
       state.currentFilters[item.filterGroup].push(item.id);
     }
+  },
 
-    if (
-      state.currentFilters.work.length != 0 ||
-      state.currentFilters.plot.length != 0 ||
-      state.currentFilters.style.length != 0 ||
-      state.currentFilters.technics.length != 0
-    ) {
-      rootState.catalog.cardsFilters = _.filter(
-        rootState.catalog.cards,
-        function(card) {
-          return (
-            _.includes(state.currentFilters.work, card.work) ||
-            _.includes(state.currentFilters.plot, card.plot) ||
-            _.includes(state.currentFilters.technics, card.technics) ||
-            _.includes(state.currentFilters.style, card.style)
-          );
-        }
+  TOGGLE_FILTER_BY_YEAR(state, { item }) {
+    item.isChecked = !item.isChecked;
+    state.currentFilterByYear.minValue = item.minValue;
+    state.currentFilterByYear.maxValue = item.maxValue;
+  },
+
+  SET_FILTER_CHECKED(state, { rootState }) {
+    let filter = _.filter(rootState.catalog.cards, function(card) {
+      return (
+        card.year <= state.currentFilterByYear.maxValue &&
+        card.year >= state.currentFilterByYear.minValue
       );
-    } else {
-      rootState.catalog.cardsFilters = rootState.catalog.cards;
+    });
+    if (state.currentFilters.work.length != 0) {
+      filter = _.filter(filter, function(card) {
+        return _.includes(state.currentFilters.work, card.work);
+      });
     }
+    if (state.currentFilters.plot.length != 0) {
+      filter = _.filter(filter, function(card) {
+        return _.includes(state.currentFilters.plot, card.plot);
+      });
+    }
+    if (state.currentFilters.style.length != 0) {
+      filter = _.filter(filter, function(card) {
+        return _.includes(state.currentFilters.style, card.style);
+      });
+    }
+    if (state.currentFilters.technics.length != 0) {
+      filter = _.filter(filter, function(card) {
+        return _.includes(state.currentFilters.technics, card.technics);
+      });
+    }
+
+    rootState.catalog.cardsFilters = filter;
+  },
+
+  SET_PAGE_COUNT(state, { rootState }) {
     rootState.catalog.pageCount = Math.ceil(
       rootState.catalog.cardsFilters.length / rootState.catalog.cardsOnPage
     );
@@ -336,7 +398,13 @@ export const actions = {
   },
 
   setFilterChecked({ commit, rootState }, item) {
-    commit("SET_FILTER_CHECKED", { item, rootState });
+    if (item.filterGroup === "year") {
+      commit("TOGGLE_FILTER_BY_YEAR", { item });
+    } else {
+      commit("TOGGLE_FILTER_ITEM", { item });
+    }
+    commit("SET_FILTER_CHECKED", { rootState });
+    commit("SET_PAGE_COUNT", { rootState });
   },
 
   chipToggle({ commit }, chip) {
