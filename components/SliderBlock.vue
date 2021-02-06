@@ -15,35 +15,35 @@ export default {
       photos: [
         {
           name: "Осень в провинции. Чаепитие",
+          img: "painting-7.jpg",
+        },
+        {
+          name: "Купчиха за чаем",
           img: "painting-1.jpg",
         },
         {
-          name: "Купец с купчихой",
+          name: "Пасхальный обряд (Христосование)",
           img: "painting-2.jpg",
         },
         {
-          name: "Монахиня",
+          name: "Сирень",
           img: "painting-3.jpg",
         },
         {
-          name: "Портрет Степана Лукича Никольского",
+          name: "Деревенский праздник",
+          img: "main-img.jpg",
+        },
+        {
+          name: "Рождество",
           img: "painting-4.jpg",
         },
         {
-          name: "На террасе",
-          img: "painting-1.jpg",
+          name: "Красивая осень",
+          img: "painting-5.jpg",
         },
         {
           name: "Купец с купчихой",
-          img: "painting-2.jpg",
-        },
-        {
-          name: "Портрет артистки Т. В. Чижовой",
-          img: "painting-3.jpg",
-        },
-        {
-          name: "Трактирщик",
-          img: "painting-4.jpg",
+          img: "painting-6.jpg",
         },
       ],
     };

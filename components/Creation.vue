@@ -17,7 +17,7 @@
         </p>
         <div class="creation__wrapper-image creation__wrapper-image--1">
           <img
-            src="~/assets/img/creation-2.jpg"
+            src="~/assets/img/painting-5.jpg"
             width="240"
             height="173"
             alt="Картина Бориса Кустодиева"
@@ -26,7 +26,7 @@
       </div>
       <div class="creation__wrapper-image creation__wrapper-image--2">
         <img
-          src="~/assets/img/creation-1.jpg"
+          src="~/assets/img/painting-6.jpg"
           width="920"
           height="667"
           alt="Картина Бориса Кустодиева"
