@@ -25,49 +25,57 @@ export const state = () => ({
           id: "painting",
           name: "Живопись",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "drawingsAndIllustrations",
           name: "Рисунки и иллюстрации",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "theatricalAndDecorative",
           name: "Театрально-декорационное",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "graphics",
           name: "Графика",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "engraving",
           name: "Гравюра",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "poster",
           name: "Плакат",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "sculpture",
           name: "Скульптура",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         },
         {
           id: "decorativeAndApplied",
           name: "Декоративно-прикладное",
           filterGroup: "work",
-          isChecked: false
+          isChecked: false,
+          count: 0
         }
       ]
     },

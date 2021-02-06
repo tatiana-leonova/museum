@@ -7,8 +7,8 @@
       onClick();
     "
   >
-    <p>{{ item.name }}</p>
-    <p class="count">{{}}</p>
+    <p class="filter-items-count__name">{{ item.name }}</p>
+    <p class="filter-items-count__number">{{ item.count }}</p>
   </li>
 </template>
 
@@ -33,11 +33,21 @@ export default {
 <style lang="scss">
 .filter-items-count {
   display: flex;
+  justify-content: space-between;
   position: relative;
   cursor: pointer;
   transition: all 0.5s;
+
   p {
     @include zero-indent;
+  }
+
+  &__name {
+    padding-right: 10px;
+  }
+
+  &__number {
+    color: $color_gray3;
   }
 
   &::before {

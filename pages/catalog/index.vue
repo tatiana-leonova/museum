@@ -17,9 +17,9 @@
           /></svg
       ></a>
       <CatalogFilter class="catalog__filter" ref="child" />
-      <div>
-      <FilterChips class="catalog__filter-chip" />
-      <Catalog class="catalog__painting" />
+      <div class="catalog__wrapper-chip-painting">
+        <FilterChips class="catalog__filter-chip" />
+        <Catalog class="catalog__painting" />
       </div>
     </div>
   </div>
@@ -83,6 +83,7 @@ export default {
       padding-top: 40px;
     }
   }
+
   &__filter {
     @media (max-width: $width-mobile-max) {
       margin: 0 auto;
@@ -112,6 +113,14 @@ export default {
 
     @media (min-width: $width-desktop-min) {
       display: none;
+    }
+  }
+
+  &__wrapper-chip-painting {
+    position: relative;
+
+    @media (min-width: $width-desktop-min) {
+      width: 615px;
     }
   }
 

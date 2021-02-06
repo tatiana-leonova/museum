@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export const state = () => ({
   tabMenu: {
     tabs: [
@@ -46,18 +48,34 @@ export const mutations = {
 
   SET_CURRENT_PAGE(state, index) {
     state.currentPage = index;
+  },
+
+  SET_WORKS_COUNT(state, { cards, rootState }) {
+    _.forEach(rootState.catalogFilter.filterItems.work.items, function(item) {
+      item.count = _.filter(cards, function(card) {
+        if (card.work === item.id) return card;
+      }).length;
+    });
   }
 };
 
 export const actions = {
-  async fetchTab({ commit }, { tab }) {
+  async fetchTab({ commit, rootState }, { tab }) {
     const response = await this.$axios.$get(tab.json);
     commit("SET_TABS", response.pictures);
+    commit("SET_WORKS_COUNT", {
+      cards: response.pictures,
+      rootState: rootState
+    });
   },
 
-  async changeTabActive({ commit }, { tab }) {
+  async changeTabActive({ commit, rootState }, { tab }) {
     const response = await this.$axios.$get(tab.json);
     commit("SET_ACTIVE", { tabId: tab.id, cards: response.pictures });
+    commit("SET_WORKS_COUNT", {
+      cards: response.pictures,
+      rootState: rootState
+    });
   },
 
   changePage({ commit }, { index }) {
