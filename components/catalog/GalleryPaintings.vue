@@ -1,14 +1,16 @@
 <template>
   <div class="gallery-paintings">
     <div class="gallery-paintings__wrapper">
-      <div
-        v-for="(painting, index) in paintings"
-        class="gallery-paintings__item"
-        :style="{
-          backgroundImage: 'url(' + require('~/assets/img/' + painting) + ')',
-        }"
-        :key="index"
-      ></div>
+      <ul>
+        <li
+          v-for="(painting, index) in paintings"
+          class="gallery-paintings__item"
+          :style="{
+            backgroundImage: 'url(' + require('~/assets/img/' + painting) + ')',
+          }"
+          :key="index"
+        ></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -38,12 +40,24 @@ export default {
   vertical-align: top;
   width: 100%;
   overflow: hidden;
+  transition: all 0.5s;
+  @media (max-width: $width-mobile-max) {
+    margin-bottom: 40px;
+  }
 
   &__wrapper {
+    padding: 0 0 20px;
+    margin: 0 0 -20px;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+
+  ul {
+    @include no-list;
     display: inline-block;
     vertical-align: top;
-    font-size: 0;
     white-space: nowrap;
+    width: 100%;
   }
 
   &__item {
