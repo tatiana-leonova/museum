@@ -84,11 +84,10 @@ export default {
 
     @media (max-width: $width-mobile-max) {
       display: flex;
+      flex-wrap: wrap;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 0 20px;
-      margin: 0 auto;
     }
 
     @media (min-width: $width-desktop-min) {
@@ -105,6 +104,8 @@ export default {
       padding-bottom: 30px;
       padding-top: 30px;
       width: 100%;
+      max-width: 1023px;
+      padding: 30px 20px;
     }
   }
 

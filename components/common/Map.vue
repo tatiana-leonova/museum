@@ -25,8 +25,6 @@ export default {
 
   @media (min-width: $width-desktop-min) {
     max-width: 1200px;
-    margin: 0 auto;
-    // padding: 0 32px;
   }
 }
 </style>
