@@ -49,7 +49,8 @@
     </div>
     <p class="slider__active-photo-name">{{ photos[activePhoto].name }}</p>
     <p class="slider__active-photo-counter">
-      {{ photos.indexOf(photos[activePhoto]) + 1 }} / {{ photos.length }}
+      <span> {{ photos.indexOf(photos[activePhoto]) + 1 }} </span> /
+      {{ photos.length }}
     </p>
   </div>
 </template>
@@ -174,13 +175,24 @@ export default {
     }
   }
 
-  &__active-photo-name,
-  &__active-photo-counter {
+  &__active-photo-name {
     font-size: 14px;
     line-height: 20px;
     font-weight: 300;
     color: $color_gray5;
     text-align: center;
+  }
+
+  &__active-photo-counter {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    color: $color_gray8;
+    text-align: center;
+
+    > span {
+      color: $color_gray5;
+    }
   }
 
   &__active-photo-name {
