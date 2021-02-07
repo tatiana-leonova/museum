@@ -57,14 +57,21 @@
         <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
-            v-for="(item, index) in filterBySearch(
+            v-for="(item, index) in getItemsCount(
               filterItems.plot.items,
-              filterItems.plot.searchQuery
+              filterItems.plot.searchQuery,
+              filterItems.plot.allItemButton
             )"
             :item="item"
             :key="index"
           />
         </ul>
+        <AllFilterItemsButton
+          @onClickAllFilterItems="
+            onClickAllFilterItems(filterItems.plot.allItemButton)
+          "
+          :allItemButton="filterItems.plot.allItemButton"
+        />
       </div>
     </div>
 
@@ -124,9 +131,10 @@
         <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
-            v-for="(item, index) in filterBySearch(
+            v-for="(item, index) in getItemsCount(
               filterItems.technics.items,
-              filterItems.technics.searchQuery
+              filterItems.technics.searchQuery,
+              filterItems.technics.allItemButton
             )"
             :item="item"
             :key="index"
@@ -171,6 +179,7 @@ import FilterItemWithCount from "~/components/filters/FilterItemWithCount.vue";
 import FilterItemWithCheckbox from "~/components/filters/FilterItemWithCheckbox.vue";
 import QuickSearch from "~/components/filters/QuickSearch.vue";
 import Range from "~/components/filters/Range.vue";
+import AllFilterItemsButton from "~/components/filters/AllFilterItemsButton.vue";
 
 export default {
   components: {
@@ -178,6 +187,7 @@ export default {
     FilterItemWithCheckbox,
     QuickSearch,
     Range,
+    AllFilterItemsButton,
   },
 
   data: () => {
@@ -227,10 +237,28 @@ export default {
       }, 800);
     },
 
-    filterBySearch(items, query) {
+    getItemsCount(items, query, allItemButton) {
+      let filteredItems = this.filterByQuery(items, query);
+      if (
+        !allItemButton.isExpanded &&
+        filteredItems.length >= allItemButton.defaultCountValue
+      ) {
+        filteredItems = filteredItems.slice(0, allItemButton.defaultCountValue);
+      }
+      return filteredItems;
+    },
+
+    filterByQuery(items, query) {
       return items.filter(function (item) {
         return item.name.toLowerCase().includes(query.toLowerCase());
       });
+    },
+
+    onClickAllFilterItems(allItemButton) {
+      this.$store.dispatch(
+        "catalogFilter/changeAllItemsButtonExspanded",
+        allItemButton
+      );
     },
 
     onChecked(item) {

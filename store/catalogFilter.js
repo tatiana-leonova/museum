@@ -85,6 +85,11 @@ export const state = () => ({
       isOpen: true,
       contentStyleHeight: "auto",
       searchQuery: "",
+      allItemButton: {
+        title: "Все сюжеты",
+        defaultCountValue: 7,
+        isExpanded: false
+      },
       items: [
         {
           id: "portrait",
@@ -227,6 +232,11 @@ export const state = () => ({
       isOpen: true,
       contentStyleHeight: "auto",
       searchQuery: "",
+      allItemButton: {
+        title: "Вся техника",
+        defaultCountValue: 7,
+        isExpanded: false
+      },
       items: [
         {
           id: "oil",
@@ -422,6 +432,10 @@ export const mutations = {
 
   CHANGE_INPUT_SEARCH_VALUE(state, { id, inputValue }) {
     state.filterItems[id].searchQuery = inputValue;
+  },
+
+  CHANGE_ALL_ITEMS_BUTTON_EXSPANDED(state, allItemButton) {
+    allItemButton.isExpanded = !allItemButton.isExpanded;
   }
 };
 
@@ -450,6 +464,10 @@ export const actions = {
 
   changeInputSearchValue({ commit }, { id, inputValue }) {
     commit("CHANGE_INPUT_SEARCH_VALUE", (state, { id, inputValue }));
+  },
+
+  changeAllItemsButtonExspanded({ commit }, allItemButton) {
+    commit("CHANGE_ALL_ITEMS_BUTTON_EXSPANDED", (state, allItemButton));
   }
 };
 
