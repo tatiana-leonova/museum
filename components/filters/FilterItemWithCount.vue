@@ -1,10 +1,9 @@
 <template>
   <li
     class="filter-items-count"
-    :class="[isFilterSelected ? 'filter-items-count--active' : '']"
+    :class="[item.isChecked ? 'filter-items-count--active' : '']"
     @click="
       $emit('on-checked');
-      onClick();
     "
   >
     <p class="filter-items-count__name">{{ item.name }}</p>
@@ -15,18 +14,6 @@
 <script>
 export default {
   props: ["item"],
-  data: () => {
-    return {
-      isFilterSelected: false,
-    };
-  },
-
-  methods: {
-    onClick() {
-      console.log("onClick");
-      this.isFilterSelected = !this.isFilterSelected;
-    },
-  },
 };
 </script>
 

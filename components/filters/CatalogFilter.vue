@@ -51,7 +51,10 @@
         <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
-            v-for="(item, index) in filterItems.plot.items"
+            v-for="(item, index) in filterBySearch(
+              filterItems.plot.items,
+              filterItems.plot.searchQuery
+            )"
             :item="item"
             :key="index"
           />
@@ -196,9 +199,13 @@ export default {
       }
     },
 
-    onChecked(item) {
-      console.log(item.isChecked);
+    filterBySearch(items, query) {
+      return items.filter(function (item) {
+        return item.name.includes(query);
+      });
+    },
 
+    onChecked(item) {
       this.$store.dispatch("catalogFilter/chipToggle", item);
       this.$store.dispatch("catalogFilter/setFilterChecked", item);
     },

@@ -83,6 +83,7 @@ export const state = () => ({
       title: "Сюжет",
       isOpen: true,
       contentStyleHeight: "auto",
+      searchQuery: "",
       items: [
         {
           id: "portrait",
