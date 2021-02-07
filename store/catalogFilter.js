@@ -341,8 +341,29 @@ export const mutations = {
 
   TOGGLE_FILTER_BY_YEAR(state, { item }) {
     item.isChecked = !item.isChecked;
-    state.currentFilterByYear.minValue = item.minValue;
-    state.currentFilterByYear.maxValue = item.maxValue;
+
+    const filterByChecked = _.filter(state.filterItems.year.items, function(
+      item
+    ) {
+      return item.isChecked;
+    });
+
+    if (filterByChecked.length > 0) {
+      state.currentFilterByYear.minValue = filterByChecked[0].minValue;
+      state.currentFilterByYear.maxValue = filterByChecked[0].maxValue;
+
+      _.forEach(filterByChecked, function(item) {
+        if (state.currentFilterByYear.minValue > item.minValue) {
+          state.currentFilterByYear.minValue = item.minValue;
+        }
+        if (state.currentFilterByYear.maxValue < item.maxValue) {
+          state.currentFilterByYear.maxValue = item.maxValue;
+        }
+      });
+    } else {
+      state.currentFilterByYear.minValue = 0;
+      state.currentFilterByYear.maxValue = Infinity;
+    }
   },
 
   SET_FILTER_CHECKED(state, { rootState }) {
