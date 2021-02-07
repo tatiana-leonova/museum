@@ -252,11 +252,8 @@ export default {
   width: 200px;
 
   @media (max-width: $width-mobile-max) {
-    min-width: 280px;
-    max-width: 100%;
-
     &--hide {
-      visibility: hidden;
+      display: none;
     }
   }
 

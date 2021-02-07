@@ -8,8 +8,8 @@
       />
       <ul>
         <CardPainting
-          class="big-photos"
-          :class="[isViewSmallPhoto ? 'small-photos' : '']"
+          class="catalog-painting__card"
+          :class="[isViewSmallPhoto ? 'catalog-painting__card--small' : '']"
           v-for="(card, index) in cards"
           :img="card.img"
           :name="card.name"
@@ -70,31 +70,26 @@ export default {
   ul {
     @include no-list;
     display: flex;
-    // justify-content: space-around;
     justify-content: space-between;
     flex-wrap: wrap;
 
-    @media (max-width: 1023px) {
+    @media (min-width: 768px) and (max-width: 1024px) {
       margin: 0 auto;
+      width: 650px;
     }
   }
 
-  .big-photos {
+  .catalog-painting__card {
     width: 280px;
     margin-bottom: 20px;
 
-    // @media (max-width: 1023px) {
-    //   width: 45%;
-    // }
-
     @media (max-width: 1023px) {
-      // width: 120px;
       width: 43%;
       max-width: 280px;
     }
   }
 
-  .small-photos {
+  .catalog-painting__card--small {
     width: 200px;
 
     @media (max-width: 660px) {
