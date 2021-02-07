@@ -39,11 +39,11 @@ export default {
     margin: 0;
   }
 
-  img {
-    @media (max-width: 660px) {
-      width: 120px;
-      height: 147px;
-    }
-  }
+  // img {
+  //   @media (max-width: 660px) {
+  //     width: 120px;
+  //     height: 147px;
+  //   }
+  // }
 }
 </style>

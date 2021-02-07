@@ -8,6 +8,7 @@
       />
       <ul>
         <CardPainting
+          class="big-photos"
           :class="[isViewSmallPhoto ? 'small-photos' : '']"
           v-for="(card, index) in cards"
           :img="card.img"
@@ -45,7 +46,9 @@ export default {
     },
 
     changeVariantViews(id) {
-      id === "small" ? (this.isViewSmallPhoto = true) : (this.isViewSmallPhoto = false);
+      id === "small"
+        ? (this.isViewSmallPhoto = true)
+        : (this.isViewSmallPhoto = false);
       this.viewDefaultPhoto = id;
     },
   },
@@ -60,25 +63,36 @@ export default {
 
 <style lang="scss" scoped>
 .catalog-painting {
+  @media (max-width: 660px) {
+    padding: 0 5px;
+  }
+
   ul {
     @include no-list;
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 
-    @media (max-width: 660px) {
+    @media (max-width: 1023px) {
       margin: 0 auto;
     }
   }
 
-  // .big-photos {
-  //   width: 280px;
-  //   margin-bottom: 20px;
+  .big-photos {
+    width: 280px;
+    margin-bottom: 20px;
 
-  //   @media (max-width: 660px) {
-  //     width: 120px;
-  //   }
-  // }
+    // @media (max-width: 1023px) {
+    //   width: 45%;
+    // }
+
+    @media (max-width: 1023px) {
+      // width: 120px;
+      width: 43%;
+      max-width: 280px;
+    }
+  }
 
   .small-photos {
     width: 200px;
