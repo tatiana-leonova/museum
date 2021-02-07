@@ -20,7 +20,9 @@
       </div>
     </div>
     <div class="slider__link-paintings">
-      <a href="#" target="_blank">все картины <span></span></a>
+      <nuxt-link to="/catalog" target="_blank"
+        >все картины <span></span
+      ></nuxt-link>
     </div>
     <div class="slider__active-photo-wrapper">
       <div
