@@ -3,8 +3,8 @@
     <button
       class="toggle-view__button"
       title="Большие фото"
-      @click="$emit('viewChange', big)"
-      :class="[showVariant === big ? 'active-view' : '']"
+      @click="$emit('toggleViewPhoto', ViewPhoto.big)"
+      :class="[viewDefaultPhoto === ViewPhoto.big ? 'active-view' : '']"
     >
       <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0H6V6H0zM9 0H15V6H9zM0 9H6V15H0zM9 9H15V15H9z" />
@@ -13,8 +13,8 @@
     <button
       class="toggle-view__button"
       title="Компактный вид"
-      @click="$emit('viewChange', small)"
-      :class="[showVariant === small ? 'active-view' : '']"
+      @click="$emit('toggleViewPhoto', ViewPhoto.small)"
+      :class="[viewDefaultPhoto === ViewPhoto.small ? 'active-view' : '']"
     >
       <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -29,12 +29,14 @@
 
 <script>
 export default {
-  props: ["showVariant"],
+  props: ["viewDefaultPhoto"],
 
   data: () => {
     return {
-      big: "big",
-      small: "small",
+      ViewPhoto: {
+        big: "big",
+        small: "small",
+      },
     };
   },
 };
@@ -45,6 +47,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
+
   @media (max-width: $width-mobile-max) {
     display: none;
   }
@@ -55,8 +58,7 @@ export default {
     cursor: pointer;
 
     &:focus {
-      outline-offset: 2px;
-      outline: dotted 1px $color_gray3;
+      outline: none;
     }
 
     svg {

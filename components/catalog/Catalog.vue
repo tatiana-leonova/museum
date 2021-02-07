@@ -2,10 +2,13 @@
   <section class="catalog-painting">
     <h2 class="is-hidden">Каталог картин Бориса Пустадиева</h2>
     <div>
-      <ToggleViewButtons @viewChange="viewChange" :showVariant="showVariant" />
+      <ToggleViewButtons
+        @toggleViewPhoto="toggleViewPhoto"
+        :viewDefaultPhoto="viewDefaultPhoto"
+      />
       <ul>
         <CardPainting
-          :class="[gridView ? 'small-photos' : '']"
+          :class="[isViewSmallPhoto ? 'small-photos' : '']"
           v-for="(card, index) in cards"
           :img="card.img"
           :name="card.name"
@@ -31,19 +34,19 @@ export default {
 
   data: () => {
     return {
-      showVariant: "big",
-      gridView: false,
+      viewDefaultPhoto: "big",
+      isViewSmallPhoto: false,
     };
   },
 
   methods: {
-    viewChange: function (id) {
-      this.showVariant == id ? null : this.changeViews(id);
+    toggleViewPhoto(id) {
+      this.viewDefaultPhoto == id ? null : this.changeVariantViews(id);
     },
 
-    changeViews: function (id) {
-      id === "small" ? (this.gridView = true) : (this.gridView = false);
-      this.showVariant = id;
+    changeVariantViews(id) {
+      id === "small" ? (this.isViewSmallPhoto = true) : (this.isViewSmallPhoto = false);
+      this.viewDefaultPhoto = id;
     },
   },
 
