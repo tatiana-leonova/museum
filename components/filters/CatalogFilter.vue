@@ -47,7 +47,16 @@
         ref="plot"
         :style="{ height: filterItems.plot.contentStyleHeight }"
       >
-        <QuickSearch class="filters__search" />
+        <div class="filters__search">
+          <input
+            @input="
+              onQuickSearchInput(filterItems.plot.id, quickSearchInputValue)
+            "
+            v-model="quickSearchInputValue"
+            type="text"
+            placeholder="Быстрый поиск"
+          />
+        </div>
         <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
@@ -105,11 +114,23 @@
         ref="technics"
         :style="{ height: filterItems.technics.contentStyleHeight }"
       >
-        <QuickSearch class="filters__search" />
+        <div class="filters__search">
+          <input
+            @input="
+              onQuickSearchInput(filterItems.technics.id, quickSearchInputValue)
+            "
+            v-model="quickSearchInputValue"
+            type="text"
+            placeholder="Быстрый поиск"
+          />
+        </div>
         <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
-            v-for="(item, index) in filterItems.technics.items"
+            v-for="(item, index) in filterBySearch(
+              filterItems.technics.items,
+              filterItems.technics.searchQuery
+            )"
             :item="item"
             :key="index"
           />
@@ -165,6 +186,7 @@ export default {
   data: () => {
     return {
       isFiltersShow: false,
+      quickSearchInputValue: null,
     };
   },
   methods: {
@@ -199,9 +221,20 @@ export default {
       }
     },
 
+    onQuickSearchInput(id, inputValue) {
+      setTimeout(() => {
+        console.log("id: " + id);
+        console.log("text " + inputValue);
+        this.$store.dispatch("catalogFilter/changeInputSearchValue", {
+          id,
+          inputValue,
+        });
+      }, 2000);
+    },
+
     filterBySearch(items, query) {
       return items.filter(function (item) {
-        return item.name.includes(query);
+        return item.name.toLowerCase().includes(query.toLowerCase());
       });
     },
 
@@ -307,6 +340,20 @@ export default {
 
   &__search {
     padding-bottom: 20px;
+
+    input {
+      width: 200px;
+      height: 29px;
+      padding: 0 10px;
+      border: 1px solid $color_gray6;
+      color: $color_dark;
+      font-size: 12px;
+      line-height: 26px;
+
+      &:placeholder {
+        color: $color_gray6;
+      }
+    }
   }
 
   &__range {

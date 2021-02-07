@@ -1,7 +1,10 @@
 <template>
   <div class="quick-search">
-    <label class="is-hidden" for="search">Поиск по фильтру</label>
-    <input type="text" name="search" id="search" placeholder="Быстрый поиск" />
+    <input
+      @input="$emit('on-search')"
+      type="text"
+      placeholder="Быстрый поиск"
+    />
   </div>
 </template>
 

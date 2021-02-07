@@ -81,6 +81,7 @@ export const state = () => ({
     },
     plot: {
       title: "Сюжет",
+      id: "plot",
       isOpen: true,
       contentStyleHeight: "auto",
       searchQuery: "",
@@ -222,8 +223,10 @@ export const state = () => ({
     },
     technics: {
       title: "Техника",
+      id: "technics",
       isOpen: true,
       contentStyleHeight: "auto",
+      searchQuery: "",
       items: [
         {
           id: "oil",
@@ -415,6 +418,10 @@ export const mutations = {
     } else {
       state.filterChips.push(chip);
     }
+  },
+
+  CHANGE_INPUT_SEARCH_VALUE(state, { id, inputValue }) {
+    state.filterItems[id].searchQuery = inputValue;
   }
 };
 
@@ -439,6 +446,10 @@ export const actions = {
 
   chipToggle({ commit }, chip) {
     commit("CHIP_TOGGLE", chip);
+  },
+
+  changeInputSearchValue({ commit }, { id, inputValue }) {
+    commit("CHANGE_INPUT_SEARCH_VALUE", (state, { id, inputValue }));
   }
 };
 
