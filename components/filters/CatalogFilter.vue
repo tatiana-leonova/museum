@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="filters"
-    :class="[isFiltersShow ? 'filters--show' : 'filters--hide']"
-  >
+  <div class="filters" :class="[!isFiltersShow ? 'filters--hide' : '']">
     <div
       class="filters__accordion-item"
       :class="{ 'is-open': filterItems.work.isOpen }"
@@ -223,13 +220,11 @@ export default {
 
     onQuickSearchInput(id, inputValue) {
       setTimeout(() => {
-        console.log("id: " + id);
-        console.log("text " + inputValue);
         this.$store.dispatch("catalogFilter/changeInputSearchValue", {
           id,
           inputValue,
         });
-      }, 2000);
+      }, 800);
     },
 
     filterBySearch(items, query) {
@@ -260,16 +255,8 @@ export default {
     min-width: 280px;
     max-width: 100%;
 
-    // &--show {
-    //   display: block;
-    //   opacity: 1;
-    //   transition: 0.5s;
-    // }
-
     &--hide {
-      display: none;
-      // visibility: hidden;
-      // position: absolite;
+      visibility: hidden;
     }
   }
 
