@@ -186,7 +186,10 @@
         ref="year"
         :style="{ height: filterItems.year.contentStyleHeight }"
       >
-        <Range class="filters__range" />
+        <Range
+          class="filters__range"
+          @onRangeSearchInput="onRangeSearchInput"
+        />
         <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
@@ -270,6 +273,16 @@ export default {
         this.$store.dispatch("catalogFilter/changeInputSearchValue", {
           id,
           inputValue,
+        });
+      }, 800);
+    },
+
+    onRangeSearchInput(min, max) {
+      setTimeout(() => {
+        // console.log(min, max);
+        this.$store.dispatch("catalogFilter/setPeriodByUserInput", {
+          minValue: min,
+          maxValue: max,
         });
       }, 800);
     },

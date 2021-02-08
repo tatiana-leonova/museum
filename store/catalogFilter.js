@@ -451,6 +451,18 @@ export const mutations = {
 
   CHANGE_ALL_ITEMS_BUTTON_EXSPANDED(state, allItemButton) {
     allItemButton.isExpanded = !allItemButton.isExpanded;
+  },
+
+  SET_PERIOD_BY_USER_INPUT(state, { minValue, maxValue }) {
+    _.forEach(state.filterItems.year.items, function(period) {
+      period.isChecked = false;
+      state.filterChips = _.filter(state.filterChips, function(chip) {
+        return chip.name !== period.name;
+      });
+    });
+    state.currentFilterByYear.minValue = minValue === null ? 0 : minValue;
+    state.currentFilterByYear.maxValue =
+      maxValue === null ? Infinity : maxValue;
   }
 };
 
@@ -478,11 +490,17 @@ export const actions = {
   },
 
   changeInputSearchValue({ commit }, { id, inputValue }) {
-    commit("CHANGE_INPUT_SEARCH_VALUE", (state, { id, inputValue }));
+    commit("CHANGE_INPUT_SEARCH_VALUE", { id, inputValue });
   },
 
   changeAllItemsButtonExspanded({ commit }, allItemButton) {
-    commit("CHANGE_ALL_ITEMS_BUTTON_EXSPANDED", (state, allItemButton));
+    commit("CHANGE_ALL_ITEMS_BUTTON_EXSPANDED", allItemButton);
+  },
+
+  setPeriodByUserInput({ commit, rootState }, { minValue, maxValue }) {
+    commit("SET_PERIOD_BY_USER_INPUT", { minValue, maxValue });
+    commit("SET_FILTER_CHECKED", { rootState });
+    commit("SET_PAGE_COUNT", { rootState });
   }
 };
 

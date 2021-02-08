@@ -1,16 +1,31 @@
 <template>
   <div class="range">
-    <label>
-      <input type="text" name="min" placeholder="с" />
-    </label>
-    <label>
-      <input type="text" name="max" placeholder="по" />
-    </label>
+    <input
+      v-model="rangeSearchMin"
+      @input="$emit('onRangeSearchInput', rangeSearchMin, rangeSearchMax)"
+      type="text"
+      name="min"
+      placeholder="с"
+    />
+    <input
+      v-model="rangeSearchMax"
+      @input="$emit('onRangeSearchInput', rangeSearchMin, rangeSearchMax)"
+      type="text"
+      name="max"
+      placeholder="по"
+    />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => {
+    return {
+      rangeSearchMin: null,
+      rangeSearchMax: null,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
