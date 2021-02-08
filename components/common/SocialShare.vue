@@ -26,6 +26,15 @@ export default {
     width: 94px;
     height: 34px;
     padding: 3px 35px !important;
+    transition: all 0.5s;
+
+    &:hover {
+      border: 1px solid $color_dark;
+    }
+
+    a {
+      @include hover-focus-active;
+    }
 
     @media (max-width: $width-mobile-max) {
       width: 84px;

@@ -59,11 +59,21 @@ export default {
     background-color: inherit;
     cursor: pointer;
 
+    &:hover,
     &:focus {
       outline: none;
+
+      svg {
+        fill: $color_dark;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
     }
 
     svg {
+      transition: all 0.5s;
       fill: $color_gray3;
     }
   }

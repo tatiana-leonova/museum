@@ -64,5 +64,10 @@ li {
   svg {
     vertical-align: middle;
   }
+
+  a {
+    transition: all 0.5s;
+    @include hover-focus-active;
+  }
 }
 </style>

@@ -9,7 +9,10 @@
       </svg>
       <a :href="link" target="_blank"> {{ title }}</a>
     </h3>
-    <address>{{ city }} <br> {{address }}</address>
+    <address>
+      {{ city }} <br />
+      {{ address }}
+    </address>
     <a :href="'tel:' + phoneLink"> {{ phone }} </a>
   </li>
 </template>
@@ -32,6 +35,8 @@ export default {
       line-height: 26px;
       color: $color_dark;
       text-decoration: none;
+      transition: all 0.5s;
+      @include hover-focus-active;
     }
 
     svg {
@@ -53,6 +58,16 @@ export default {
     font-size: 14px;
     line-height: 26px;
     text-decoration: none;
+    transition: all 0.5s;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
   }
 }
 </style>

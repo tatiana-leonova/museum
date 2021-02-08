@@ -1,6 +1,6 @@
 <template>
   <div class="read-more">
-    <button>
+    <a>
       <span class="read-more__text">читать больше</span>
       <svg width="121" height="16" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -8,7 +8,7 @@
           fill="#202020"
         />
       </svg>
-    </button>
+    </a>
   </div>
 </template>
 
@@ -18,10 +18,11 @@ export default {};
 
 <style lang="scss" scoped>
 .read-more {
-  button {
+  transition: all 0.5s;
+  @include hover-focus-active;
+  
+  a {
     color: $color_dark;
-    border: none;
-    background-color: inherit;
     cursor: pointer;
   }
   &__text {

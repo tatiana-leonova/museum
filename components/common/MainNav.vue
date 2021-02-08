@@ -74,6 +74,8 @@ export default {
     color: $color_gray5;
     font-size: 14px;
     line-height: 100%;
+    transition: all 0.5s;
+    @include hover-focus-active;
 
     @media (max-width: $width-mobile-max) {
       font-size: 24px;

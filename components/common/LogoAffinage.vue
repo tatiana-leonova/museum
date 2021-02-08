@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="logo-affinage">
     <a
       href="https://affinage.ru/"
       target="_blank"
@@ -28,5 +28,11 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
+.logo-affinage {
+  a {
+    transition: all 0.5s;
+    @include hover-focus-active;
+  }
+}
 </style>

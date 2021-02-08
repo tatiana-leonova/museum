@@ -6,6 +6,7 @@
     <button
       class="search-button"
       @click="toggleSearchForm"
+      type="button"
       aria-label="Поиск по сайту"
     >
       <svg
@@ -60,6 +61,8 @@ export default {
     border: none;
     background-color: inherit;
     cursor: pointer;
+    transition: all 0.5s;
+    @include hover-focus-active;
   }
 
   form {

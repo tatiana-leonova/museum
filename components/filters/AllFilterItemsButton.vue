@@ -32,6 +32,8 @@ export default {
   cursor: pointer;
   outline: none;
   padding-left: 25px;
+  transition: all 0.5s;
+  @include hover-focus-active;
 
   &::before {
     position: absolute;

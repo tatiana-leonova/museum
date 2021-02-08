@@ -192,8 +192,8 @@ export default {
     color: $color_gray8;
     text-align: center;
 
-        @media (max-width: $width-mobile-max) {
-     margin-bottom: 50px;
+    @media (max-width: $width-mobile-max) {
+      margin-bottom: 50px;
     }
 
     > span {
@@ -283,6 +283,9 @@ export default {
       line-height: 20px;
       font-weight: 400;
 
+      transition: all 0.5s;
+      @include hover-focus-active;
+
       span {
         display: inline-block;
         border: 1px solid $color_gray3;
@@ -304,10 +307,8 @@ export default {
     position: absolute;
     bottom: 20px;
 
-    &:hover,
-    &:focus {
-      opacity: 0.5;
-    }
+    transition: all 0.5s;
+    @include hover-focus-active;
 
     &--previous {
       left: 0;

@@ -2,9 +2,7 @@
   <li
     class="filter-items-count"
     :class="[item.isChecked ? 'filter-items-count--active' : '']"
-    @click="
-      $emit('on-checked');
-    "
+    @click="$emit('on-checked')"
   >
     <p class="filter-items-count__name">{{ item.name }}</p>
     <p class="filter-items-count__number">{{ item.count }}</p>

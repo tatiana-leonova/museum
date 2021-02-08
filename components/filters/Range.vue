@@ -26,9 +26,15 @@ export default {};
     color: $color_dark;
     font-size: 14px;
     padding: 0 10px;
+    transition: all 0.5s;
 
     &:placeholder {
       color: $color_gray6;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid $color_dark;
     }
   }
 }

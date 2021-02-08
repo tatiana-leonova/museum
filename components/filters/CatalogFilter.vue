@@ -361,6 +361,8 @@ export default {
     width: 200px;
     text-align: left;
     padding-right: 15px;
+    transition: all 0.5s;
+    @include hover-focus-active;
 
     &::before {
       position: absolute;
@@ -398,9 +400,15 @@ export default {
       color: $color_dark;
       font-size: 12px;
       line-height: 26px;
+      transition: all 0.5s;
 
       &:placeholder {
         color: $color_gray6;
+      }
+
+      &:hover,
+      &:focus {
+        border: 1px solid $color_dark;
       }
     }
   }

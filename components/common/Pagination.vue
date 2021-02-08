@@ -5,7 +5,7 @@
         <a
           href="#"
           @click.prevent="onPaginationClick(index)"
-          :class="[currentPage === index ? 'active' : '']"
+          :class="[currentPage === index ? 'pagination--active' : '']"
         >
           {{ index + 1 }}
         </a>
@@ -51,10 +51,16 @@ export default {
       font-size: 18px;
       color: $color_gray3;
       padding: 0 5px;
+      transition: all 0.5s;
+
+      &:hover,
+      &:focus {
+        color: $color_dark;
+      }
     }
   }
 
-  .active {
+  .pagination--active {
     color: $color_dark;
   }
 }

@@ -83,9 +83,19 @@ export default {
     font-size: 20px;
     font-family: $YesevaOne;
     font-weight: 400;
+    transition: all 0.5s;
 
     @media (max-width: $width-mobile-max) {
       font-size: 14px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color_dark;
+    }
+
+    &:active {
+      opacity: 0.5;
     }
   }
 
