@@ -63,6 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .catalog-painting {
+  margin-bottom: 40px;
   @media (max-width: 660px) {
     padding: 0 5px;
   }

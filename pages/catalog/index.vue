@@ -75,6 +75,7 @@ export default {
   &__inner {
     @media (min-width: $width-desktop-min) {
       display: flex;
+      justify-content: space-between;
     }
   }
 
@@ -87,10 +88,11 @@ export default {
   &__filter {
     @media (max-width: $width-mobile-max) {
       margin: 0 auto;
+      padding-top: 30px;
     }
 
     @media (min-width: $width-desktop-min) {
-      margin-right: 120px;
+      margin-right: 100px;
     }
   }
 
@@ -119,9 +121,9 @@ export default {
   &__wrapper-chip-painting {
     position: relative;
 
-    @media (min-width: $width-desktop-min) {
-      width: 615px;
-    }
+    // @media (min-width: $width-desktop-min) {
+    //   width: 615px;
+    // }
   }
 
   &__filter-chip {

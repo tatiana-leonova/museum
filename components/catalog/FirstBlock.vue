@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
 .first-block {
   @media (min-width: $width-desktop-min) {
-    height: calc(100vh - 46px);
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,7 +50,8 @@ export default {
   &__wrapper-title {
     display: flex;
     justify-content: center;
-    padding-bottom: 60px;
+    padding-top: 100px;
+    padding-bottom: 70px;
 
     span {
       font-family: $Helvetica;
@@ -59,6 +60,9 @@ export default {
       line-height: 50px;
       font-weight: 300;
       width: 240px;
+      @media (max-width: 510px) {
+      padding-top: 20px;
+      }
     }
 
     @media (max-width: 510px) {
@@ -66,7 +70,8 @@ export default {
       align-items: center;
     }
     @media (max-width: $width-mobile-max) {
-      margin-bottom: 100px;
+          padding-top: 30px;
+    padding-bottom: 100px;
 
       span {
         font-size: 30px;

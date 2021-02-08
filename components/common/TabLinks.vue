@@ -37,8 +37,8 @@ export default {
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  padding-top: 50px;
-  margin-bottom: 50px;
+  padding-top: 30px;
+  margin-bottom: 30px;
   overflow: hidden;
   transition: all 0.5s;
   border-bottom: 1px solid $color_gray6;
@@ -47,7 +47,8 @@ export default {
     max-width: 920px;
     display: block;
     margin: 0 auto;
-    margin-bottom: 50px;
+    padding-top: 60px;
+    margin-bottom: 30px;
   }
 
   &__wrapper {
@@ -73,7 +74,7 @@ export default {
     display: inline-block;
     vertical-align: top;
     margin-right: 40px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
 
   a {
@@ -82,6 +83,10 @@ export default {
     font-size: 20px;
     font-family: $YesevaOne;
     font-weight: 400;
+
+    @media (max-width: $width-mobile-max) {
+      font-size: 14px;
+    }
   }
 
   .active {

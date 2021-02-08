@@ -24,9 +24,13 @@ export default {
   padding-top: 20px;
   background: $color_dark;
 
+  @media (min-width: $width-desktop-min) {
+    padding: 35px 100px 0 100px;
+  }
+
   &__wrapper {
     @media (min-width: $width-desktop-min) {
-      padding: 15px 100px 0 0;
+      // padding: 15px 100px 0 0;
       display: flex;
       justify-content: space-between;
       margin-left: auto;
@@ -36,15 +40,18 @@ export default {
       padding: 0;
       padding-top: 10px;
       padding-left: 15px;
+      // padding-left: ;
     }
   }
 }
 
 .header--index {
   @media (min-width: $width-desktop-min) {
+    padding: 35px 100px 0 0;
     position: absolute;
     width: 63%;
     margin-left: auto;
+    padding-left: 0;
     top: 0;
     right: 0;
     z-index: 1;

@@ -23,6 +23,7 @@ export default {
   justify-content: space-between;
   position: relative;
   cursor: pointer;
+  margin-bottom: 5px;
   transition: all 0.5s;
 
   p {

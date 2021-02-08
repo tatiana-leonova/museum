@@ -14,6 +14,7 @@ export default {
 <style lang="scss" scoped>
 .input-checkbox {
   color: $color_dark;
+  margin-bottom: 5px;
 
   label {
     display: block;
