@@ -20,16 +20,20 @@ export default {
 
 
 <style lang="scss">
-.ya-share2__item {
-  border: 1px solid $color_gray3;
-  width: 94px;
-  height: 34px;
-  padding: 3px 35px !important;
-  margin-left: 10px !important;
+.ya-share2__list {
+  li {
+    border: 1px solid $color_gray3;
+    width: 94px;
+    height: 34px;
+    padding: 3px 35px !important;
 
-  @media (max-width: $width-mobile-max) {
-    width: 84px;
-    padding: 3px 30px !important;
+    @media (max-width: $width-mobile-max) {
+      width: 84px;
+      padding: 3px 30px !important;
+    }
+  }
+  li:not(:last-child) {
+    margin-right: 10px !important;
   }
 }
 </style>

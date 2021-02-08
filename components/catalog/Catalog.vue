@@ -17,6 +17,11 @@
           :key="index"
         />
       </ul>
+
+      <div class="catalog-painting__no-card" v-if="cards.length === 0">
+        <p class="">Сожалеем, но по вашему запросу ничего не найдено.</p>
+        <p>Попробуйте изменить параметры фильтрации.</p>
+      </div>
       <Pagination />
     </div>
   </section>
@@ -74,6 +79,10 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
 
+    @media (min-width: $width-desktop-min) {
+      width: 645px;
+    }
+
     @media (min-width: 768px) and (max-width: 1024px) {
       margin: 0 auto;
       width: 650px;
@@ -95,6 +104,14 @@ export default {
 
     @media (max-width: 660px) {
       width: 120px;
+    }
+  }
+
+  &__no-card {
+    text-align: center;
+
+    p {
+      margin: 5px;
     }
   }
 }

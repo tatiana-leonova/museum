@@ -60,7 +60,6 @@ export default {};
     flex-direction: column;
     justify-content: center;
     padding: 65px 20px 40px;
-
     @media (min-width: $width-desktop-min) {
       margin-left: 37%;
       width: 55%;
