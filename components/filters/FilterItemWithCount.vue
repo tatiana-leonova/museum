@@ -23,6 +23,7 @@ export default {
   cursor: pointer;
   margin-bottom: 5px;
   transition: all 0.5s;
+  text-align: left;
 
   p {
     @include zero-indent;
@@ -30,6 +31,7 @@ export default {
 
   &__name {
     padding-right: 10px;
+    text-align: left;
   }
 
   &__number {

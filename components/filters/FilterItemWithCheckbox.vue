@@ -69,7 +69,6 @@ export default {
     color: 1px solid $color_gray3;
     width: 16px;
     height: 16px;
-    background-color: red;
     cursor: pointer;
   }
 

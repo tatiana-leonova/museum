@@ -100,6 +100,7 @@ export default {
     position: relative;
     text-decoration: none;
     border: 2px solid $color_gray5;
+    color: $color_dark;
     padding: 4px 40px 4px 14px;
     font-size: 12px;
     width: 280px;
