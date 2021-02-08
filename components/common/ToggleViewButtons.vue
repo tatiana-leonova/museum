@@ -2,6 +2,7 @@
   <div class="toggle-view">
     <button
       class="toggle-view__button"
+      type="button"
       title="Большие фото"
       @click="$emit('toggleViewPhoto', ViewPhoto.big)"
       :class="[viewDefaultPhoto === ViewPhoto.big ? 'active-view' : '']"
@@ -12,6 +13,7 @@
     </button>
     <button
       class="toggle-view__button"
+      type="button"
       title="Компактный вид"
       @click="$emit('toggleViewPhoto', ViewPhoto.small)"
       :class="[viewDefaultPhoto === ViewPhoto.small ? 'active-view' : '']"

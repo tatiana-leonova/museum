@@ -33,7 +33,6 @@ import Catalog from "~/components/catalog/Catalog.vue";
 import TabLinks from "~/components/common/TabLinks.vue";
 import FilterChips from "~/components/filters/FilterChips.vue";
 import CatalogFilter from "~/components/filters/CatalogFilter.vue";
-// import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
 export default {
   components: {

@@ -30,7 +30,6 @@ export default {
 
   &__wrapper {
     @media (min-width: $width-desktop-min) {
-      // padding: 15px 100px 0 0;
       display: flex;
       justify-content: space-between;
       margin-left: auto;
@@ -40,7 +39,6 @@ export default {
       padding: 0;
       padding-top: 10px;
       padding-left: 15px;
-      // padding-left: ;
     }
   }
 }
