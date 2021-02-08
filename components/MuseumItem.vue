@@ -29,14 +29,16 @@ export default {
     position: relative;
     padding-left: 30px;
     margin-top: 0;
+
     a {
+      @include hover-focus-active;
+
       font-weight: 700;
       font-size: 16px;
       line-height: 26px;
       color: $color_dark;
       text-decoration: none;
       transition: all 0.5s;
-      @include hover-focus-active;
     }
 
     svg {
@@ -47,17 +49,17 @@ export default {
   }
 
   address {
-    color: $color_gray3;
     font-size: 14px;
     line-height: 26px;
     font-style: normal;
+    color: $color_gray3;
   }
 
   a[href^="tel"] {
-    color: $color_gray3;
     font-size: 14px;
     line-height: 26px;
     text-decoration: none;
+    color: $color_gray3;
     transition: all 0.5s;
 
     &:hover,

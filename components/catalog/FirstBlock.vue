@@ -21,24 +21,25 @@ export default {
 <style lang="scss" scoped>
 .first-block {
   @media (min-width: $width-desktop-min) {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
     padding-bottom: 100px;
   }
 
   @media (max-width: $width-mobile-max) {
-  padding-top: 92px;
+    padding-top: 92px;
   }
 
   h1 {
+    @include zero-indent;
+
     font-family: $YesevaOne;
     font-size: 80px;
     font-weight: 400;
     line-height: 65%;
     color: $color_gray5;
-    @include zero-indent;
     margin-right: 40px;
 
     @media (max-width: 758px) {
@@ -54,14 +55,15 @@ export default {
     padding-bottom: 70px;
 
     span {
+      width: 240px;
       font-family: $Helvetica;
-      color: $color_gray5;
-      font-size: 40px;
       line-height: 50px;
       font-weight: 300;
-      width: 240px;
+      font-size: 40px;
+      color: $color_gray5;
+
       @media (max-width: 510px) {
-      padding-top: 20px;
+        padding-top: 20px;
       }
     }
 
@@ -70,8 +72,8 @@ export default {
       align-items: center;
     }
     @media (max-width: $width-mobile-max) {
-          padding-top: 30px;
-    padding-bottom: 100px;
+      padding-top: 30px;
+      padding-bottom: 100px;
 
       span {
         font-size: 30px;

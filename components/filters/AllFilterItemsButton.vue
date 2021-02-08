@@ -36,10 +36,10 @@ export default {
   @include hover-focus-active;
 
   &::before {
-    position: absolute;
     content: "";
-    left: 3px;
+    position: absolute;
     top: 6px;
+    left: 3px;
     width: 10px;
     height: 2px;
     font-size: 18px;
@@ -48,10 +48,10 @@ export default {
   }
 
   &::after {
-    position: absolute;
     content: "";
-    left: 7px;
+    position: absolute;
     top: 2px;
+    left: 7px;
     width: 2px;
     height: 10px;
     font-size: 18px;

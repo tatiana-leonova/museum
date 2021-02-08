@@ -18,9 +18,10 @@ export default {};
 
 <style lang="scss" scoped>
 .read-more {
-  transition: all 0.5s;
   @include hover-focus-active;
-  
+
+  transition: all 0.5s;
+
   a {
     color: $color_dark;
     cursor: pointer;
@@ -30,8 +31,7 @@ export default {};
     font-size: 14px;
     font-weight: 700;
     line-height: 40px;
-    margin: 0;
-    margin-bottom: -10px;
+    margin: 0 0 -10px 0;
   }
 }
 </style>

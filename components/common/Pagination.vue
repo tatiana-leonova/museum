@@ -38,19 +38,20 @@ export default {
 .pagination {
   ul {
     @include no-list;
+
     display: flex;
-    flex-wrap: wrap;
-    font-weight: normal;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 20px;
+    font-weight: normal;
   }
 
   li {
     a {
-      text-decoration: none;
-      font-size: 18px;
-      color: $color_gray3;
       padding: 0 5px;
+      font-size: 18px;
+      text-decoration: none;
+      color: $color_gray3;
       transition: all 0.5s;
 
       &:hover,

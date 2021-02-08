@@ -44,11 +44,11 @@ export default {
 
   &__wrapper {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
-    justify-content: center;
     margin: 0 auto;
   }
 
@@ -57,11 +57,10 @@ export default {
   }
 
   &__nav {
-    margin: 0 auto;
     padding: 0 50px 40px 50px;
+    margin: 0 auto;
 
     @media (max-width: $width-mobile-max) {
-      padding-bottom: 40px;
       padding: 0 0 20px 0;
     }
   }
@@ -92,12 +91,13 @@ export default {
   }
 
   &__nav-link {
-    text-decoration: none;
-    color: $color_gray5;
+    @include hover-focus-active;
+
     font-size: 14px;
     line-height: 100%;
+    text-decoration: none;
+    color: $color_gray5;
     transition: all 0.5s;
-    @include hover-focus-active;
   }
 }
 </style>

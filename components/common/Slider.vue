@@ -163,8 +163,8 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
-  background-color: $color-dark;
   position: relative;
+  background-color: $color-dark;
 
   @media (max-width: $width-mobile-max) {
     display: flex;
@@ -181,16 +181,16 @@ export default {
     font-size: 14px;
     line-height: 20px;
     font-weight: 300;
-    color: $color_gray5;
     text-align: center;
+    color: $color_gray5;
   }
 
   &__active-photo-counter {
     font-size: 14px;
     line-height: 20px;
     font-weight: 300;
-    color: $color_gray8;
     text-align: center;
+    color: $color_gray8;
 
     @media (max-width: $width-mobile-max) {
       margin-bottom: 50px;
@@ -208,13 +208,13 @@ export default {
   }
 
   &__active-photo {
+    position: relative;
     width: 100%;
     height: 530px;
-    margin-bottom: 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
+    margin-bottom: 20px;
   }
 
   &__preview {
@@ -250,7 +250,7 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.45;
-    transition: 0.5s;
+    transition: all 0.5s;
 
     &:hover {
       opacity: 0.8;
@@ -277,38 +277,36 @@ export default {
       order: 1;
     }
     a {
-      text-decoration: none;
-      color: $color_gray3;
+      @include hover-focus-active;
+      
       font-size: 14px;
       line-height: 20px;
       font-weight: 400;
-
+      text-decoration: none;
+      color: $color_gray3;
       transition: all 0.5s;
-      @include hover-focus-active;
 
       span {
         display: inline-block;
-        border: 1px solid $color_gray3;
-        transform: rotate(-135deg);
-        border-right: none;
-        border-top: none;
         width: 5px;
         height: 5px;
+        border: 1px solid $color_gray3;
+        border-right: none;
+        border-top: none;
+        transform: rotate(-135deg);
         margin: 0 0 2px 5px;
       }
     }
   }
 
   &__arrow {
+    @include hover-focus-active;
+    position: absolute;
+    bottom: 20px;
     border: none;
     cursor: pointer;
     background: inherit;
-    transition: 0.5s;
-    position: absolute;
-    bottom: 20px;
-
     transition: all 0.5s;
-    @include hover-focus-active;
 
     &--previous {
       left: 0;

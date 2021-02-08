@@ -72,9 +72,9 @@ export default {
 
 <style lang="scss" scoped>
 .creation {
-  border-bottom: 1px solid $color_gray6;
-  padding-bottom: 90px;
   position: relative;
+  padding-bottom: 90px;
+  border-bottom: 1px solid $color_gray6;
 
   @media (max-width: $width-mobile-max) {
     padding-bottom: 50px;
@@ -85,10 +85,8 @@ export default {
     font-size: 40px;
     font-weight: 400;
     line-height: 40px;
-    margin: 0;
-    margin-bottom: 30px;
     color: $color_dark;
-    margin-right: 100px;
+    margin: 0 100px 30px 0;
   }
 
   &__wrapper-image--1 {
@@ -193,8 +191,8 @@ export default {
     }
 
     @media (max-width: $width-mobile-max) {
-      margin: 0 auto;
       width: 300px;
+      margin: 0 auto;
     }
   }
 }

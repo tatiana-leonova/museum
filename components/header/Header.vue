@@ -1,7 +1,7 @@
 <template>
   <section class="header">
     <div class="header__wrapper">
-      <MainSearch />
+      <MainSearch class="header__main-search" />
       <MainNav />
     </div>
   </section>
@@ -38,6 +38,11 @@ export default {
     @media (max-width: $width-mobile-max) {
       padding: 0;
       padding-top: 10px;
+    }
+  }
+
+  &__main-search {
+    @media (max-width: $width-mobile-max) {
       padding-left: 15px;
     }
   }
@@ -45,14 +50,13 @@ export default {
 
 .header--index {
   @media (min-width: $width-desktop-min) {
-    padding: 35px 100px 0 0;
     position: absolute;
-    width: 63%;
-    margin-left: auto;
-    padding-left: 0;
     top: 0;
     right: 0;
     z-index: 1;
+    width: 63%;
+    padding: 35px 100px 0 0;
+    margin-left: auto;
   }
 }
 </style>

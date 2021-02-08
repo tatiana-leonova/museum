@@ -31,8 +31,9 @@
 <style lang="scss">
 .logo-affinage {
   a {
-    transition: all 0.5s;
     @include hover-focus-active;
+    
+    transition: all 0.5s;
   }
 }
 </style>

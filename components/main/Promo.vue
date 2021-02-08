@@ -1,6 +1,5 @@
 <template>
   <div class="promo">
-    <!-- <div> -->
     <div class="promo__img"></div>
     <div class="promo__wrapper-text">
       <span class="promo__data">1878-1927</span>
@@ -12,7 +11,6 @@
         особое чувство и&nbsp;восприятие родной природы.
       </p>
     </div>
-    <!-- </div> -->
   </div>
 </template>
 
@@ -36,20 +34,19 @@ export default {};
     position: absolute;
     top: 0;
     left: 0;
-    width: 460px;
+    width: 32%;
+    height: 100vh;
     background-image: url("~assets/img/main-img.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right 15%;
-    width: 32%;
-    height: 100vh;
 
     @media (max-width: $width-mobile-max) {
       position: relative;
       width: 100%;
       height: 40vw;
-      margin: 0 auto;
       order: 1;
+      margin: 0 auto;
       background-position: bottom 10% right 15%;
     }
   }
@@ -60,11 +57,12 @@ export default {};
     flex-direction: column;
     justify-content: center;
     padding: 65px 20px 40px;
+
     @media (min-width: $width-desktop-min) {
-      margin-left: 37%;
       width: 55%;
       height: 100%;
       padding: 50px 95px 50px 120px;
+      margin-left: 37%;
     }
   }
 

@@ -362,26 +362,27 @@ export default {
   }
 
   &__item-title {
+    @include hover-focus-active;
+
+    position: relative;
     display: block;
+    width: 200px;
+    text-align: left;
+    padding-right: 15px;
     color: $color_dark;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 700;
-    margin-bottom: 20px;
     text-decoration: none;
     cursor: pointer;
-    position: relative;
-    width: 200px;
-    text-align: left;
-    padding-right: 15px;
     transition: all 0.5s;
-    @include hover-focus-active;
+    margin-bottom: 20px;
 
     &::before {
-      position: absolute;
       content: "";
-      right: 0;
+      position: absolute;
       top: 12px;
+      right: 0;
       width: 10px;
       height: 2px;
       font-size: 18px;
@@ -390,10 +391,10 @@ export default {
     }
 
     &::after {
-      position: absolute;
       content: "";
-      right: 4px;
+      position: absolute;
       top: 8px;
+      right: 4px;
       width: 2px;
       height: 10px;
       font-size: 18px;
@@ -409,10 +410,10 @@ export default {
       width: 200px;
       height: 29px;
       padding: 0 10px;
-      border: 1px solid $color_gray6;
       color: $color_dark;
       font-size: 12px;
       line-height: 26px;
+      border: 1px solid $color_gray6;
       transition: all 0.5s;
 
       &:placeholder {

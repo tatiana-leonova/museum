@@ -38,16 +38,16 @@ export default {
   vertical-align: top;
   width: 100%;
   padding-top: 30px;
-  margin-bottom: 30px;
   overflow: hidden;
   transition: all 0.5s;
   border-bottom: 1px solid $color_gray6;
+  margin-bottom: 30px;
 
   @media (min-width: $width-desktop-min) {
-    max-width: 920px;
     display: block;
-    margin: 0 auto;
+    max-width: 920px;
     padding-top: 60px;
+    margin: 0 auto;
     margin-bottom: 30px;
   }
 
@@ -73,16 +73,16 @@ export default {
   li {
     display: inline-block;
     vertical-align: top;
-    margin-right: 40px;
     padding-bottom: 5px;
+    margin-right: 40px;
   }
 
   a {
-    text-decoration: none;
-    color: $color_gray4;
     font-size: 20px;
     font-family: $YesevaOne;
     font-weight: 400;
+    text-decoration: none;
+    color: $color_gray4;
     transition: all 0.5s;
 
     @media (max-width: $width-mobile-max) {

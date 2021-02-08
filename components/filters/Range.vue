@@ -37,10 +37,10 @@ export default {
   input {
     width: 70px;
     height: 29px;
-    border: 1px solid $color_gray6;
-    color: $color_dark;
     font-size: 14px;
+    color: $color_dark;
     padding: 0 10px;
+    border: 1px solid $color_gray6;
     transition: all 0.5s;
 
     &:placeholder {

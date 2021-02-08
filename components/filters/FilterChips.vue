@@ -35,6 +35,7 @@ export default {
 
   ul {
     @include no-list;
+
     display: flex;
     flex-wrap: wrap;
   }
@@ -42,9 +43,9 @@ export default {
     position: relative;
     font-size: 12px;
     line-height: 26px;
+    padding: 2px 30px 2px 20px;
     background-color: $color_gray5;
     border-radius: 20px;
-    padding: 2px 30px 2px 20px;
     cursor: pointer;
     margin-right: 10px;
     margin-bottom: 10px;

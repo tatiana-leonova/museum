@@ -1,6 +1,12 @@
 <template>
   <li class="input-checkbox">
-    <input class="is-hidden" type="checkbox" :id="item.id" @click="$emit('on-checked')" :checked="item.isChecked"/>
+    <input
+      class="is-hidden"
+      type="checkbox"
+      :id="item.id"
+      @click="$emit('on-checked')"
+      :checked="item.isChecked"
+    />
     <label :for="item.id">{{ item.name }}</label>
   </li>
 </template>
@@ -17,28 +23,28 @@ export default {
   margin-bottom: 5px;
 
   label {
-    display: block;
     position: relative;
+    display: block;
+    padding: 0 0 0 25px;
     cursor: pointer;
     outline: none;
-    padding: 0 0 0 25px;
 
     &::before {
-      position: absolute;
       content: "";
+      position: absolute;
       top: 4px;
       left: 0;
       width: 16px;
       height: 16px;
       border: 1px solid $color_gray7;
       border-radius: 5px;
-      transition: 0.3s;
+      transition: all 0.3s;
     }
 
     &::after {
+      content: "";
       position: absolute;
       display: none;
-      content: "";
       top: 8px;
       left: 4px;
       width: 9px;
@@ -47,7 +53,7 @@ export default {
       transform: rotate(-45deg);
       border-top-style: none;
       border-right-style: none;
-      transition: 0.3s;
+      transition: all 0.3s;
     }
 
     &:hover,
@@ -66,9 +72,9 @@ export default {
   }
 
   input {
-    color: 1px solid $color_gray3;
     width: 16px;
     height: 16px;
+    color: 1px solid $color_gray3;
     cursor: pointer;
   }
 

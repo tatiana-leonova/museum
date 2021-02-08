@@ -72,7 +72,6 @@ export default {
 <style lang="scss" scoped>
 .biography {
   padding-top: 60px;
-  padding-bottom: 40px;
   margin-bottom: 20px;
   position: relative;
 
@@ -88,6 +87,7 @@ export default {
   p {
     line-height: 26px;
     margin-top: 0;
+
     @media (min-width: $width-desktop-min) {
       width: 530px;
     }
@@ -102,9 +102,9 @@ export default {
     font-size: 40px;
     font-weight: 400;
     line-height: 40px;
+    color: $color_dark;
     margin: 0;
     margin-bottom: 30px;
-    color: $color_dark;
   }
 
   &__list {
@@ -121,10 +121,10 @@ export default {
   }
 
   dt {
-    color: $color_gray3;
     font-size: 20px;
     font-weight: 700;
     line-height: 40px;
+    color: $color_gray3;
     margin-top: -5px;
   }
 
@@ -154,8 +154,8 @@ export default {
     }
 
     @media (max-width: $width-mobile-max) {
-      margin: 0 auto;
       width: 300px;
+      margin: 0 auto;
     }
   }
 }

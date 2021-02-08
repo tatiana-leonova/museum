@@ -56,14 +56,14 @@ export default {
 
 <style lang="scss" scoped>
 .slider-block {
-  background-color: $color-dark;
   padding: 30px 0;
+  background-color: $color-dark;
   margin-bottom: 80px;
 
-   @media (max-width: $width-mobile-max) {
-     padding: 40px 0 20px;
-     margin-bottom: 60px;
-   }
+  @media (max-width: $width-mobile-max) {
+    padding: 40px 0 20px;
+    margin-bottom: 60px;
+  }
 
   &__wrapper {
     max-width: 920px;

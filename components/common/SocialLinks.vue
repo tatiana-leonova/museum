@@ -48,9 +48,10 @@ export default {};
 <style lang="scss" scoped>
 ul {
   @include no-list;
+
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   padding-bottom: 15px;
 }
@@ -66,8 +67,9 @@ li {
   }
 
   a {
-    transition: all 0.5s;
     @include hover-focus-active;
+
+    transition: all 0.5s;
   }
 }
 </style>

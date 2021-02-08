@@ -19,8 +19,8 @@ export default {
 
 <style lang="scss" scoped>
 .first-screen {
-  background: $color_dark;
   position: relative;
+  background: $color_dark;
 
   @media (min-width: $width-desktop-min) {
     height: 100vh;
@@ -29,8 +29,8 @@ export default {
 
 .logo {
   position: absolute;
-  bottom: 30px;
   right: 100px;
+  bottom: 30px;
 
   @media (max-width: $width-mobile-max) {
     display: none;

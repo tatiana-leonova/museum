@@ -39,8 +39,9 @@ export default {
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  overflow: hidden;
   transition: all 0.5s;
+  overflow: hidden;
+
   @media (max-width: $width-mobile-max) {
     margin-bottom: 40px;
   }
@@ -56,8 +57,8 @@ export default {
     @include no-list;
     display: inline-block;
     vertical-align: top;
-    white-space: nowrap;
     width: 100%;
+    white-space: nowrap;
   }
 
   &__item {

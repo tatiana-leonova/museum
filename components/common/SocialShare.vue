@@ -22,10 +22,10 @@ export default {
 <style lang="scss">
 .ya-share2__list {
   li {
-    border: 1px solid $color_gray3;
     width: 94px;
     height: 34px;
     padding: 3px 35px !important;
+    border: 1px solid $color_gray3;
     transition: all 0.5s;
 
     &:hover {

@@ -58,29 +58,30 @@ export default {
   display: flex;
 
   .search-button {
+    @include hover-focus-active;
+
     border: none;
     background-color: inherit;
     cursor: pointer;
     transition: all 0.5s;
-    @include hover-focus-active;
   }
 
   form {
     transition: all 0.5s;
 
     input {
+      width: 200px;
+      height: 30px;
+      color: $color_gray5;
       background-color: inherit;
       border: none;
       border-bottom: 1px solid $color_gray5;
-      color: $color_gray5;
-      height: 30px;
-      width: 200px;
       outline: none;
 
       &::placeholder {
-        color: $color_gray5;
         font-size: 14px;
         line-height: 100%;
+        color: $color_gray5;
       }
     }
   }

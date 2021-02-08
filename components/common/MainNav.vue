@@ -51,6 +51,7 @@ export default {
 
   ul {
     @include no-list;
+
     display: flex;
     flex-wrap: wrap;
 
@@ -70,12 +71,13 @@ export default {
   }
 
   &__link {
-    text-decoration: none;
-    color: $color_gray5;
+    @include hover-focus-active;
+
     font-size: 14px;
     line-height: 100%;
+    text-decoration: none;
+    color: $color_gray5;
     transition: all 0.5s;
-    @include hover-focus-active;
 
     @media (max-width: $width-mobile-max) {
       font-size: 24px;
@@ -87,34 +89,34 @@ export default {
 // мобильное меню
 @media (max-width: $width-mobile-max) {
   .main-nav__toggle {
+    position: absolute;
+    z-index: 50;
+    top: 30px;
+    right: 20px;
     display: block;
     width: 24px;
     height: 16px;
-    position: absolute;
-    top: 30px;
-    right: 20px;
     background-color: inherit;
     border: none;
-    cursor: pointer;
-    z-index: 50;
     outline: none;
+    cursor: pointer;
   }
 
   .main-nav--closed .main-nav__list {
-    visibility: hidden;
     position: absolute;
-    transition: op 0.5s;
     opacity: 0;
+    transition: all 0.5s;
+    visibility: hidden;
   }
 
   .main-nav--opened .main-nav__list {
-    display: block;
     position: fixed;
+    z-index: 1000;
     top: 0;
+    display: block;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-    z-index: 1000;
-    flex-direction: column;
     text-align: center;
     padding: 100px 0;
     background-color: $color_dark;
@@ -132,13 +134,13 @@ export default {
   .main-nav--opened .main-nav__toggle {
     &::before,
     &::after {
-      transition: 0.5s ease-in-out;
       content: "";
       position: absolute;
       top: 10px;
       right: 0;
       width: 23px;
       height: 2px;
+      transition: 0.5s ease-in-out;
       background-color: $color_gray6;
     }
 
@@ -153,13 +155,13 @@ export default {
   }
 
   .main-nav--closed .main-nav__toggle::before {
-    transition: 0.5s ease-in-out;
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     width: 24px;
     height: 2px;
+    transition: 0.5s ease-in-out;
     background-color: $color_gray6;
     box-shadow: 0 7px 0 0 $color_gray6, 0 14px 0 0 $color_gray6;
   }

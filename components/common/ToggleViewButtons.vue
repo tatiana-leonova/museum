@@ -73,8 +73,8 @@ export default {
     }
 
     svg {
-      transition: all 0.5s;
       fill: $color_gray3;
+      transition: all 0.5s;
     }
   }
 

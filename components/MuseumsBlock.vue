@@ -78,10 +78,10 @@ export default {
     font-size: 40px;
     font-weight: 400;
     line-height: 40px;
-    margin: 0;
-    margin-bottom: 40px;
     color: $color_dark;
     text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
   }
 
   ul {
@@ -106,8 +106,6 @@ export default {
 
   .museums__item {
     @media (max-width: $width-mobile-max) {
-      padding-bottom: 30px;
-      padding-top: 30px;
       width: 100%;
       max-width: 1023px;
       padding: 30px 20px;
@@ -116,9 +114,9 @@ export default {
 
   .museums__item:not(:nth-child(3n)) {
     @media (min-width: $width-desktop-min) {
-      border-right: 1px solid $color_gray6;
       padding-right: 90px;
       padding-bottom: 40px;
+      border-right: 1px solid $color_gray6;
     }
   }
 

@@ -39,13 +39,12 @@ export default {
   }
 
   &::before {
-    position: absolute;
     content: "";
+    position: absolute;
     top: -2px;
     left: -12px;
-    font-size: 16px;
-    color: $color_dark;
     font-size: 14px;
+    color: $color_dark;
   }
 
   &:hover {
