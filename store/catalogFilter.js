@@ -175,6 +175,11 @@ export const state = () => ({
       title: "Стили",
       isOpen: true,
       contentStyleHeight: "auto",
+      allItemButton: {
+        title: "Все стили",
+        defaultCountValue: 7,
+        isExpanded: false
+      },
       items: [
         {
           id: "realism",
@@ -232,6 +237,11 @@ export const state = () => ({
       isOpen: true,
       contentStyleHeight: "auto",
       searchQuery: "",
+      allItemButton: {
+        title: "Вся техника",
+        defaultCountValue: 7,
+        isExpanded: false
+      },
       allItemButton: {
         title: "Вся техника",
         defaultCountValue: 7,
@@ -304,6 +314,11 @@ export const state = () => ({
       title: "Период",
       isOpen: true,
       contentStyleHeight: "auto",
+      allItemButton: {
+        title: "Все периоды",
+        defaultCountValue: 7,
+        isExpanded: false
+      },
       items: [
         {
           id: "period1",

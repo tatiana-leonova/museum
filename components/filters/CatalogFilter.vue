@@ -17,14 +17,16 @@
         ref="work"
         :style="{ height: filterItems.work.contentStyleHeight }"
       >
-        <ul>
-          <FilterItemWithCount
-            @on-checked="onChecked(item)"
-            v-for="(item, index) in filterItems.work.items"
-            :item="item"
-            :key="index"
-          />
-        </ul>
+        <div class="filters__accordion-content-inner">
+          <ul>
+            <FilterItemWithCount
+              @on-checked="onChecked(item)"
+              v-for="(item, index) in filterItems.work.items"
+              :item="item"
+              :key="index"
+            />
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -54,24 +56,27 @@
             placeholder="Быстрый поиск"
           />
         </div>
-        <ul>
-          <FilterItemWithCheckbox
-            @on-checked="onChecked(item)"
-            v-for="(item, index) in getItemsCount(
-              filterItems.plot.items,
-              filterItems.plot.searchQuery,
-              filterItems.plot.allItemButton
-            )"
-            :item="item"
-            :key="index"
+        <div class="filters__accordion-content-inner">
+          <ul>
+            <FilterItemWithCheckbox
+              @on-checked="onChecked(item)"
+              v-for="(item, index) in getItemsCount(
+                filterItems.plot.items,
+                filterItems.plot.allItemButton,
+                filterItems.plot.searchQuery
+              )"
+              :item="item"
+              :key="index"
+            />
+          </ul>
+          <AllFilterItemsButton
+            v-if="filterItems.plot.items.length > 6"
+            @onClickAllFilterItems="
+              onClickAllFilterItems(filterItems.plot.allItemButton)
+            "
+            :allItemButton="filterItems.plot.allItemButton"
           />
-        </ul>
-        <AllFilterItemsButton
-          @onClickAllFilterItems="
-            onClickAllFilterItems(filterItems.plot.allItemButton)
-          "
-          :allItemButton="filterItems.plot.allItemButton"
-        />
+        </div>
       </div>
     </div>
 
@@ -91,14 +96,26 @@
         ref="style"
         :style="{ height: filterItems.style.contentStyleHeight }"
       >
-        <ul>
-          <FilterItemWithCheckbox
-            @on-checked="onChecked(item)"
-            v-for="(item, index) in filterItems.style.items"
-            :item="item"
-            :key="index"
+        <div class="filters__accordion-content-inner">
+          <ul>
+            <FilterItemWithCheckbox
+              @on-checked="onChecked(item)"
+              v-for="(item, index) in getItemsCount(
+                filterItems.style.items,
+                filterItems.style.allItemButton
+              )"
+              :item="item"
+              :key="index"
+            />
+          </ul>
+          <AllFilterItemsButton
+            v-if="filterItems.style.items.length > 6"
+            @onClickAllFilterItems="
+              onClickAllFilterItems(filterItems.style.allItemButton)
+            "
+            :allItemButton="filterItems.style.allItemButton"
           />
-        </ul>
+        </div>
       </div>
     </div>
 
@@ -128,18 +145,28 @@
             placeholder="Быстрый поиск"
           />
         </div>
-        <ul>
-          <FilterItemWithCheckbox
-            @on-checked="onChecked(item)"
-            v-for="(item, index) in getItemsCount(
-              filterItems.technics.items,
-              filterItems.technics.searchQuery,
-              filterItems.technics.allItemButton
-            )"
-            :item="item"
-            :key="index"
+        <div class="filters__accordion-content-inner">
+          <ul>
+            <FilterItemWithCheckbox
+              @on-checked="onChecked(item)"
+              v-for="(item, index) in getItemsCount(
+                filterItems.technics.items,
+                filterItems.technics.allItemButton,
+                filterItems.technics.searchQuery
+              )"
+              :item="item"
+              :key="index"
+            />
+          </ul>
+          <AllFilterItemsButton
+            v-if="filterItems.technics.items.length > 6"
+            @onClickAllFilterItems="
+              onClickAllFilterItems(filterItems.technics.allItemButton)
+            "
+            :allItemButton="filterItems.technics.allItemButton"
+            class="filters__button-show-all"
           />
-        </ul>
+        </div>
       </div>
     </div>
 
@@ -160,15 +187,25 @@
         :style="{ height: filterItems.year.contentStyleHeight }"
       >
         <Range class="filters__range" />
-        <ul class="no-border">
+        <ul>
           <FilterItemWithCheckbox
             @on-checked="onChecked(item)"
-            v-for="(item, index) in filterItems.year.items"
+            v-for="(item, index) in getItemsCount(
+              filterItems.year.items,
+              filterItems.year.allItemButton
+            )"
             :item="item"
             :key="index"
             v-bind:disabled="!item.isChecked"
           />
         </ul>
+        <AllFilterItemsButton
+          v-if="filterItems.year.items.length > 6"
+          @onClickAllFilterItems="
+            onClickAllFilterItems(filterItems.year.allItemButton)
+          "
+          :allItemButton="filterItems.year.allItemButton"
+        />
       </div>
     </div>
   </div>
@@ -237,7 +274,7 @@ export default {
       }, 800);
     },
 
-    getItemsCount(items, query, allItemButton) {
+    getItemsCount(items, allItemButton, query) {
       let filteredItems = this.filterByQuery(items, query);
       if (
         !allItemButton.isExpanded &&
@@ -248,7 +285,7 @@ export default {
       return filteredItems;
     },
 
-    filterByQuery(items, query) {
+    filterByQuery(items, query = "") {
       return items.filter(function (item) {
         return item.name.toLowerCase().includes(query.toLowerCase());
       });
@@ -297,18 +334,18 @@ export default {
     }
   }
 
+  &__accordion-content-inner {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color_gray6;
+  }
+
   ul {
     @include no-list;
     font-size: 12px;
     font-weight: 400;
     line-height: 26px;
     color: $color_gray2;
-    padding-bottom: 20px;
-    border-bottom: px solid $color_gray6;
-
-    &.no-border {
-      border-bottom: 0;
-    }
+    transition: all 0.5s;
   }
 
   &__item-title {
