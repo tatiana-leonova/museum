@@ -3,14 +3,14 @@
     <input
       v-model="rangeSearchMin"
       @input="$emit('onRangeSearchInput', rangeSearchMin, rangeSearchMax)"
-      type="text"
+      type="number"
       name="min"
       placeholder="с"
     />
     <input
       v-model="rangeSearchMax"
       @input="$emit('onRangeSearchInput', rangeSearchMin, rangeSearchMax)"
-      type="text"
+      type="number"
       name="max"
       placeholder="по"
     />
