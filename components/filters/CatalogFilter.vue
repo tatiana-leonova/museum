@@ -367,7 +367,7 @@ export default {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 700;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
     text-decoration: none;
     cursor: pointer;
     position: relative;
