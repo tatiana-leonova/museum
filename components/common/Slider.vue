@@ -192,6 +192,10 @@ export default {
     color: $color_gray8;
     text-align: center;
 
+        @media (max-width: $width-mobile-max) {
+     margin-bottom: 50px;
+    }
+
     > span {
       color: $color_gray5;
     }
@@ -206,8 +210,7 @@ export default {
   &__active-photo {
     width: 100%;
     height: 530px;
-    margin-bottom: 5px;
-    padding-bottom: 65%;
+    margin-bottom: 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -223,6 +226,7 @@ export default {
 
     @media (max-width: $width-mobile-max) {
       width: 100%;
+      margin-bottom: 10px;
     }
   }
 

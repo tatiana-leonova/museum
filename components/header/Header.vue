@@ -26,7 +26,7 @@ export default {
 
   &__wrapper {
     @media (min-width: $width-desktop-min) {
-      padding: 0 95px;
+      padding: 15px 100px 0 0;
       display: flex;
       justify-content: space-between;
       margin-left: auto;
@@ -34,6 +34,8 @@ export default {
 
     @media (max-width: $width-mobile-max) {
       padding: 0;
+      padding-top: 10px;
+      padding-left: 15px;
     }
   }
 }
@@ -41,7 +43,7 @@ export default {
 .header--index {
   @media (min-width: $width-desktop-min) {
     position: absolute;
-    width: 60%;
+    width: 63%;
     margin-left: auto;
     top: 0;
     right: 0;

@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   background-color: $color_dark;
-  padding: 60px 20px;
+  padding: 50px 20px;
 
   @media (max-width: $width-mobile-max) {
     padding: 40px 20px;
@@ -62,7 +62,7 @@ export default {
 
     @media (max-width: $width-mobile-max) {
       padding-bottom: 40px;
-      padding: 0 0 40px 0;
+      padding: 0 0 20px 0;
     }
   }
 
@@ -76,8 +76,14 @@ export default {
       text-align: center;
     }
 
+    li {
+      @media (max-width: $width-mobile-max) {
+        margin-bottom: 10px;
+      }
+    }
+
     li:not(:last-child) {
-      padding-right: 10px;
+      padding-right: 25px;
 
       @media (max-width: $width-mobile-max) {
         padding-right: 0;

@@ -66,7 +66,12 @@ export default {
 <style lang="scss" scoped>
 .museums {
   padding-top: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+
+  @media (max-width: $width-mobile-max) {
+    padding-top: 70px;
+    margin-bottom: 70px;
+  }
 
   h2 {
     font-family: $YesevaOne;

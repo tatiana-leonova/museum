@@ -41,7 +41,7 @@ export default {};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right 15%;
-    width: 40%;
+    width: 32%;
     height: 100vh;
 
     @media (max-width: $width-mobile-max) {
@@ -59,13 +59,13 @@ export default {};
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 45px 20px;
+    padding: 65px 20px 40px;
 
     @media (min-width: $width-desktop-min) {
-      margin-left: auto;
+      margin-left: 37%;
       width: 55%;
       height: 100%;
-      padding: 50px 95px 50px 95px;
+      padding: 50px 95px 50px 120px;
     }
   }
 
@@ -101,14 +101,14 @@ export default {};
     @media (max-width: $width-mobile-max) {
       font-size: 40px;
       line-height: 110%;
-      margin-bottom: 20px;
     }
   }
 
   p {
     font-family: $Helvetica;
-    font-weight: 400;
+    font-weight: 300;
     margin-top: 0;
+    line-height: 29px;
   }
 }
 </style>

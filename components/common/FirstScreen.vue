@@ -30,10 +30,10 @@ export default {
 .logo {
   position: absolute;
   bottom: 30px;
-  right: 50px;
+  right: 100px;
 
-@media (max-width: $width-mobile-max) {
-  display: none;
-}
+  @media (max-width: $width-mobile-max) {
+    display: none;
+  }
 }
 </style>

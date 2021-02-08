@@ -72,8 +72,12 @@ export default {
 <style lang="scss" scoped>
 .creation {
   border-bottom: 1px solid $color_gray6;
-  padding-bottom: 100px;
+  padding-bottom: 90px;
   position: relative;
+
+  @media (max-width: $width-mobile-max) {
+    padding-bottom: 50px;
+  }
 
   h2 {
     font-family: $YesevaOne;
@@ -83,8 +87,7 @@ export default {
     margin: 0;
     margin-bottom: 30px;
     color: $color_dark;
-    margin-right: 165px;
-    margin-right: 60px;
+    margin-right: 100px;
   }
 
   &__wrapper-image--1 {
@@ -100,6 +103,20 @@ export default {
     }
   }
 
+  &__wrapper-image--2 {
+    img {
+      @media (min-width: $width-desktop-min) {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: $width-mobile-max) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
   img:nth-child(3) {
     display: block;
     margin: 0 auto;
@@ -107,13 +124,14 @@ export default {
   }
 
   &__wrapper-title {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     border-bottom: 1px solid $color_gray6;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 
     @media (min-width: $width-desktop-min) {
       display: flex;
       align-items: center;
+      padding-bottom: 30px;
     }
 
     p {
@@ -124,10 +142,22 @@ export default {
   }
 
   &__pre-wrapper-content {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 
     @media (min-width: $width-desktop-min) {
       display: flex;
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 50px;
+
+      p {
+        margin: 0;
+        margin-right: 30px;
+      }
+    }
+
+    @media (max-width: $width-mobile-max) {
+      margin-bottom: 20px;
     }
   }
 
@@ -135,23 +165,30 @@ export default {
     @media (min-width: $width-desktop-min) {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 40px;
+
+      p {
+        width: 48%;
+      }
     }
   }
 
   &__read-more {
     display: flex;
     justify-content: flex-end;
+    width: 66%;
 
     @media (max-width: $width-mobile-max) {
       justify-content: flex-start;
+      margin-bottom: 30px;
     }
   }
 
   &__social-share {
     @media (min-width: $width-desktop-min) {
       position: absolute;
-      bottom: 110px;
-      left: 0;
+      bottom: 100px;
+      left: 40px;
     }
 
     @media (max-width: $width-mobile-max) {

@@ -55,7 +55,7 @@ export default {
     flex-wrap: wrap;
 
     li:not(:last-child) {
-      padding-right: 10px;
+      padding-right: 20px;
 
       @media (max-width: $width-mobile-max) {
         padding-right: 0;
@@ -89,7 +89,7 @@ export default {
     width: 24px;
     height: 16px;
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 20px;
     background-color: inherit;
     border: none;

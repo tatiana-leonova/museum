@@ -21,10 +21,11 @@ export default {
 .map {
   display: block;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
   @media (min-width: $width-desktop-min) {
     max-width: 1200px;
+    margin-bottom: 40px;
   }
 }
 </style>

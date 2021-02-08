@@ -70,22 +70,29 @@ export default {
 
 <style lang="scss" scoped>
 .biography {
-  padding-top: 40px;
+  padding-top: 60px;
   padding-bottom: 40px;
+  margin-bottom: 20px;
   position: relative;
 
   &__wrapper-text {
     @media (min-width: $width-desktop-min) {
       display: flex;
       justify-content: space-between;
-      padding-top: 100px;
+      padding-top: 60px;
+      margin-bottom: 40px;
     }
   }
 
   p {
+    line-height: 26px;
     margin-top: 0;
     @media (min-width: $width-desktop-min) {
-      width: 565px;
+      width: 530px;
+    }
+
+    @media (max-width: $width-mobile-max) {
+      margin-bottom: 30px;
     }
   }
 
@@ -101,7 +108,7 @@ export default {
 
   &__list {
     @media (min-width: $width-desktop-min) {
-      width: 650px;
+      width: 615px;
       margin-left: auto;
     }
   }
@@ -129,17 +136,20 @@ export default {
   &__toggle-text {
     display: flex;
     justify-content: flex-end;
+    padding-top: 40px;
 
     @media (max-width: $width-mobile-max) {
       justify-content: flex-start;
+      padding-top: 0;
+      margin-bottom: 25px;
     }
   }
 
   &__social-share {
     @media (min-width: $width-desktop-min) {
       position: absolute;
-      bottom: 110px;
-      left: 0;
+      bottom: 55px;
+      left: 40px;
     }
 
     @media (max-width: $width-mobile-max) {
