@@ -25,6 +25,11 @@ export default {
   background: $color_dark;
 
   @media (min-width: $width-desktop-min) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
     padding: 35px 100px 0 100px;
   }
 
@@ -50,10 +55,6 @@ export default {
 
 .header--index {
   @media (min-width: $width-desktop-min) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
     width: 63%;
     padding: 35px 100px 0 0;
     margin-left: auto;
