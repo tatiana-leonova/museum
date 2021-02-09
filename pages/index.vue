@@ -33,9 +33,11 @@ export default {
     CreationBlock,
     MuseumsBlock,
   },
+
   async asyncData({ app, route, params, error, store }) {
+    // запрос двух элементов биографии при старте странице
     try {
-      await store.dispatch("biography/fetchBiography", {
+      await store.dispatch("biography/fetchHistoricalEvents", {
         offset: 0,
         limit: 2,
       });

@@ -7,14 +7,14 @@
       <a
         class="filters__item-title"
         href="#"
-        @click.prevent="toggleItem(filterItems.work, 'work')"
+        @click.prevent="onToggleItem(filterItems.work)"
       >
         <span>{{ filterItems.work.title }}</span>
       </a>
       <div
         class="filters__accordion-content"
         :class="{ 'is-visible': filterItems.work.isOpen }"
-        ref="work"
+        :ref="filterItems.work.id"
         :style="{ height: filterItems.work.contentStyleHeight }"
       >
         <div class="filters__accordion-content-inner">
@@ -37,13 +37,13 @@
       <a
         class="filters__item-title"
         href="#"
-        @click.prevent="toggleItem(filterItems.plot, 'plot')"
+        @click.prevent="onToggleItem(filterItems.plot)"
       >
         {{ filterItems.plot.title }}
       </a>
       <div
         class="filters__accordion-content"
-        ref="plot"
+        :ref="filterItems.plot.id"
         :style="{ height: filterItems.plot.contentStyleHeight }"
       >
         <div class="filters__search">
@@ -87,13 +87,13 @@
       <a
         class="filters__item-title"
         href="#"
-        @click.prevent="toggleItem(filterItems.style, 'style')"
+        @click.prevent="onToggleItem(filterItems.style)"
       >
         {{ filterItems.style.title }}
       </a>
       <div
         class="filters__accordion-content"
-        ref="style"
+        :ref="filterItems.style.id"
         :style="{ height: filterItems.style.contentStyleHeight }"
       >
         <div class="filters__accordion-content-inner">
@@ -126,13 +126,13 @@
       <a
         class="filters__item-title"
         href="#"
-        @click.prevent="toggleItem(filterItems.technics, 'technics')"
+        @click.prevent="onToggleItem(filterItems.technics)"
       >
         {{ filterItems.technics.title }}
       </a>
       <div
         class="filters__accordion-content"
-        ref="technics"
+        :ref="filterItems.technics.id"
         :style="{ height: filterItems.technics.contentStyleHeight }"
       >
         <div class="filters__search">
@@ -177,13 +177,13 @@
       <a
         class="filters__item-title"
         href="#"
-        @click.prevent="toggleItem(filterItems.year, 'year')"
+        @click.prevent="onToggleItem(filterItems.year)"
       >
         {{ filterItems.year.title }}
       </a>
       <div
         class="filters__accordion-content"
-        ref="year"
+        :ref="filterItems.year.id"
         :style="{ height: filterItems.year.contentStyleHeight }"
       >
         <RangeInput
@@ -239,29 +239,28 @@ export default {
       this.isFiltersShow = !this.isFiltersShow;
     },
 
-    toggleItem(item, refLink) {
-      const dispatchHeight = (refLink, heightItem) => {
-        this.$store.dispatch("catalogFilter/setContentStyleHeightItem", {
-          refLink,
+    onToggleItem(item) {
+      const dispatchHeight = (filterGroupId, heightItem) => {
+        this.$store.dispatch("catalogFilter/setFilterItemContentHeight", {
+          filterGroupId,
           heightItem,
         });
       };
 
-      this.$store.dispatch("catalogFilter/toggleFilterItemCollapsing", refLink);
+      this.$store.dispatch("catalogFilter/setFilterGroupVisibility", item.id);
 
-      const content = this.$refs[refLink];
+      const filterItemContent = this.$refs[item.id];
 
       if (item.isOpen) {
-        dispatchHeight(refLink, content.scrollHeight + "px");
+        dispatchHeight(item.id, filterItemContent.scrollHeight + "px");
         setTimeout(() => {
-          dispatchHeight(refLink, "auto");
-          item.contentStyleHeight = "auto";
+          dispatchHeight(item.id, "auto");
         }, 500);
       } else {
-        dispatchHeight(refLink, content.offsetHeight + "px");
+        dispatchHeight(item.id, filterItemContent.offsetHeight + "px");
 
         setTimeout(() => {
-          dispatchHeight(refLink, "0px");
+          dispatchHeight(item.id, "0px");
         }, 1);
       }
     },
@@ -277,7 +276,6 @@ export default {
 
     onRangeSearchInput(min, max) {
       setTimeout(() => {
-        // console.log(min, max);
         this.$store.dispatch("catalogFilter/setPeriodByUserInput", {
           minValue: min,
           maxValue: max,
@@ -285,19 +283,21 @@ export default {
       }, 800);
     },
 
-    getItemsCount(items, allItemButton, query) {
+    getItemsCount(items, allItemButton, query = "") {
+      // устанавливаем количество элементов в каждом фильтре в зависимости от поискового запроса
       let filteredItems = this.filterByQuery(items, query);
       if (
         !allItemButton.isExpanded &&
         filteredItems.length >= allItemButton.defaultCountValue
       ) {
+        // устанавливаем количество видимых элементов в каждом фильтре
         filteredItems = filteredItems.slice(0, allItemButton.defaultCountValue);
       }
       return filteredItems;
     },
 
-    filterByQuery(items, query = "") {
-      return items.filter(function (item) {
+    filterByQuery(items, query) {
+      return items.filter((item) => {
         return item.name.toLowerCase().includes(query.toLowerCase());
       });
     },

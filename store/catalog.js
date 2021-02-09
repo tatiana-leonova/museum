@@ -1,49 +1,49 @@
 import _ from "lodash";
 
 export const state = () => ({
-         tabMenu: {
-           tabs: [
-             {
-               id: "rarity",
-               title: "Раритет",
-               json: "https://api.npoint.io/f4454ef4e05caa4f5b9a"
-             },
-             {
-               id: "new",
-               title: "Новые",
-               json: "https://api.npoint.io/d746638a9035c662e7a2"
-             },
-             {
-               id: "antique",
-               title: "Антиквариат",
-               json: "https://api.npoint.io/c4576445337f86113117"
-             },
-             {
-               id: "philately",
-               title: "Филателия",
-               json: "https://api.npoint.io/906f50a1a731682e28fa"
-             }
-           ],
-           active: "rarity"
-         },
-         pageCount: 0,
-         cardsOnPage: 10,
-         currentPage: 0,
-         cards: [],
-         cardsFilters: []
-       });
+  tabMenu: {
+    tabs: [
+      {
+        id: "rarity",
+        title: "Раритет",
+        json: "https://api.npoint.io/f4454ef4e05caa4f5b9a"
+      },
+      {
+        id: "new",
+        title: "Новые",
+        json: "https://api.npoint.io/d746638a9035c662e7a2"
+      },
+      {
+        id: "antique",
+        title: "Антиквариат",
+        json: "https://api.npoint.io/c4576445337f86113117"
+      },
+      {
+        id: "philately",
+        title: "Филателия",
+        json: "https://api.npoint.io/906f50a1a731682e28fa"
+      }
+    ],
+    active: "rarity"
+  },
+  pageCount: 0,
+  cardsOnPage: 10,
+  currentPage: 0,
+  pictureCards: [],
+  cardsFilters: []
+});
 
 export const mutations = {
-  SET_TABS(state, cards) {
-    state.cards = cards;
-    state.cardsFilters = cards;
-    state.pageCount = Math.ceil(state.cards.length / state.cardsOnPage); // количество страниц для пагинации
+  SET_TAB_PICTURES(state, pictures) {
+    state.pictureCards = pictures;
+    state.cardsFilters = pictures;
+    state.pageCount = Math.ceil(state.pictureCards.length / state.cardsOnPage); // количество страниц для пагинации
   },
 
-  SET_ACTIVE_TAB(state, { tabId, cards }) {
+  SET_ACTIVE_TAB(state, { tabId, pictures }) {
     state.tabMenu.active = tabId;
-    state.cards = cards;
-    state.cardsFilters = cards;
+    state.pictureCards = pictures;
+    state.cardsFilters = pictures;
   },
 
   // смена страниц для пагинации
@@ -52,10 +52,10 @@ export const mutations = {
   },
 
   // подсчет количества картин по элементам фильтра Работы
-  SET_WORKS_COUNT(state, { cards, rootState }) {
+  SET_WORKS_COUNT(state, { pictures, rootState }) {
     _.forEach(rootState.catalogFilter.filterItems.work.items, item => {
-      item.count = _.filter(cards, card => {
-        if (card.work === item.id) return card;
+      item.count = _.filter(pictures, picture => {
+        return picture.work === item.id;
       }).length;
     });
   }
@@ -64,18 +64,18 @@ export const mutations = {
 export const actions = {
   async fetchTab({ commit, rootState }, { tab }) {
     const response = await this.$axios.$get(tab.json);
-    commit("SET_TABS", response.pictures);
+    commit("SET_TAB_PICTURES", response.pictures);
     commit("SET_WORKS_COUNT", {
-      cards: response.pictures,
+      pictures: response.pictures,
       rootState: rootState
     });
   },
 
-  async changeTabActive({ commit, rootState }, { tab }) {
+  async changeActiveTab({ commit, rootState }, { tab }) {
     const response = await this.$axios.$get(tab.json);
-    commit("SET_ACTIVE_TAB", { tabId: tab.id, cards: response.pictures });
+    commit("SET_ACTIVE_TAB", { tabId: tab.id, pictures: response.pictures });
     commit("SET_WORKS_COUNT", {
-      cards: response.pictures,
+      pictures: response.pictures,
       rootState: rootState
     });
   },

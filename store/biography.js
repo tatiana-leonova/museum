@@ -3,23 +3,25 @@ export const state = () => ({
 });
 
 export const mutations = {
-  SET_BIOGRAPHY(state, data) {
+  CONCAT_HISTORICAL_EVENTS(state, data) {
     state.historicalEvents = state.historicalEvents.concat(data);
   },
-  HIDE_BIOGRAPHY(state, data) {
+  // возвращаем к первоначальному значению(до открытия)
+  HIDE_HISTORICAL_EVENTS(state) {
     state.historicalEvents = state.historicalEvents.slice(0, 2);
   }
 };
 
 export const actions = {
-  async fetchBiography({ commit }, { offset, limit }) {
+  async fetchHistoricalEvents({ commit }, { offset, limit }) {
     const data = await this.$axios.$get(
       "https://api.npoint.io/dfc3ca68e1ee5eb00f99"
     );
-    commit("SET_BIOGRAPHY", data.slice(offset, limit));
+    // костыль, чтобы имитировать порционную подгрузку данных
+    commit("CONCAT_HISTORICAL_EVENTS", data.slice(offset, limit));
   },
-  hideText({ commit }) {
-    commit("HIDE_BIOGRAPHY");
+  hideHistoricalEvents({ commit }) {
+    commit("HIDE_HISTORICAL_EVENTS");
   }
 };
 

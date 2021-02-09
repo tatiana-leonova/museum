@@ -46,17 +46,18 @@ export default {
   data: () => {
     return {
       isTextExpanded: false,
+      historicalEventsLimit: 20,
     };
   },
   methods: {
     onToggleText() {
-      if (!this.isTextExpanded) {
-        this.$store.dispatch("biography/fetchBiography", {
-          offset: this.$store.getters["biography/historicalEvents"].length,
-          limit: 20,
-        });
+      if (this.isTextExpanded) {
+        this.$store.dispatch("biography/hideHistoricalEvents");
       } else {
-        this.$store.dispatch("biography/hideText");
+        this.$store.dispatch("biography/fetchHistoricalEvents", {
+          offset: this.$store.getters["biography/historicalEvents"].length,
+          limit: this.historicalEventsLimit,
+        });
       }
       this.isTextExpanded = !this.isTextExpanded;
     },

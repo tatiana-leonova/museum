@@ -47,6 +47,7 @@ export default {
 
   async asyncData({ app, route, params, error, store }) {
     try {
+      // первоначальная подгрузка картин, соответствующие первому табу
       await store.dispatch("catalog/fetchTab", {
         tab: store.getters["catalog/tabMenu"].tabs[0],
       });

@@ -19,7 +19,7 @@
 export default {
   methods: {
     onTabClick(tab) {
-      this.$store.dispatch("catalog/changeTabActive", {
+      this.$store.dispatch("catalog/changeActiveTab", {
         tab: tab,
       });
     },

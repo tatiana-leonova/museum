@@ -17,6 +17,7 @@ export const state = () => ({
 
   filterItems: {
     work: {
+      id: "work",
       title: "Работы",
       isOpen: true,
       contentStyleHeight: "auto",
@@ -80,8 +81,8 @@ export const state = () => ({
       ]
     },
     plot: {
-      title: "Сюжет",
       id: "plot",
+      title: "Сюжет",
       isOpen: true,
       contentStyleHeight: "auto",
       searchQuery: "",
@@ -172,6 +173,7 @@ export const state = () => ({
       ]
     },
     style: {
+      id: "style",
       title: "Стили",
       isOpen: true,
       contentStyleHeight: "auto",
@@ -232,8 +234,8 @@ export const state = () => ({
       ]
     },
     technics: {
-      title: "Техника",
       id: "technics",
+      title: "Техника",
       isOpen: true,
       contentStyleHeight: "auto",
       searchQuery: "",
@@ -311,6 +313,7 @@ export const state = () => ({
       ]
     },
     year: {
+      id: "year",
       title: "Период",
       isOpen: true,
       contentStyleHeight: "auto",
@@ -350,16 +353,18 @@ export const state = () => ({
 });
 
 export const mutations = {
-  TOGGLE_FILTER_ITEM_COLLAPSING(state, refLink) {
-    state.filterItems[refLink].isOpen = !state.filterItems[refLink].isOpen;
+  SET_FILTER_GROUP_VISIBILITY(state, filterGroupId) {
+    state.filterItems[filterGroupId].isOpen = !state.filterItems[filterGroupId]
+      .isOpen;
   },
-  SET_CONTENT_STYLE_HEIGHT_ITEM(state, { refLink, heightItem }) {
-    state.filterItems[refLink].contentStyleHeight = heightItem;
+  SET_FILTER_ITEM_CONTENT_HEIGHT(state, { filterGroupId, heightItem }) {
+    state.filterItems[filterGroupId].contentStyleHeight = heightItem;
   },
 
   TOGGLE_FILTER_ITEM(state, { item }) {
     item.isChecked = !item.isChecked;
     if (_.includes(state.currentFilters[item.filterGroup], item.id)) {
+      // если повторное нажатие - удаляем поле из текущего фильттра
       _.remove(state.currentFilters[item.filterGroup], id => {
         return id === item.id;
       });
@@ -376,9 +381,10 @@ export const mutations = {
     });
 
     if (filterByChecked.length > 0) {
+      // устанавливаем значения первого элемента для дальнейшего сравнения
       state.currentFilterByYear.minValue = filterByChecked[0].minValue;
       state.currentFilterByYear.maxValue = filterByChecked[0].maxValue;
-
+      // поиск минимального и максимального значений
       _.forEach(filterByChecked, item => {
         if (state.currentFilterByYear.minValue > item.minValue) {
           state.currentFilterByYear.minValue = item.minValue;
@@ -394,34 +400,40 @@ export const mutations = {
   },
 
   SET_FILTER_CHECKED(state, { rootState }) {
-    let filter = _.filter(rootState.catalog.cards, card => {
+    // фильтрация по периодам
+    let filterPictures = _.filter(rootState.catalog.pictureCards, picture => {
       return (
-        card.year <= state.currentFilterByYear.maxValue &&
-        card.year >= state.currentFilterByYear.minValue
+        picture.year <= state.currentFilterByYear.maxValue &&
+        picture.year >= state.currentFilterByYear.minValue
       );
     });
+
+    // фильтрация по Work
     if (state.currentFilters.work.length != 0) {
-      filter = _.filter(filter, card => {
-        return _.includes(state.currentFilters.work, card.work);
+      filterPictures = _.filter(filterPictures, picture => {
+        return _.includes(state.currentFilters.work, picture.work);
       });
     }
+    // фильтрация по plot
     if (state.currentFilters.plot.length != 0) {
-      filter = _.filter(filter, card => {
-        return _.includes(state.currentFilters.plot, card.plot);
+      filterPictures = _.filter(filterPictures, picture => {
+        return _.includes(state.currentFilters.plot, picture.plot);
       });
     }
+    // фильтрация по style
     if (state.currentFilters.style.length != 0) {
-      filter = _.filter(filter, card => {
-        return _.includes(state.currentFilters.style, card.style);
+      filterPictures = _.filter(filterPictures, picture => {
+        return _.includes(state.currentFilters.style, picture.style);
       });
     }
+    // фильтрация по technics
     if (state.currentFilters.technics.length != 0) {
-      filter = _.filter(filter, card => {
-        return _.includes(state.currentFilters.technics, card.technics);
+      filterPictures = _.filter(filterPictures, picture => {
+        return _.includes(state.currentFilters.technics, picture.technics);
       });
     }
 
-    rootState.catalog.cardsFilters = filter;
+    rootState.catalog.cardsFilters = filterPictures;
   },
 
   SET_PAGE_COUNT(state, { rootState }) {
@@ -432,13 +444,15 @@ export const mutations = {
 
   CHIP_TOGGLE(state, chip) {
     if (
-      _.some(state.filterChips, n => {
-        return n.name === chip.name;
+      _.some(state.filterChips, filterChip => {
+        return filterChip.name === chip.name;
       })
     ) {
-      const i = state.filterChips.map(item => item.id).indexOf(chip.id);
-      state.filterChips.splice(i, 1);
+      // удаление чипса при повторном нажатии, если такой уже есть
+      const chipIndex = state.filterChips.map(item => item.id).indexOf(chip.id);
+      state.filterChips.splice(chipIndex, 1);
     } else {
+      // добавление чипса в массив
       state.filterChips.push(chip);
     }
   },
@@ -453,7 +467,9 @@ export const mutations = {
 
   SET_PERIOD_BY_USER_INPUT(state, { minValue, maxValue }) {
     _.forEach(state.filterItems.year.items, period => {
+      // убираем чекнутые периоды, если такие есть
       period.isChecked = false;
+      // убираем периоды, если они были чекнуты из массива чипсов
       state.filterChips = _.filter(state.filterChips, chip => {
         return chip.name !== period.name;
       });
@@ -465,12 +481,15 @@ export const mutations = {
 };
 
 export const actions = {
-  toggleFilterItemCollapsing({ commit }, refLink) {
-    commit("TOGGLE_FILTER_ITEM_COLLAPSING", refLink);
+  setFilterGroupVisibility({ commit }, filterGroupId) {
+    commit("SET_FILTER_GROUP_VISIBILITY", filterGroupId);
   },
 
-  setContentStyleHeightItem({ commit }, { refLink, heightItem }) {
-    commit("SET_CONTENT_STYLE_HEIGHT_ITEM", { refLink, heightItem });
+  setFilterItemContentHeight({ commit }, { filterGroupId, heightItem }) {
+    commit("SET_FILTER_ITEM_CONTENT_HEIGHT", {
+      filterGroupId,
+      heightItem
+    });
   },
 
   setFilterChecked({ commit, rootState }, item) {
