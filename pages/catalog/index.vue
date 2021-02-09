@@ -62,14 +62,6 @@ export default {
 </script>
 
 <style lang="scss">
-.header--catalog {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 100%;
-}
-
 .catalog {
   &__inner {
     @media (min-width: $width-desktop-min) {
@@ -86,8 +78,8 @@ export default {
 
   &__filter {
     @media (max-width: $width-mobile-max) {
-      margin: 0 auto;
       padding-top: 30px;
+      margin: 0 auto;
     }
 
     @media (min-width: $width-desktop-min) {
@@ -96,15 +88,15 @@ export default {
   }
 
   &__filter-title-link {
-    display: block;
     position: relative;
-    text-decoration: none;
-    border: 2px solid $color_gray5;
-    color: $color_dark;
-    padding: 4px 40px 4px 14px;
-    font-size: 12px;
+    display: block;
     width: 280px;
     max-width: 400px;
+    font-size: 12px;
+    padding: 4px 40px 4px 14px;
+    color: $color_dark;
+    text-decoration: none;
+    border: 2px solid $color_gray5;
     margin: 0 auto;
 
     svg {
@@ -120,10 +112,6 @@ export default {
 
   &__wrapper-chip-painting {
     position: relative;
-
-    // @media (min-width: $width-desktop-min) {
-    //   width: 615px;
-    // }
   }
 
   &__filter-chip {
