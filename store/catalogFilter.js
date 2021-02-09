@@ -360,7 +360,7 @@ export const mutations = {
   TOGGLE_FILTER_ITEM(state, { item }) {
     item.isChecked = !item.isChecked;
     if (_.includes(state.currentFilters[item.filterGroup], item.id)) {
-      _.remove(state.currentFilters[item.filterGroup], function(id) {
+      _.remove(state.currentFilters[item.filterGroup], id => {
         return id === item.id;
       });
     } else {
@@ -371,9 +371,7 @@ export const mutations = {
   TOGGLE_FILTER_BY_YEAR(state, { item }) {
     item.isChecked = !item.isChecked;
 
-    const filterByChecked = _.filter(state.filterItems.year.items, function(
-      item
-    ) {
+    const filterByChecked = _.filter(state.filterItems.year.items, item => {
       return item.isChecked;
     });
 
@@ -381,7 +379,7 @@ export const mutations = {
       state.currentFilterByYear.minValue = filterByChecked[0].minValue;
       state.currentFilterByYear.maxValue = filterByChecked[0].maxValue;
 
-      _.forEach(filterByChecked, function(item) {
+      _.forEach(filterByChecked, item => {
         if (state.currentFilterByYear.minValue > item.minValue) {
           state.currentFilterByYear.minValue = item.minValue;
         }
@@ -396,29 +394,29 @@ export const mutations = {
   },
 
   SET_FILTER_CHECKED(state, { rootState }) {
-    let filter = _.filter(rootState.catalog.cards, function(card) {
+    let filter = _.filter(rootState.catalog.cards, card => {
       return (
         card.year <= state.currentFilterByYear.maxValue &&
         card.year >= state.currentFilterByYear.minValue
       );
     });
     if (state.currentFilters.work.length != 0) {
-      filter = _.filter(filter, function(card) {
+      filter = _.filter(filter, card => {
         return _.includes(state.currentFilters.work, card.work);
       });
     }
     if (state.currentFilters.plot.length != 0) {
-      filter = _.filter(filter, function(card) {
+      filter = _.filter(filter, card => {
         return _.includes(state.currentFilters.plot, card.plot);
       });
     }
     if (state.currentFilters.style.length != 0) {
-      filter = _.filter(filter, function(card) {
+      filter = _.filter(filter, card => {
         return _.includes(state.currentFilters.style, card.style);
       });
     }
     if (state.currentFilters.technics.length != 0) {
-      filter = _.filter(filter, function(card) {
+      filter = _.filter(filter, card => {
         return _.includes(state.currentFilters.technics, card.technics);
       });
     }
@@ -434,7 +432,7 @@ export const mutations = {
 
   CHIP_TOGGLE(state, chip) {
     if (
-      _.some(state.filterChips, function(n) {
+      _.some(state.filterChips, n => {
         return n.name === chip.name;
       })
     ) {
@@ -454,9 +452,9 @@ export const mutations = {
   },
 
   SET_PERIOD_BY_USER_INPUT(state, { minValue, maxValue }) {
-    _.forEach(state.filterItems.year.items, function(period) {
+    _.forEach(state.filterItems.year.items, period => {
       period.isChecked = false;
-      state.filterChips = _.filter(state.filterChips, function(chip) {
+      state.filterChips = _.filter(state.filterChips, chip => {
         return chip.name !== period.name;
       });
     });

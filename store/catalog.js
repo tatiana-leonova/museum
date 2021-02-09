@@ -51,8 +51,8 @@ export const mutations = {
   },
 
   SET_WORKS_COUNT(state, { cards, rootState }) {
-    _.forEach(rootState.catalogFilter.filterItems.work.items, function(item) {
-      item.count = _.filter(cards, function(card) {
+    _.forEach(rootState.catalogFilter.filterItems.work.items, item => {
+      item.count = _.filter(cards, card => {
         if (card.work === item.id) return card;
       }).length;
     });
