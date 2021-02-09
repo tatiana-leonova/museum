@@ -1,7 +1,7 @@
 <template>
   <section class="first-screen">
     <slot></slot>
-    <LogoAffinage class="logo" />
+    <LogoAffinage class="first-screen__logo" />
   </section>
 </template>
 
@@ -22,15 +22,15 @@ export default {
   @media (min-width: $width-desktop-min) {
     height: 100vh;
   }
-}
 
-.logo {
-  position: absolute;
-  right: 100px;
-  bottom: 30px;
+  &__logo {
+    position: absolute;
+    right: 100px;
+    bottom: 30px;
 
-  @media (max-width: $width-mobile-max) {
-    display: none;
+    @media (max-width: $width-mobile-max) {
+      display: none;
+    }
   }
 }
 </style>

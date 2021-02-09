@@ -1,5 +1,5 @@
 <template>
-  <div class="range">
+  <div class="range-input">
     <input
       v-model="rangeSearchMin"
       @input="$emit('onRangeSearchInput', rangeSearchMin, rangeSearchMax)"
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.range {
+.range-input {
   box-sizing: content-box;
   display: flex;
   justify-content: space-between;
@@ -44,6 +44,7 @@ export default {
     transition: all 0.5s;
 
     &:placeholder {
+      font-size: 14px;
       color: $color_gray6;
     }
 

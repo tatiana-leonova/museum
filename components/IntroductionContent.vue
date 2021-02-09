@@ -1,8 +1,8 @@
 <template>
-  <div class="promo">
-    <div class="promo__img"></div>
-    <div class="promo__wrapper-text">
-      <span class="promo__data">1878-1927</span>
+  <div class="inptodaction">
+    <div class="inptodaction__img"></div>
+    <div class="inptodaction__wrapper-text">
+      <span class="inptodaction__data">1878-1927</span>
       <h2>борис кустодиев</h2>
       <p>
         Художник, запечатлевший на&nbsp;своих ярких и&nbsp;жизнерадостных
@@ -19,7 +19,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.promo {
+.inptodaction {
   color: $color_gray5;
   @media (min-width: $width-desktop-min) {
     height: 100vh;

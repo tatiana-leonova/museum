@@ -4,7 +4,7 @@
       <input type="text" ref="search" placeholder="Введите название картины" />
     </form>
     <button
-      class="search-button"
+      class="main-search__search-button"
       @click="toggleSearchForm"
       type="button"
       aria-label="Поиск по сайту"
@@ -57,7 +57,7 @@ export default {
   position: relative;
   display: flex;
 
-  .search-button {
+  &__search-button {
     @include hover-focus-active;
 
     border: none;

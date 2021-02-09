@@ -1,5 +1,5 @@
 <template>
-  <li class="input-checkbox">
+  <li class="filter-input-checkbox">
     <input
       class="is-hidden"
       type="checkbox"
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.input-checkbox {
+.filter-input-checkbox {
   color: $color_dark;
   margin-bottom: 5px;
 

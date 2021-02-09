@@ -19,7 +19,7 @@
       <CatalogFilter class="catalog__filter" ref="child" />
       <div class="catalog__wrapper-chip-painting">
         <FilterChips class="catalog__filter-chip" />
-        <CatalogBlock class="catalog__painting" />
+        <CatalogPaintingBlock class="catalog__painting" />
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
 import Header from "~/components/Header.vue";
 import FirstScreenWrapper from "~/components/common/FirstScreenWrapper.vue";
 import FirstScreenContentCatalog from "~/components/FirstScreenContentCatalog.vue";
-import CatalogBlock from "~/components/CatalogBlock.vue";
+import CatalogPaintingBlock from "~/components/CatalogPaintingBlock.vue";
 import TabLinks from "~/components/common/TabLinks.vue";
 import FilterChips from "~/components/filters/FilterChips.vue";
 import CatalogFilter from "~/components/filters/CatalogFilter.vue";
@@ -39,7 +39,7 @@ export default {
     Header,
     FirstScreenWrapper,
     FirstScreenContentCatalog,
-    CatalogBlock,
+    CatalogPaintingBlock,
     TabLinks,
     CatalogFilter,
     FilterChips,

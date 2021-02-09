@@ -4,13 +4,11 @@
     :class="[isMenuShow ? 'main-nav--opened' : 'main-nav--closed']"
   >
     <button
-      class="main-nav__toggle nav-icon left-arrow"
+      class="main-nav__toggle"
       type="button"
       aria-label="Открыть меню"
       @click="toggleStateMenu"
-    >
-      <span class="span"></span>
-    </button>
+    ></button>
     <ul class="main-nav__list">
       <li v-for="(item, index) in navItems" :key="index">
         <nuxt-link class="main-nav__link" :to="item.link">

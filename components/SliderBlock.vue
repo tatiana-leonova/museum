@@ -10,6 +10,10 @@
 <script>
 import Slider from "~/components/common/Slider.vue";
 export default {
+  components: {
+    Slider,
+  },
+
   data: () => {
     return {
       photos: [
@@ -47,9 +51,6 @@ export default {
         },
       ],
     };
-  },
-  components: {
-    Slider,
   },
 };
 </script>

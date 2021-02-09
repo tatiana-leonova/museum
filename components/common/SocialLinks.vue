@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="social-links">
     <ul>
       <li>
         <a href="#" target="_blank" aria-label="Вконтакте">
@@ -46,30 +46,32 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-ul {
-  @include no-list;
+.social-links {
+  ul {
+    @include no-list;
 
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  padding-bottom: 15px;
-}
-
-li {
-  display: block;
-  align-items: center;
-  text-align: center;
-  padding-left: 20px;
-
-  svg {
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 15px;
   }
 
-  a {
-    @include hover-focus-active;
+  li {
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
 
-    transition: all 0.5s;
+    svg {
+      vertical-align: middle;
+    }
+
+    a {
+      @include hover-focus-active;
+
+      transition: all 0.5s;
+    }
   }
 }
 </style>
