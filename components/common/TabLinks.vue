@@ -85,7 +85,7 @@ export default {
     color: $color_gray4;
     transition: all 0.5s;
 
-    @media (max-width: $width-mobile-max) {
+    @media (max-width: 600px) {
       font-size: 14px;
     }
 

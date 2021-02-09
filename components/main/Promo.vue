@@ -60,6 +60,7 @@ export default {};
 
     @media (min-width: $width-desktop-min) {
       width: 55%;
+      max-width: 900px;
       height: 100%;
       padding: 50px 95px 50px 120px;
       margin-left: 37%;

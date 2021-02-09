@@ -72,8 +72,12 @@ export default {
 <style lang="scss" scoped>
 .biography {
   padding-top: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   position: relative;
+
+  @media (max-width: $width-mobile-max) {
+    margin-bottom: 60px;
+  }
 
   &__wrapper-text {
     @media (min-width: $width-desktop-min) {
@@ -149,7 +153,7 @@ export default {
   &__social-share {
     @media (min-width: $width-desktop-min) {
       position: absolute;
-      bottom: 55px;
+      bottom: 10px;
       left: 40px;
     }
 
