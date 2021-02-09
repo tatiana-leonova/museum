@@ -39,13 +39,16 @@
   }
 
   &__link-home {
+    @include hover-focus-active;
+
+    width: 250px;
+    padding: 10px;
+    text-align: center;
     text-decoration: none;
     color: $color_gray5;
-    text-align: center;
     border: 2px solid $color_gray5;
-    padding: 10px;
-    width: 250px;
     border-radius: 60px;
+    transition: all 0.5s;
     margin: 0 auto;
   }
 }
