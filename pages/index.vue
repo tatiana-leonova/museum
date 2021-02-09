@@ -3,34 +3,34 @@
     <h1 class="is-hidden">Художник Борис Кустодиев</h1>
 
     <Header class="header--index" />
-    <FirstScreen>
-      <Promo />
-    </FirstScreen>
+    <FirstScreenWrapper>
+      <IntroductionContent />
+    </FirstScreenWrapper>
 
-    <Biography />
+    <BiographyBlock />
     <SliderBlock />
-    <Creation />
+    <CreationBlock />
     <MuseumsBlock />
   </div>
 </template>
 
 <script>
-import Header from "~/components/header/Header.vue";
-import FirstScreen from "~/components/common/FirstScreen.vue";
-import Promo from "~/components/main/Promo.vue";
-import Biography from "~/components/Biography.vue";
+import Header from "~/components/Header.vue";
+import FirstScreenWrapper from "~/components/common/FirstScreenWrapper.vue";
+import IntroductionContent from "~/components/IntroductionContent.vue";
+import BiographyBlock from "~/components/BiographyBlock.vue";
 import SliderBlock from "~/components/SliderBlock.vue";
-import Creation from "~/components/Creation.vue";
+import CreationBlock from "~/components/CreationBlock.vue";
 import MuseumsBlock from "~/components/MuseumsBlock.vue";
 
 export default {
   components: {
     Header,
-    FirstScreen,
-    Promo,
-    Biography,
+    FirstScreenWrapper,
+    IntroductionContent,
+    BiographyBlock,
     SliderBlock,
-    Creation,
+    CreationBlock,
     MuseumsBlock,
   },
   async asyncData({ app, route, params, error, store }) {

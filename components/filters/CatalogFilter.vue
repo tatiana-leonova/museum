@@ -186,7 +186,7 @@
         ref="year"
         :style="{ height: filterItems.year.contentStyleHeight }"
       >
-        <Range
+        <RangeInput
           class="filters__range"
           @onRangeSearchInput="onRangeSearchInput"
         />
@@ -217,16 +217,14 @@
 <script>
 import FilterItemWithCount from "~/components/filters/FilterItemWithCount.vue";
 import FilterItemWithCheckbox from "~/components/filters/FilterItemWithCheckbox.vue";
-import QuickSearch from "~/components/filters/QuickSearch.vue";
-import Range from "~/components/filters/Range.vue";
+import RangeInput from "~/components/filters/RangeInput.vue";
 import AllFilterItemsButton from "~/components/filters/AllFilterItemsButton.vue";
 
 export default {
   components: {
     FilterItemWithCount,
     FilterItemWithCheckbox,
-    QuickSearch,
-    Range,
+    RangeInput,
     AllFilterItemsButton,
   },
 

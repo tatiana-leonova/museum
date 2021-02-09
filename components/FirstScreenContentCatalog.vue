@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import GalleryPaintings from "~/components/catalog/GalleryPaintings.vue";
+import GalleryPaintings from "~/components/GalleryPaintings.vue";
 
 export default {
   components: {

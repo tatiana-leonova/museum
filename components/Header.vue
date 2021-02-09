@@ -1,14 +1,14 @@
 <template>
-  <section class="header">
+  <header class="header">
     <div class="header__wrapper">
       <MainSearch class="header__main-search" />
       <MainNav />
     </div>
-  </section>
+  </header>
 </template>
 
 <script>
-import MainNav from "~/components/common/MainNav.vue";
+import MainNav from "~/components/MainNav.vue";
 import MainSearch from "~/components/common/MainSearch.vue";
 
 export default {

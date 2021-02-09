@@ -1,9 +1,9 @@
 <template>
   <div class="catalog">
     <Header class="header--catalog" />
-    <FirstScreen>
-      <FirstBlock />
-    </FirstScreen>
+    <FirstScreenWrapper>
+      <FirstScreenContentCatalog />
+    </FirstScreenWrapper>
     <TabLinks />
     <div class="catalog__inner container">
       <a
@@ -19,17 +19,17 @@
       <CatalogFilter class="catalog__filter" ref="child" />
       <div class="catalog__wrapper-chip-painting">
         <FilterChips class="catalog__filter-chip" />
-        <Catalog class="catalog__painting" />
+        <CatalogBlock class="catalog__painting" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from "~/components/header/Header.vue";
-import FirstScreen from "~/components/common/FirstScreen.vue";
-import FirstBlock from "~/components/catalog/FirstBlock.vue";
-import Catalog from "~/components/catalog/Catalog.vue";
+import Header from "~/components/Header.vue";
+import FirstScreenWrapper from "~/components/common/FirstScreenWrapper.vue";
+import FirstScreenContentCatalog from "~/components/FirstScreenContentCatalog.vue";
+import CatalogBlock from "~/components/CatalogBlock.vue";
 import TabLinks from "~/components/common/TabLinks.vue";
 import FilterChips from "~/components/filters/FilterChips.vue";
 import CatalogFilter from "~/components/filters/CatalogFilter.vue";
@@ -37,9 +37,9 @@ import CatalogFilter from "~/components/filters/CatalogFilter.vue";
 export default {
   components: {
     Header,
-    FirstScreen,
-    FirstBlock,
-    Catalog,
+    FirstScreenWrapper,
+    FirstScreenContentCatalog,
+    CatalogBlock,
     TabLinks,
     CatalogFilter,
     FilterChips,

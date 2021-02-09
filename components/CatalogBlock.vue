@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import CardPainting from "~/components/catalog/CardPainting.vue";
+import CardPainting from "~/components/CardPainting.vue";
 import Pagination from "~/components/common/Pagination.vue";
 import ToggleViewButtons from "~/components/common/ToggleViewButtons.vue";
 export default {

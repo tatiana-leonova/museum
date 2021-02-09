@@ -1,5 +1,5 @@
 <template>
-  <li class="card">
+  <li class="card-painting">
     <img
       :src="require(`~/assets/img/catalog/${img}`)"
       width="280"
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
+.card-painting {
   margin-bottom: 20px;
 
   h3,
