@@ -12,7 +12,7 @@
       <span class="span"></span>
     </button>
     <ul class="main-nav__list">
-      <li v-for="(item, index) in menuItems" :key="index">
+      <li v-for="(item, index) in navItems" :key="index">
         <nuxt-link class="main-nav__link" :to="item.link">
           {{ item.name }}
         </nuxt-link>
@@ -36,8 +36,8 @@ export default {
   },
 
   computed: {
-    menuItems() {
-      return this.$store.getters["menu/menuItems"];
+    navItems() {
+      return this.$store.getters["navigation/navItems"];
     },
   },
 };

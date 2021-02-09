@@ -3,7 +3,7 @@
     <div class="footer__wrapper">
       <div class="footer__nav">
         <ul>
-          <li v-for="(item, index) in menuItems" :key="index">
+          <li v-for="(item, index) in navItems" :key="index">
             <nuxt-link class="footer__nav-link" :to="item.link">
               {{ item.name }}
             </nuxt-link>
@@ -26,8 +26,8 @@ export default {
   },
 
   computed: {
-    menuItems() {
-      return this.$store.getters["menu/menuItems"];
+    navItems() {
+      return this.$store.getters["navigation/navItems"];
     },
   },
 };
